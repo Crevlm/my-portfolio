@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Name — Game Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <script>
+  /* ============================================================
+     ★  EDIT YOUR DATA HERE — nothing else needs to change
+     ============================================================
+
+     GAMES — each object is one card + detail page.
+     Media types for media[]:
+       { type:"image",   src:"images/x.jpg",  caption:"..." }
+       { type:"gif",     src:"images/x.gif",  caption:"..." }
+       { type:"youtube", id:"VIDEO_ID"                      }
+       { type:"link",    url:"https://...",   label:"..."   }
+  ============================================================ */
+  const GAMES = [
+    {
+      id: "project-hollow",
+      title: "Project Hollow",
+      role: "Narrative Designer",
+      projectType: "Game Jam",
+      year: "2024",
+      tags: ["Unity", "Horror", "PC"],
+      wip: false,
+      thumbnail: "",
+      thumbColor: "c1",
+      description: "A psychological horror adventure set inside a dying city that rewrites itself each night. Players piece together what happened by navigating shifting environments and unreliable memories.",
+      contribution: "I wrote all branching dialogue and designed the narrative architecture — structuring a non-linear story that always lands on the same emotional beat regardless of player path. I also scripted all in-engine cutscenes using Unity Timeline.",
+      designProcess: "The core challenge was making the city feel alive and unknowable without overwhelming the player. I mapped every scene to an emotional state first (dread, confusion, grief) and built the writing from there. I used Ink for the dialogue system so writers on the team could iterate quickly without touching engine code.",
+      media: [
+        { type:"youtube", id:"dQw4w9WgXcQ" },
+        { type:"image",   src:"", caption:"The central hub area — the city square that reconfigures each act." },
+        { type:"link",    url:"https://itch.io", label:"Play on itch.io" }
+      ]
+    },
+    {
+      id: "verdant-run",
+      title: "Verdant Run",
+      role: "Lead Programmer",
+      projectType: "Student Project",
+      year: "2024",
+      tags: ["Godot", "Runner", "Mobile"],
+      wip: false,
+      thumbnail: "",
+      thumbColor: "c2",
+      description: "Infinite runner meets ecosystem sim — grow a living forest while you sprint. Every obstacle cleared plants a new tree; die and watch your forest burn behind you.",
+      contribution: "I architected the entire codebase in Godot 4, built the procedural level generation system, and implemented the ecosystem simulation that tracks forest health as a game state variable. I also wrote the shader for the parallax forest background.",
+      designProcess: "I wanted the loss condition to feel meaningful, not frustrating. Tying the forest's growth to player progress meant you always had something visible to lose. The simulation runs on a simple resource budget but that loop was enough to make players think twice before taking risks.",
+      media: [
+        { type:"gif",   src:"", caption:"Procedural level generation in action." },
+        { type:"image", src:"", caption:"Forest health UI — each ring is a biome zone." },
+        { type:"link",  url:"https://itch.io", label:"Play on itch.io" }
+      ]
+    },
+    {
+      id: "saltwater",
+      title: "Saltwater",
+      role: "Solo Developer",
+      projectType: "Solo Project",
+      year: "2025",
+      tags: ["Unreal", "Puzzle", "PC"],
+      wip: true,
+      thumbnail: "",
+      thumbColor: "c3",
+      description: "Exploration puzzle game about maritime archaeology and the things we leave behind. You survey wrecks, catalogue artefacts, and reconstruct the stories of the ships and their crews.",
+      contribution: "Solo project — I am responsible for all design, art, programming, and writing. Currently in active development with a planned release on itch.io.",
+      designProcess: "I'm designing each wreck as a self-contained mystery with a beginning, middle, and end. The puzzle layer is intentionally light — the game is more about observation and inference than hard logic puzzles. I want players to feel like actual archaeologists: patient, curious, and occasionally surprised.",
+      media: [
+        { type:"image", src:"", caption:"Early blockout of the first wreck site." },
+        { type:"link",  url:"https://itch.io", label:"Wishlist / follow updates" }
+      ]
+    },
+    {
+      id: "hex-and-hunger",
+      title: "Hex & Hunger",
+      role: "Game Designer",
+      projectType: "Game Jam",
+      year: "2023",
+      tags: ["Godot", "Strategy", "Web"],
+      wip: false,
+      thumbnail: "",
+      thumbColor: "c4",
+      description: "Strategy card game where every spell you cast physically reshapes the board. Terrain is both a resource and a weapon.",
+      contribution: "I designed all 40 cards, balanced the spell economy, and wrote the ruleset from scratch over 72 hours. Post-jam I rebuilt the card database in a spreadsheet-driven system so changes didn't require touching code.",
+      designProcess: "The jam theme was 'transformation.' I wanted transformation to be literal — the board should look completely different at turn 10 than at turn 1. Giving cards dual functions kept the deck size small while creating emergent complexity.",
+      media: [
+        { type:"youtube", id:"dQw4w9WgXcQ" },
+        { type:"image",   src:"", caption:"Late-game board state — terrain rewritten by spells." },
+        { type:"link",    url:"https://itch.io", label:"Play in browser" }
+      ]
+    },
+    {
+      id: "drift-protocol",
+      title: "Drift Protocol",
+      role: "UI / UX Designer",
+      projectType: "Team Project",
+      year: "2023",
+      tags: ["Unity", "Racing", "PC"],
+      wip: false,
+      thumbnail: "",
+      thumbColor: "c5",
+      description: "Cyberpunk racing game with a fully diegetic HUD — all information lives inside the car's physical cockpit, not as screen overlays.",
+      contribution: "I designed and implemented the entire UI/UX layer: diegetic dashboard instruments, the pre-race customisation screen, and the minimap system. I worked closely with the 3D artist to embed UI elements into the cockpit model without breaking immersion.",
+      designProcess: "Diegetic UI lives or dies by legibility at speed. I set one rule: any piece of information must be readable in under 300ms. I prototyped in Figma, play-tested with screen recordings, and iterated until it passed. Colour coding (green/amber/red) was the last addition and made the biggest difference.",
+      media: [
+        { type:"image",   src:"", caption:"The cockpit HUD — all instruments are physical 3D objects." },
+        { type:"image",   src:"", caption:"Pre-race customisation screen." },
+        { type:"youtube", id:"dQw4w9WgXcQ" }
+      ]
+    },
+    {
+      id: "moonfarmer",
+      title: "Moonfarmer",
+      role: "Systems Designer",
+      projectType: "Student Project",
+      year: "2022",
+      tags: ["Godot", "Simulation", "PC"],
+      wip: false,
+      thumbnail: "",
+      thumbColor: "c6",
+      description: "Cozy farming sim on a terraformed moon with variable gravity crops. What grows depends on how you manage atmospheric pressure across your plot.",
+      contribution: "I designed and implemented the simulation layer — the pressure grid, crop growth curves, and the feedback loop between terraforming actions and yield outcomes. I also built the progression system and all in-game tutorial flows.",
+      designProcess: "My job was to give the space setting a mechanical identity. Gravity and atmosphere as farming variables gave players something genuinely new to learn. I kept the simulation opaque enough to feel magical but consistent enough to master.",
+      media: [
+        { type:"image", src:"", caption:"The pressure grid overlay — lighter = lower gravity." },
+        { type:"gif",   src:"", caption:"Crop growth timelapse under optimal conditions." },
+        { type:"link",  url:"https://itch.io", label:"Download on itch.io" }
+      ]
+    }
+  ];
+
+  /* ============================================================
+     ★  SITE META
+  ============================================================ */
+  const SITE = {
+    name:      "Your Name",
+    tagline:   "Game Developer & Designer",
+    heroLine1: "Your",
+    heroLine2: "Name",
+    heroCopy:  "I make games. Here's the work — from solo projects to team collaborations.",
+    email:     "you@email.com",
+    itchio:    "https://itch.io",
+    github:    "https://github.com",
+    linkedin:  "https://linkedin.com",
+    resume:    "#"   // link to your resume/CV PDF
+  };
+
+  /* ============================================================
+     ★  ABOUT PAGE — edit every field here
+  ============================================================ */
+  const ABOUT = {
+
+    // Short headline that appears large at the top
+    headline: "I make games that have something to say.",
+
+    // 2–4 sentences introducing yourself
+    bio: "I'm a game developer and designer based in [City]. I care deeply about the intersection of systems and story — how the rules of a game communicate something that words alone can't. I've shipped projects as a solo developer, a narrative designer, a lead programmer, and everything in between.",
+
+    // Profile photo — set to "" to hide it
+    photo: "",   // e.g. "images/photo.jpg"
+
+    // Education — add or remove entries as needed
+    education: [
+      {
+        degree:     "BA Game Design",
+        school:     "University Name",
+        year:       "2022",
+        notes:      "Focus on narrative systems and interactive fiction. Final project exhibited at [Festival Name]."
+      },
+      {
+        degree:     "Narrative Design Certificate",
+        school:     "Online / Self-directed",
+        year:       "2023",
+        notes:      "Coursework in branching dialogue, Ink scripting, and game writing theory."
+      }
+    ],
+
+    // Skills — group them however makes sense for you
+    skills: [
+      {
+        category: "Design",
+        items: ["Narrative Design", "Systems Design", "Level Design", "UI/UX", "Game Writing", "Ink / Twine / Yarn Spinner"]
+      },
+      {
+        category: "Programming",
+        items: ["GDScript (Godot 4)", "C# (Unity)", "Blueprints (Unreal 5)", "HTML / CSS / JS"]
+      },
+      {
+        category: "Tools",
+        items: ["Unity", "Godot", "Unreal Engine", "Figma", "Aseprite", "DaVinci Resolve", "Git / GitHub"]
+      }
+    ],
+
+    // A short "what I'm looking for / what drives me" closing thought
+    closing: "I'm currently open to freelance and contract work, particularly on narrative-led or experimental projects. If something you're working on sounds like a match, I'd love to hear from it."
+  };
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --border: #2a2a2a;
+      --text: #f0ece4;
+      --muted: #888;
+      --accent: #e8ff3c;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: var(--font-body); font-size: 15px; line-height: 1.6; min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 56px;
+      background: rgba(13,13,13,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-display); font-size: 1.5rem;
+      letter-spacing: 0.04em; color: var(--text); cursor: pointer; user-select: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.82rem;
+      font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: color 0.2s; cursor: pointer;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-back {
+      display: none; align-items: center; gap: 0.5rem; color: var(--muted);
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; transition: color 0.2s; cursor: pointer;
+    }
+    .nav-back:hover { color: var(--text); }
+    .nav-back svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+    .hidden { display: none !important; }
+
+    /* ── HERO ── */
+    .hero { padding: 6rem 2.5rem 4rem; max-width: 1200px; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-block; font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+    }
+    h1 {
+      font-family: var(--font-display); font-size: clamp(4rem, 10vw, 8.5rem);
+      line-height: 0.92; letter-spacing: 0.02em; color: var(--text);
+    }
+    h1 span { -webkit-text-stroke: 1px var(--text); color: transparent; }
+    .hero-sub { margin-top: 1.5rem; color: var(--muted); font-size: 1rem; font-weight: 300; max-width: 420px; }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      max-width: 1200px; margin: 5rem auto 1.5rem; padding: 0 2.5rem;
+      display: flex; align-items: baseline; gap: 1rem;
+    }
+    .section-header h2 {
+      font-family: var(--font-display); font-size: 1.4rem;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+    }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    /* ── GRID ── */
+    .grid {
+      max-width: 1200px; margin: 0 auto 2rem; padding: 0 2.5rem;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--bg); display: flex; flex-direction: column;
+      overflow: hidden; position: relative; transition: background 0.25s; cursor: pointer;
+    }
+    .card:hover { background: var(--surface); }
+    .card:hover .card-img img { transform: scale(1.04); }
+    .card:hover .card-arrow { opacity: 1; transform: translate(0,0); }
+
+    .card-img { aspect-ratio: 16/9; overflow: hidden; position: relative; background: #1a1a1a; }
+    .card-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); display: block;
+    }
+    .card-img.c1 { background: linear-gradient(135deg, #1e1e2e, #3b3b6b); }
+    .card-img.c2 { background: linear-gradient(135deg, #1a2e1a, #2d5a2d); }
+    .card-img.c3 { background: linear-gradient(135deg, #2e1a1a, #6b2d2d); }
+    .card-img.c4 { background: linear-gradient(135deg, #2e2a1a, #6b5a2d); }
+    .card-img.c5 { background: linear-gradient(135deg, #1a2a2e, #2d5a5f); }
+    .card-img.c6 { background: linear-gradient(135deg, #2a1a2e, #5a2d6b); }
+    .placeholder-label {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.18); text-transform: uppercase;
+    }
+    .card-body { padding: 1.2rem 1.4rem 1.4rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
+    .card-role {
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .card-role::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; }
+    .card-title { font-family: var(--font-display); font-size: 1.55rem; letter-spacing: 0.04em; line-height: 1; color: var(--text); }
+    .card-desc { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.5; margin-top: 0.2rem; }
+    .card-meta { display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:0.8rem; border-top:1px solid var(--border); }
+    .card-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
+    .tag { font-size:0.65rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); background:var(--border); padding:2px 8px; border-radius:2px; }
+    .card-year { font-size:0.72rem; color:var(--muted); font-weight:300; }
+    .card-arrow { font-size:0.9rem; color:var(--accent); opacity:0; transform:translate(-4px,4px); transition:opacity 0.25s,transform 0.25s; }
+    .wip-badge { position:absolute; top:12px; right:12px; background:rgba(13,13,13,0.85); border:1px solid var(--border); color:var(--muted); font-size:0.6rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; padding:3px 8px; backdrop-filter:blur(4px); }
+
+    /* ── HOME ABOUT STRIP ── */
+    .about-strip { max-width:1200px; margin:4rem auto 0; padding:2.5rem; border-top:1px solid var(--border); display:flex; gap:4rem; align-items:flex-start; }
+    .about-left { flex:1; }
+    .about-left h3 { font-family:var(--font-display); font-size:2.4rem; line-height:1; margin-bottom:1rem; }
+    .about-left p { color:var(--muted); font-weight:300; font-size:0.9rem; max-width:380px; }
+    .about-right { display:flex; flex-direction:column; gap:0.5rem; padding-top:0.2rem; }
+    .contact-link { display:flex; align-items:center; gap:0.6rem; color:var(--text); text-decoration:none; font-size:0.85rem; font-weight:400; transition:color 0.2s; }
+    .contact-link:hover { color:var(--accent); }
+    .contact-link .icon { font-size:1rem; }
+
+    /* ── FOOTER ── */
+    footer { max-width:1200px; margin:0 auto; padding:1.5rem 2.5rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:0.75rem; }
+
+    /* ════════════════════════════════════════
+       DETAIL PAGE
+    ════════════════════════════════════════ */
+    #detail-view { max-width:1200px; margin:0 auto; padding:0 2.5rem 5rem; }
+    .detail-hero { padding:3.5rem 0 2.5rem; border-bottom:1px solid var(--border); margin-bottom:3rem; }
+    .detail-type-row { display:flex; align-items:center; gap:1rem; margin-bottom:1rem; }
+    .detail-type { font-size:0.7rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); border:1px solid var(--border); padding:3px 10px; }
+    .detail-year { font-size:0.7rem; color:var(--muted); }
+    .detail-title { font-family:var(--font-display); font-size:clamp(3rem,8vw,6rem); line-height:0.92; letter-spacing:0.02em; color:var(--text); margin-bottom:0.8rem; }
+    .detail-role { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); display:inline-flex; align-items:center; gap:0.5rem; margin-bottom:1.2rem; }
+    .detail-role::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--accent); }
+    .detail-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
+    .detail-body { display:grid; grid-template-columns:1fr 380px; gap:4rem; align-items:start; }
+    .detail-left { display:flex; flex-direction:column; gap:2.5rem; }
+    .detail-right { position:sticky; top:76px; display:flex; flex-direction:column; gap:1rem; }
+    .detail-section-label { font-family:var(--font-display); font-size:1rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:0.6rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); }
+    .detail-section p { color:var(--text); font-weight:300; font-size:0.93rem; line-height:1.8; }
+    .media-item { background:var(--surface); border:1px solid var(--border); overflow:hidden; }
+    .media-item iframe { width:100%; aspect-ratio:16/9; display:block; border:none; }
+    .media-item img { width:100%; display:block; object-fit:cover; }
+    .media-placeholder { aspect-ratio:16/9; background:var(--surface); display:flex; align-items:center; justify-content:center; color:var(--border); font-family:var(--font-display); font-size:1.1rem; letter-spacing:0.1em; }
+    .media-caption { padding:0.6rem 0.8rem; font-size:0.72rem; color:var(--muted); font-weight:300; font-style:italic; border-top:1px solid var(--border); }
+    .media-link { display:flex; align-items:center; justify-content:space-between; padding:0.9rem 1rem; text-decoration:none; color:var(--text); font-size:0.85rem; font-weight:500; transition:background 0.2s; border:1px solid var(--border); }
+    .media-link:hover { background:var(--surface); color:var(--accent); }
+
+    /* ════════════════════════════════════════
+       ABOUT PAGE
+    ════════════════════════════════════════ */
+    #about-view { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem 5rem; }
+
+    .about-page-hero {
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: end;
+    }
+    .about-page-hero-text {}
+    .about-page-eyebrow {
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: block;
+    }
+    .about-page-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .about-page-bio {
+      font-size: 1rem; font-weight: 300; color: var(--muted);
+      line-height: 1.8; max-width: 600px;
+    }
+    .about-photo {
+      width: 200px; height: 200px; border-radius: 2px;
+      object-fit: cover; border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .about-photo-placeholder {
+      width: 200px; height: 200px;
+      background: var(--surface); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 0.9rem; letter-spacing: 0.1em;
+      color: var(--border); flex-shrink: 0;
+    }
+
+    /* About page body — two column */
+    .about-page-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-page-col { display: flex; flex-direction: column; gap: 3rem; }
+
+    .about-section-label {
+      font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 1rem;
+      padding-bottom: 0.6rem; border-bottom: 1px solid var(--border);
+    }
+
+    /* Education entries */
+    .edu-entry { margin-bottom: 1.5rem; }
+    .edu-entry:last-child { margin-bottom: 0; }
+    .edu-degree {
+      font-family: var(--font-display); font-size: 1.3rem; letter-spacing: 0.04em;
+      color: var(--text); line-height: 1.1; margin-bottom: 0.2rem;
+    }
+    .edu-meta { display: flex; gap: 1rem; align-items: center; margin-bottom: 0.4rem; }
+    .edu-school { font-size: 0.82rem; color: var(--accent); font-weight: 500; }
+    .edu-year { font-size: 0.75rem; color: var(--muted); }
+    .edu-notes { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
+
+    /* Skills */
+    .skill-group { margin-bottom: 1.5rem; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-category {
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem;
+    }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .skill-pill {
+      font-size: 0.78rem; font-weight: 400; color: var(--text);
+      background: var(--surface); border: 1px solid var(--border);
+      padding: 4px 12px; border-radius: 2px; transition: border-color 0.2s;
+    }
+    .skill-pill:hover { border-color: var(--accent); }
+
+    /* Closing / CTA */
+    .about-closing {
+      grid-column: 1 / -1;
+      border-top: 1px solid var(--border);
+      padding-top: 2.5rem;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem;
+    }
+    .about-closing p {
+      font-size: 1rem; font-weight: 300; color: var(--muted);
+      line-height: 1.8; max-width: 560px;
+    }
+    .about-cta-stack { display: flex; flex-direction: column; gap: 0.6rem; flex-shrink: 0; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.4rem; text-decoration: none; font-size: 0.82rem;
+      font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+      transition: background 0.2s, color 0.2s; white-space: nowrap;
+    }
+    .cta-btn-primary { background: var(--accent); color: #0d0d0d; }
+    .cta-btn-primary:hover { background: #f5ff6e; }
+    .cta-btn-secondary { border: 1px solid var(--border); color: var(--text); }
+    .cta-btn-secondary:hover { border-color: var(--text); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .detail-body { grid-template-columns: 1fr; gap: 2rem; }
+      .detail-right { position: static; }
+      .about-page-body { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-closing { flex-direction: column; }
+      .about-page-hero { grid-template-columns: 1fr; }
+      .about-photo, .about-photo-placeholder { width: 120px; height: 120px; }
+    }
+    @media (max-width: 700px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links { gap: 1rem; }
+      .hero { padding: 4rem 1.2rem 2rem; }
+      .section-header { padding: 0 1.2rem; }
+      .grid { padding: 0 1.2rem; grid-template-columns: 1fr; }
+      .about-strip { padding: 2rem 1.2rem; flex-direction: column; gap: 2rem; }
+      footer { padding: 1.2rem; flex-direction: column; gap: 0.5rem; }
+      #detail-view, #about-view { padding: 0 1.2rem 4rem; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    .hero { animation: fadeUp 0.55s ease both; }
+    .grid .card { animation: fadeUp 0.55s ease both; }
+    .grid .card:nth-child(1) { animation-delay: 0.05s; }
+    .grid .card:nth-child(2) { animation-delay: 0.12s; }
+    .grid .card:nth-child(3) { animation-delay: 0.19s; }
+    .grid .card:nth-child(4) { animation-delay: 0.26s; }
+    .grid .card:nth-child(5) { animation-delay: 0.33s; }
+    .grid .card:nth-child(6) { animation-delay: 0.40s; }
+    .grid .card:nth-child(7) { animation-delay: 0.47s; }
+    .grid .card:nth-child(8) { animation-delay: 0.54s; }
+    #detail-view:not(.hidden), #about-view:not(.hidden) { animation: fadeIn 0.3s ease; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo" id="nav-logo"></span>
+  <ul class="nav-links" id="nav-home-links">
+    <li><a id="nav-work"  onclick="showHome()">Work</a></li>
+    <li><a id="nav-about" onclick="showAbout()">About</a></li>
+  </ul>
+  <a class="nav-back" id="nav-back" onclick="showHome()">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to work
+  </a>
+</nav>
+
+<!-- ═══════════ HOME VIEW ═══════════ -->
+<div id="home-view">
+  <section class="hero">
+    <span class="hero-eyebrow" id="hero-tagline"></span>
+    <h1 id="hero-h1"></h1>
+    <p class="hero-sub" id="hero-copy"></p>
+  </section>
+
+  <div class="section-header">
+    <h2>Selected Work</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="grid" id="game-grid"></div>
+
+  <div class="about-strip">
+    <div class="about-left">
+      <h3>About Me</h3>
+      <p id="home-about-copy"></p>
+    </div>
+    <div class="about-right" id="home-contact-links"></div>
+  </div>
+
+  <footer>
+    <span id="footer-name"></span>
+    <span>Built with ♥ and too much coffee</span>
+  </footer>
+</div>
+
+<!-- ═══════════ DETAIL VIEW ═══════════ -->
+<div id="detail-view" class="hidden">
+  <div class="detail-hero">
+    <div class="detail-type-row">
+      <span class="detail-type" id="d-type"></span>
+      <span class="detail-year" id="d-year"></span>
+    </div>
+    <div class="detail-title" id="d-title"></div>
+    <div class="detail-role"  id="d-role"></div>
+    <div class="detail-tags"  id="d-tags"></div>
+  </div>
+  <div class="detail-body">
+    <div class="detail-left">
+      <div class="detail-section">
+        <div class="detail-section-label">About the Game</div>
+        <p id="d-description"></p>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-label">My Contribution</div>
+        <p id="d-contribution"></p>
+      </div>
+      <div class="detail-section">
+        <div class="detail-section-label">Design Process</div>
+        <p id="d-process"></p>
+      </div>
+    </div>
+    <div class="detail-right" id="d-media"></div>
+  </div>
+</div>
+
+<!-- ═══════════ ABOUT VIEW ═══════════ -->
+<div id="about-view" class="hidden">
+
+  <div class="about-page-hero">
+    <div class="about-page-hero-text">
+      <span class="about-page-eyebrow" id="a-tagline"></span>
+      <div class="about-page-headline" id="a-headline"></div>
+      <p class="about-page-bio" id="a-bio"></p>
+    </div>
+    <div id="a-photo-wrap"></div>
+  </div>
+
+  <div class="about-page-body" id="about-page-body">
+
+    <!-- Left col: Education + Skills injected by JS -->
+    <div class="about-page-col" id="about-col-left"></div>
+
+    <!-- Right col: Skills injected by JS -->
+    <div class="about-page-col" id="about-col-right"></div>
+
+    <!-- Full-width closing -->
+    <div class="about-closing">
+      <p id="a-closing"></p>
+      <div class="about-cta-stack" id="a-cta"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════ SCRIPT ═══════════ -->
+<script>
+
+/* ── Populate site meta ─────────────────────────────── */
+document.getElementById('nav-logo').textContent = SITE.name;
+document.getElementById('hero-tagline').textContent = SITE.tagline;
+document.getElementById('hero-h1').innerHTML = SITE.heroLine1 + '<br><span>' + SITE.heroLine2 + '</span>';
+document.getElementById('hero-copy').textContent = SITE.heroCopy;
+document.getElementById('home-about-copy').textContent = ABOUT.bio;
+document.getElementById('footer-name').textContent = '© ' + new Date().getFullYear() + ' ' + SITE.name;
+
+/* Home contact links */
+const homeCL = document.getElementById('home-contact-links');
+[
+  { icon:'✉', label: SITE.email,     href:'mailto:'+SITE.email },
+  { icon:'🔗', label:'itch.io',      href: SITE.itchio  },
+  { icon:'🐙', label:'GitHub',       href: SITE.github  },
+  { icon:'💼', label:'LinkedIn',     href: SITE.linkedin},
+  { icon:'📄', label:'Resume / CV',  href: SITE.resume  }
+].forEach(c => {
+  homeCL.innerHTML += `<a class="contact-link" href="${c.href}" target="_blank">
+    <span class="icon">${c.icon}</span>${c.label}</a>`;
+});
+
+/* ── Build grid ──────────────────────────────────────── */
+const grid = document.getElementById('game-grid');
+GAMES.forEach(g => {
+  const firstImg = g.media.find(m => m.type==='image' || m.type==='gif');
+  const thumb = g.thumbnail || (firstImg && firstImg.src ? firstImg.src : '');
+  const hasThumb = thumb.trim() !== '';
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.onclick = () => showDetail(g.id);
+  card.innerHTML = `
+    <div class="card-img ${hasThumb ? '' : g.thumbColor}">
+      ${hasThumb ? `<img src="${thumb}" alt="${g.title}">` : `<div class="placeholder-label">Screenshot</div>`}
+      ${g.wip ? '<div class="wip-badge">In Progress</div>' : ''}
+    </div>
+    <div class="card-body">
+      <span class="card-role">${g.role}</span>
+      <div class="card-title">${g.title}</div>
+      <p class="card-desc">${g.description.split('.')[0]}.</p>
+      <div class="card-meta">
+        <div class="card-tags">${g.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        <div style="display:flex;align-items:center;gap:.6rem">
+          <span class="card-year">${g.year}</span>
+          <span class="card-arrow">↗</span>
+        </div>
+      </div>
+    </div>`;
+  grid.appendChild(card);
+});
+
+/* ── Build About page ───────────────────────────────── */
+document.getElementById('a-tagline').textContent  = SITE.tagline;
+document.getElementById('a-headline').textContent = ABOUT.headline;
+document.getElementById('a-bio').textContent      = ABOUT.bio;
+document.getElementById('a-closing').textContent  = ABOUT.closing;
+
+/* Photo */
+const photoWrap = document.getElementById('a-photo-wrap');
+if (ABOUT.photo && ABOUT.photo.trim() !== '') {
+  photoWrap.innerHTML = `<img class="about-photo" src="${ABOUT.photo}" alt="${SITE.name}">`;
+} else {
+  photoWrap.innerHTML = `<div class="about-photo-placeholder">PHOTO</div>`;
+}
+
+/* Education → left col */
+const colLeft = document.getElementById('about-col-left');
+let eduHTML = `<div><div class="about-section-label">Education</div>`;
+ABOUT.education.forEach(e => {
+  eduHTML += `<div class="edu-entry">
+    <div class="edu-degree">${e.degree}</div>
+    <div class="edu-meta">
+      <span class="edu-school">${e.school}</span>
+      <span class="edu-year">${e.year}</span>
+    </div>
+    ${e.notes ? `<p class="edu-notes">${e.notes}</p>` : ''}
+  </div>`;
+});
+eduHTML += `</div>`;
+colLeft.innerHTML = eduHTML;
+
+/* Skills → right col */
+const colRight = document.getElementById('about-col-right');
+let skillHTML = `<div><div class="about-section-label">Skills & Tools</div>`;
+ABOUT.skills.forEach(group => {
+  skillHTML += `<div class="skill-group">
+    <div class="skill-category">${group.category}</div>
+    <div class="skill-pills">${group.items.map(i=>`<span class="skill-pill">${i}</span>`).join('')}</div>
+  </div>`;
+});
+skillHTML += `</div>`;
+colRight.innerHTML = skillHTML;
+
+/* CTA buttons */
+document.getElementById('a-cta').innerHTML = `
+  <a class="cta-btn cta-btn-primary" href="${SITE.resume}" target="_blank">📄 Download Resume</a>
+  <a class="cta-btn cta-btn-secondary" href="mailto:${SITE.email}">✉ Get in touch</a>`;
+
+/* ── Navigation ────────────────────────────────────── */
+function setView(view) {
+  document.getElementById('home-view').classList.toggle('hidden',   view !== 'home');
+  document.getElementById('detail-view').classList.toggle('hidden', view !== 'detail');
+  document.getElementById('about-view').classList.toggle('hidden',  view !== 'about');
+  // nav back vs normal links
+  const showBack = view === 'detail';
+  document.getElementById('nav-home-links').classList.toggle('hidden', showBack);
+  document.getElementById('nav-back').style.display = showBack ? 'flex' : 'none';
+  // active state
+  document.getElementById('nav-work').classList.toggle('active',  view === 'home');
+  document.getElementById('nav-about').classList.toggle('active', view === 'about');
+}
+
+function showHome() {
+  setView('home');
+  window.scrollTo({ top:0, behavior:'smooth' });
+  history.pushState('', document.title, window.location.pathname);
+}
+
+function showAbout() {
+  setView('about');
+  window.scrollTo({ top:0 });
+  history.pushState(null, '', '#about');
+}
+
+function showDetail(id) {
+  const g = GAMES.find(x => x.id === id);
+  if (!g) return;
+
+  document.getElementById('d-type').textContent         = g.projectType;
+  document.getElementById('d-year').textContent         = g.year;
+  document.getElementById('d-title').textContent        = g.title;
+  document.getElementById('d-role').textContent         = g.role;
+  document.getElementById('d-description').textContent  = g.description;
+  document.getElementById('d-contribution').textContent = g.contribution;
+  document.getElementById('d-process').textContent      = g.designProcess;
+  document.getElementById('d-tags').innerHTML           = g.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+
+  const mediaEl = document.getElementById('d-media');
+  mediaEl.innerHTML = '';
+  g.media.forEach(m => {
+    if (m.type === 'youtube') {
+      mediaEl.innerHTML += `<div class="media-item">
+        <iframe src="https://www.youtube.com/embed/${m.id}" allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>`;
+    } else if (m.type === 'image' || m.type === 'gif') {
+      const hasSrc = m.src && m.src.trim() !== '';
+      mediaEl.innerHTML += `<div class="media-item">
+        ${hasSrc ? `<img src="${m.src}" alt="${m.caption||''}" loading="lazy">` : `<div class="media-placeholder">${m.type.toUpperCase()}</div>`}
+        ${m.caption ? `<div class="media-caption">${m.caption}</div>` : ''}
+      </div>`;
+    } else if (m.type === 'link') {
+      mediaEl.innerHTML += `<a class="media-link" href="${m.url}" target="_blank">${m.label}<span>↗</span></a>`;
+    }
+  });
+
+  setView('detail');
+  window.scrollTo({ top:0 });
+  history.pushState(null, '', '#' + id);
+}
+
+/* ── Handle hash on load / back/forward ─────────────── */
+function handleHash() {
+  const hash = window.location.hash.replace('#','');
+  if (hash === 'about') { showAbout(); return; }
+  if (hash && GAMES.find(g => g.id === hash)) { showDetail(hash); return; }
+  setView('home');
+}
+window.addEventListener('popstate', handleHash);
+handleHash();
+</script>
+</body>
+</html>
