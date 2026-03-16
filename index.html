@@ -135,8 +135,32 @@
     }
   ];
 
-
-  
+    /* ============================================================
+      ★  PUBLIC SCHOLARSHIP
+    ============================================================ */
+    const SCHOLARSHIP = [
+    {
+      title: "Designing Moral Choice in Horror Games",
+      role: "Panelist",
+      venue: "Chicago Games Conference",
+      year: "2026",
+      description: "Discussion on how horror games construct meaningful moral decisions.",
+      links: {
+        recording: "https://youtube.com/...",
+        slides: ""
+      }
+    },
+    {
+      title: "Narrative Systems in Indie Development",
+      role: "Speaker",
+      venue: "Columbia College Chicago",
+      year: "2025",
+      description: "Talk on modular narrative architecture for small teams.",
+      links: {
+        slides: "https://example.com"
+      }
+    }
+  ];
 
   /* ============================================================
      ★  SITE META
@@ -151,7 +175,7 @@
     itchio:    "https://crevlm.itch.io/",
     github:    "https://github.com/Crevlm",
     linkedin:  "https://www.linkedin.com/in/creveling/",
-    resume:    "#"   // link to your resume/CV PDF
+    resume:    "files/sample-pdf.pdf"   // link to your resume/CV PDF
   };
 
   /* ============================================================
@@ -362,6 +386,93 @@
     .media-caption { padding:0.6rem 0.8rem; font-size:0.72rem; color:var(--muted); font-weight:300; font-style:italic; border-top:1px solid var(--border); }
     .media-link { display:flex; align-items:center; justify-content:space-between; padding:0.9rem 1rem; text-decoration:none; color:var(--text); font-size:0.85rem; font-weight:500; transition:background 0.2s; border:1px solid var(--border); }
     .media-link:hover { background:var(--surface); color:var(--accent); }
+    
+    /* ── SCHOLARSHIP TIMELINE ───────────────── */
+    .scholarship-list {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      padding: 0 2.5rem;
+      position: relative;
+    }
+
+    /* vertical timeline line */
+    .scholarship-list::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .scholarship-entry {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* timeline dot */
+    .scholarship-entry::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--bg);
+    }
+
+    .scholarship-year {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+
+    .scholarship-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+    }
+
+    .scholarship-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .scholarship-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 0.6rem;
+      max-width: 600px;
+    }
+
+    .scholarship-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .scholarship-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+    }
+
+    .scholarship-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
 
     /* ════════════════════════════════════════
        ABOUT PAGE
@@ -472,6 +583,79 @@
     .cta-btn-secondary { border: 1px solid var(--border); color: var(--text); }
     .cta-btn-secondary:hover { border-color: var(--text); }
 
+    /* ════════════════════════════════════════
+      RESUME PAGE
+    ════════════════════════════════════════ */
+    #resume-view {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2.5rem 5rem;
+    }
+
+    .resume-hero {
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+
+    .resume-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .resume-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+
+    .resume-sub {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 520px;
+    }
+
+    .resume-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .resume-download {
+      align-self: flex-start;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: border-color 0.2s;
+    }
+
+    .resume-download:hover {
+      border-color: var(--accent);
+    }
+
+    .resume-pdf {
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .resume-pdf iframe {
+      width: 100%;
+      height: 1000px;
+      border: none;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .detail-body { grid-template-columns: 1fr; gap: 2rem; }
@@ -490,6 +674,13 @@
       .about-strip { padding: 2rem 1.2rem; flex-direction: column; gap: 2rem; }
       footer { padding: 1.2rem; flex-direction: column; gap: 0.5rem; }
       #detail-view, #about-view { padding: 0 1.2rem 4rem; }
+    }
+
+    /* Iframes don't work well on mobile so hide the resume PDF and just show the download link */
+    @media (max-width: 700px) {
+      .resume-pdf {
+        display: none;
+      }
     }
 
     /* ── ANIMATIONS ── */
@@ -515,7 +706,9 @@
   <span class="nav-logo" id="nav-logo"></span>
   <ul class="nav-links" id="nav-home-links">
     <li><a id="nav-work"  onclick="showHome()">Work</a></li>
+    <li><a id="nav-scholarship" onclick="showScholarship()">Scholarship</a></li>
     <li><a id="nav-about" onclick="showAbout()">About</a></li>
+    <li><a id="nav-resume" onclick="showResume()">Resume</a></li>
   </ul>
   <a class="nav-back" id="nav-back" onclick="showHome()">
     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -582,6 +775,27 @@
   </div>
 </div>
 
+<!-- ═══════════ SCHOLARSHIP VIEW ═══════════ -->
+<div id="scholarship-view" class="hidden">
+
+  <section class="hero">
+    <span class="hero-eyebrow">Public Scholarship</span>
+    <h1>Talks<br><span>& Panels</span></h1>
+    <p class="hero-sub">
+      Talks, panels, and public discussions on narrative design,
+      interactive storytelling, and game systems.
+    </p>
+  </section>
+
+  <div class="section-header">
+    <h2>Talks & Appearances</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="scholarship-list" id="scholarship-list"></div>
+
+</div>
+
 <!-- ═══════════ ABOUT VIEW ═══════════ -->
 <div id="about-view" class="hidden">
 
@@ -611,6 +825,27 @@
   </div>
 </div>
 
+<!-- ═══════════ RESUME VIEW ═══════════ -->
+<div id="resume-view" class="hidden">
+
+  <div class="resume-hero">
+    <span class="resume-eyebrow">Resume</span>
+    <div class="resume-title">Professional Resume</div>
+    <p class="resume-sub">A full overview of my experience and projects.</p>
+  </div>
+
+  <div class="resume-body">
+    <a class="resume-download" id="resume-download" target="_blank">
+      📄 Download PDF
+    </a>
+
+    <div class="resume-pdf">
+      <iframe id="resume-frame" title="Resume PDF"></iframe>
+    </div>
+  </div>
+
+</div>
+
 <!-- ═══════════ SCRIPT ═══════════ -->
 <script>
 
@@ -621,6 +856,8 @@ document.getElementById('hero-h1').innerHTML = SITE.heroLine1 + '<br><span>' + S
 document.getElementById('hero-copy').textContent = SITE.heroCopy;
 document.getElementById('home-about-copy').textContent = ABOUT.bio;
 document.getElementById('footer-name').textContent = '© ' + new Date().getFullYear() + ' ' + SITE.name;
+document.getElementById('resume-download').href = SITE.resume;
+document.getElementById('resume-frame').src = SITE.resume;
 
 /* Home contact links */
 const homeCL = document.getElementById('home-contact-links');
@@ -715,14 +952,18 @@ document.getElementById('a-cta').innerHTML = `
 function setView(view) {
   document.getElementById('home-view').classList.toggle('hidden',   view !== 'home');
   document.getElementById('detail-view').classList.toggle('hidden', view !== 'detail');
+  document.getElementById('scholarship-view').classList.toggle('hidden', view !== 'scholarship');
   document.getElementById('about-view').classList.toggle('hidden',  view !== 'about');
+  document.getElementById('resume-view').classList.toggle('hidden', view !== 'resume');
   // nav back vs normal links
   const showBack = view === 'detail';
   document.getElementById('nav-home-links').classList.toggle('hidden', showBack);
   document.getElementById('nav-back').style.display = showBack ? 'flex' : 'none';
   // active state
   document.getElementById('nav-work').classList.toggle('active',  view === 'home');
+  document.getElementById('nav-scholarship').classList.toggle('active', view === 'scholarship');
   document.getElementById('nav-about').classList.toggle('active', view === 'about');
+  document.getElementById('nav-resume').classList.toggle('active', view === 'resume');
 }
 
 function showHome() {
@@ -731,10 +972,22 @@ function showHome() {
   history.pushState('', document.title, window.location.pathname);
 }
 
+function showScholarship() {
+  setView('scholarship');
+  window.scrollTo({ top:0 });
+  history.pushState(null, '', '#scholarship');
+}
+
 function showAbout() {
   setView('about');
   window.scrollTo({ top:0 });
   history.pushState(null, '', '#about');
+}
+
+function showResume() {
+  setView('resume');
+  window.scrollTo({ top:0 });
+  history.pushState(null, '', '#resume');
 }
 
 function showDetail(id) {
@@ -774,13 +1027,57 @@ function showDetail(id) {
   history.pushState(null, '', '#' + id);
 }
 
+const scholarshipList = document.getElementById("scholarship-list");
+
+SCHOLARSHIP
+  .sort((a,b) => b.year - a.year)
+  .forEach(t => {
+
+    const links = [];
+
+    if (t.links?.recording)
+      links.push(`<a href="${t.links.recording}" target="_blank">Recording</a>`);
+
+    if (t.links?.slides)
+      links.push(`<a href="${t.links.slides}" target="_blank">Slides</a>`);
+
+    const el = document.createElement("div");
+    el.className = "scholarship-entry";
+
+    el.innerHTML = `
+      <div class="scholarship-year">${t.year}</div>
+
+      <div class="scholarship-title">${t.title}</div>
+
+      <div class="scholarship-meta">
+        ${t.role} — ${t.venue}
+      </div>
+
+      ${t.description ? `<div class="scholarship-desc">${t.description}</div>` : ""}
+
+      ${links.length ? `<div class="scholarship-links">${links.join("")}</div>` : ""}
+    `;
+
+    scholarshipList.appendChild(el);
+
+  });
+
 /* ── Handle hash on load / back/forward ─────────────── */
 function handleHash() {
   const hash = window.location.hash.replace('#','');
+
   if (hash === 'about') { showAbout(); return; }
-  if (hash && GAMES.find(g => g.id === hash)) { showDetail(hash); return; }
+  if (hash === 'resume') { showResume(); return; }
+  if (hash === 'scholarship') { showScholarship(); return; }
+
+  if (hash && GAMES.find(g => g.id === hash)) {
+    showDetail(hash);
+    return;
+  }
+
   setView('home');
 }
+
 window.addEventListener('popstate', handleHash);
 handleHash();
 </script>
