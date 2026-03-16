@@ -135,31 +135,30 @@
     }
   ];
 
-  /* ============================================================
-    ★  PUBLIC SCHOLARSHIP
-  ============================================================ */
-  const SCHOLARSHIP = [
+    /* ============================================================
+      ★  PUBLIC SCHOLARSHIP
+    ============================================================ */
+    const SCHOLARSHIP = [
     {
       title: "Designing Moral Choice in Horror Games",
       role: "Panelist",
       venue: "Chicago Games Conference",
       year: "2026",
-      tags: ["Panel", "Game Design"],
-      thumbnail: "",
-      thumbColor: "c5",
-      description: "Panel discussion on how horror games construct meaningful moral decisions and emotional tension.",
-      link: "https://example.com"
+      description: "Discussion on how horror games construct meaningful moral decisions.",
+      links: {
+        recording: "https://youtube.com/...",
+        slides: ""
+      }
     },
     {
       title: "Narrative Systems in Indie Development",
       role: "Speaker",
       venue: "Columbia College Chicago",
       year: "2025",
-      tags: ["Talk", "Narrative Design"],
-      thumbnail: "",
-      thumbColor: "c3",
-      description: "Talk about designing modular narrative systems that scale across small development teams.",
-      link: ""
+      description: "Talk on modular narrative architecture for small teams.",
+      links: {
+        slides: "https://example.com"
+      }
     }
   ];
 
@@ -387,6 +386,93 @@
     .media-caption { padding:0.6rem 0.8rem; font-size:0.72rem; color:var(--muted); font-weight:300; font-style:italic; border-top:1px solid var(--border); }
     .media-link { display:flex; align-items:center; justify-content:space-between; padding:0.9rem 1rem; text-decoration:none; color:var(--text); font-size:0.85rem; font-weight:500; transition:background 0.2s; border:1px solid var(--border); }
     .media-link:hover { background:var(--surface); color:var(--accent); }
+    
+    /* ── SCHOLARSHIP TIMELINE ───────────────── */
+    .scholarship-list {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      padding: 0 2.5rem;
+      position: relative;
+    }
+
+    /* vertical timeline line */
+    .scholarship-list::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .scholarship-entry {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* timeline dot */
+    .scholarship-entry::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--bg);
+    }
+
+    .scholarship-year {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+
+    .scholarship-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+    }
+
+    .scholarship-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .scholarship-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 0.6rem;
+      max-width: 600px;
+    }
+
+    .scholarship-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .scholarship-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+    }
+
+    .scholarship-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
 
     /* ════════════════════════════════════════
        ABOUT PAGE
@@ -696,8 +782,8 @@
     <span class="hero-eyebrow">Public Scholarship</span>
     <h1>Talks<br><span>& Panels</span></h1>
     <p class="hero-sub">
-      Public speaking, panels, and discussions on game design, narrative systems,
-      and interactive storytelling.
+      Talks, panels, and public discussions on narrative design,
+      interactive storytelling, and game systems.
     </p>
   </section>
 
@@ -706,7 +792,7 @@
     <div class="section-line"></div>
   </div>
 
-  <div class="grid" id="scholarship-grid"></div>
+  <div class="scholarship-list" id="scholarship-list"></div>
 
 </div>
 
@@ -862,45 +948,6 @@ document.getElementById('a-cta').innerHTML = `
   <a class="cta-btn cta-btn-primary" href="${SITE.resume}" target="_blank">📄 Download Resume</a>
   <a class="cta-btn cta-btn-secondary" href="mailto:${SITE.email}">✉ Get in touch</a>`;
 
-/* ── Build Scholarship page ───────────────────────────────── */
-const scholarshipGrid = document.getElementById('scholarship-grid');
-
-SCHOLARSHIP.forEach(s => {
-
-  const card = document.createElement('div');
-  card.className = 'card';
-
-  card.innerHTML = `
-    <div class="card-img ${s.thumbColor}">
-      <div class="placeholder-label">Talk</div>
-    </div>
-
-    <div class="card-body">
-
-      <span class="card-role">${s.role}</span>
-
-      <div class="card-title">${s.title}</div>
-
-      <p class="card-desc">${s.description}</p>
-
-      <div class="card-meta">
-        <div class="card-tags">
-          ${s.tags.map(t=>`<span class="tag">${t}</span>`).join('')}
-        </div>
-
-        <div style="display:flex;align-items:center;gap:.6rem">
-          <span class="card-year">${s.year}</span>
-          ${s.link ? `<a href="${s.link}" target="_blank" class="card-arrow">↗</a>` : ''}
-        </div>
-      </div>
-
-    </div>
-  `;
-
-  scholarshipGrid.appendChild(card);
-
-});
-
 /* ── Navigation ────────────────────────────────────── */
 function setView(view) {
   document.getElementById('home-view').classList.toggle('hidden',   view !== 'home');
@@ -979,6 +1026,41 @@ function showDetail(id) {
   window.scrollTo({ top:0 });
   history.pushState(null, '', '#' + id);
 }
+
+const scholarshipList = document.getElementById("scholarship-list");
+
+SCHOLARSHIP
+  .sort((a,b) => b.year - a.year)
+  .forEach(t => {
+
+    const links = [];
+
+    if (t.links?.recording)
+      links.push(`<a href="${t.links.recording}" target="_blank">Recording</a>`);
+
+    if (t.links?.slides)
+      links.push(`<a href="${t.links.slides}" target="_blank">Slides</a>`);
+
+    const el = document.createElement("div");
+    el.className = "scholarship-entry";
+
+    el.innerHTML = `
+      <div class="scholarship-year">${t.year}</div>
+
+      <div class="scholarship-title">${t.title}</div>
+
+      <div class="scholarship-meta">
+        ${t.role} — ${t.venue}
+      </div>
+
+      ${t.description ? `<div class="scholarship-desc">${t.description}</div>` : ""}
+
+      ${links.length ? `<div class="scholarship-links">${links.join("")}</div>` : ""}
+    `;
+
+    scholarshipList.appendChild(el);
+
+  });
 
 /* ── Handle hash on load / back/forward ─────────────── */
 function handleHash() {
