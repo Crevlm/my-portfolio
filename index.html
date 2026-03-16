@@ -151,7 +151,7 @@
     itchio:    "https://crevlm.itch.io/",
     github:    "https://github.com/Crevlm",
     linkedin:  "https://www.linkedin.com/in/creveling/",
-    resume:    "#"   // link to your resume/CV PDF
+    resume:    "files/sample-pdf.pdf"   // link to your resume/CV PDF
   };
 
   /* ============================================================
@@ -472,6 +472,79 @@
     .cta-btn-secondary { border: 1px solid var(--border); color: var(--text); }
     .cta-btn-secondary:hover { border-color: var(--text); }
 
+    /* ════════════════════════════════════════
+      RESUME PAGE
+    ════════════════════════════════════════ */
+    #resume-view {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2.5rem 5rem;
+    }
+
+    .resume-hero {
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+
+    .resume-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .resume-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+
+    .resume-sub {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 520px;
+    }
+
+    .resume-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .resume-download {
+      align-self: flex-start;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid var(--border);
+      color: var(--text);
+      transition: border-color 0.2s;
+    }
+
+    .resume-download:hover {
+      border-color: var(--accent);
+    }
+
+    .resume-pdf {
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .resume-pdf iframe {
+      width: 100%;
+      height: 1000px;
+      border: none;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .detail-body { grid-template-columns: 1fr; gap: 2rem; }
@@ -490,6 +563,13 @@
       .about-strip { padding: 2rem 1.2rem; flex-direction: column; gap: 2rem; }
       footer { padding: 1.2rem; flex-direction: column; gap: 0.5rem; }
       #detail-view, #about-view { padding: 0 1.2rem 4rem; }
+    }
+
+    /* Iframes don't work well on mobile so hide the resume PDF and just show the download link */
+    @media (max-width: 700px) {
+      .resume-pdf {
+        display: none;
+      }
     }
 
     /* ── ANIMATIONS ── */
@@ -516,6 +596,7 @@
   <ul class="nav-links" id="nav-home-links">
     <li><a id="nav-work"  onclick="showHome()">Work</a></li>
     <li><a id="nav-about" onclick="showAbout()">About</a></li>
+    <li><a id="nav-resume" onclick="showResume()">Resume</a></li>
   </ul>
   <a class="nav-back" id="nav-back" onclick="showHome()">
     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -611,6 +692,27 @@
   </div>
 </div>
 
+<!-- ═══════════ RESUME VIEW ═══════════ -->
+<div id="resume-view" class="hidden">
+
+  <div class="resume-hero">
+    <span class="resume-eyebrow">Resume</span>
+    <div class="resume-title">Professional Resume</div>
+    <p class="resume-sub">A full overview of my experience and projects.</p>
+  </div>
+
+  <div class="resume-body">
+    <a class="resume-download" id="resume-download" target="_blank">
+      📄 Download PDF
+    </a>
+
+    <div class="resume-pdf">
+      <iframe id="resume-frame" title="Resume PDF"></iframe>
+    </div>
+  </div>
+
+</div>
+
 <!-- ═══════════ SCRIPT ═══════════ -->
 <script>
 
@@ -621,6 +723,8 @@ document.getElementById('hero-h1').innerHTML = SITE.heroLine1 + '<br><span>' + S
 document.getElementById('hero-copy').textContent = SITE.heroCopy;
 document.getElementById('home-about-copy').textContent = ABOUT.bio;
 document.getElementById('footer-name').textContent = '© ' + new Date().getFullYear() + ' ' + SITE.name;
+document.getElementById('resume-download').href = SITE.resume;
+document.getElementById('resume-frame').src = SITE.resume;
 
 /* Home contact links */
 const homeCL = document.getElementById('home-contact-links');
@@ -716,6 +820,7 @@ function setView(view) {
   document.getElementById('home-view').classList.toggle('hidden',   view !== 'home');
   document.getElementById('detail-view').classList.toggle('hidden', view !== 'detail');
   document.getElementById('about-view').classList.toggle('hidden',  view !== 'about');
+  document.getElementById('resume-view').classList.toggle('hidden', view !== 'resume');
   // nav back vs normal links
   const showBack = view === 'detail';
   document.getElementById('nav-home-links').classList.toggle('hidden', showBack);
@@ -723,6 +828,7 @@ function setView(view) {
   // active state
   document.getElementById('nav-work').classList.toggle('active',  view === 'home');
   document.getElementById('nav-about').classList.toggle('active', view === 'about');
+  document.getElementById('nav-resume').classList.toggle('active', view === 'resume');
 }
 
 function showHome() {
@@ -735,6 +841,12 @@ function showAbout() {
   setView('about');
   window.scrollTo({ top:0 });
   history.pushState(null, '', '#about');
+}
+
+function showResume() {
+  setView('resume');
+  window.scrollTo({ top:0 });
+  history.pushState(null, '', '#resume');
 }
 
 function showDetail(id) {
@@ -778,6 +890,7 @@ function showDetail(id) {
 function handleHash() {
   const hash = window.location.hash.replace('#','');
   if (hash === 'about') { showAbout(); return; }
+  if (hash === 'resume') { showResume(); return; }
   if (hash && GAMES.find(g => g.id === hash)) { showDetail(hash); return; }
   setView('home');
 }
