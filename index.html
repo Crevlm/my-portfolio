@@ -17,6 +17,7 @@
        { type:"image",   src:"images/x.jpg",  caption:"..." }
        { type:"gif",     src:"images/x.gif",  caption:"..." }
        { type:"youtube", id:"VIDEO_ID"                      }
+       { type:"pdf",     src:"files/x.pdf",   caption:"..." }
        { type:"link",    url:"https://...",   label:"..."   }
   ============================================================ */
   const GAMES = [
@@ -29,7 +30,13 @@
       tags: ["Unity", "Horror", "PC"],
       wip: true,
       thumbnail: "images/Frostbound Logo.jpg",
+      thumbFit: "contain",
+      thumbPosition: "center center",
       thumbColor: "c1",
+      cardSummary: "Branching narrative horror prototype focused on emotionally consistent dialogue outcomes.",
+      focus: ["Narrative"],
+      proof: ["Branching Dialogue", "YarnSpinner"],
+      collaboration: "Student team project; owned NPC dialogue structure and narrative iteration with the writing/design team.",
       description: "Set in an unending winter in which surviving alone is impossible, you the player is in put in charge of a small Doctors Office far outside of a town. It's up to you to tend to the townsfolk as well as other Nomads passing by. The World of FrostBound is a cruel one so expect difficult moral decisions and a mystery that unravels as days pass throughout the game..",
       contribution: "I wrote NPC branching dialogue — structuring a non-linear story that always lands on the same emotional beat regardless of player path.",
       designProcess: "The core challenge was making the city feel alive and unknowable without overwhelming the player. I mapped every scene to an emotional state first (dread, confusion, grief) and built the writing from there. I used YarnSpinner for the dialogue system so writers on the team could iterate quickly without touching engine code.",
@@ -49,6 +56,10 @@
       wip: true,
       thumbnail: "",
       thumbColor: "c2",
+      cardSummary: "Choice-driven horror VN with modular relationship, inventory, and ending systems.",
+      focus: ["Programming", "Systems"],
+      proof: ["Modular Ren'Py Architecture", "Ending Evaluator"],
+      collaboration: "Student team project; led programming standards and implementation coordination across narrative scripts.",
       description: "Into the Woods is a choice-driven horror visual novel built in Ren’Py. Players wake to find their friends missing from a remote cabin and must navigate branching dialogue, shifting loyalties, and survival decisions deep in the forest. Relationship values, rescue outcomes, and key choices dynamically determine which of five endings unfolds. I served as lead programmer, architecting the narrative systems, relationship logic, inventory framework, and ending evaluator that power the game’s branching structure.",
       contribution: "I serve as lead programmer and systems designer on Into the Woods. I structured the project architecture across modular .rpy files, implemented the relationship system, rescue-state tracking, inventory framework, visual feedback UI, and the multi-ending evaluation logic. I also established coding standards and file organization for the programming team to ensure scalable branching without narrative conflicts.",
       designProcess: "My programming approach focused on building reusable narrative systems rather than hardcoding story outcomes. I separated variables, characters, inventory, endings, and UI into discrete modules to prevent script bloat and reduce merge conflicts across programmers. Core systems were designed around flexible state dictionaries, allowing rescue outcomes and relationship values to dynamically influence ending logic without rewriting scenes. I prioritized clarity and maintainability. Each mechanic, such as love modification or item checks, was abstracted into functions so writers can trigger logic through simple calls instead of embedding raw Python throughout dialogue. This ensures the branching structure can expand without increasing technical debt as art and final narrative content are integrated.",
@@ -63,11 +74,15 @@
       title: "Light the Way - Liminal VR Experience",
       role: "Producer & Narrative Designer",
       projectType: "Student Project",
-      year: "2026",
+      year: "2025",
       tags: ["Unity", "VR", "PC"],
       wip: true,
       thumbnail: "",
       thumbColor: "c3",
+      cardSummary: "Liminal VR meditation experience centered on calm pacing and guided interaction.",
+      focus: ["Production", "Narrative"],
+      proof: ["VR Interaction Flow", "Production Leadership"],
+      collaboration: "Student team project; directed scope and cross-discipline collaboration as producer and lead designer.",
       description: "Light the Way is a liminal VR meditation experience set in a quiet expanse of space. Players move through darkness at their own pace, lighting dormant stars to gradually illuminate the environment around them.",
       contribution: "I serve as Producer, Narrative Designer, and Lead Game Designer on Light the Way, shaping the core experience, interaction flow, and emotional arc of the meditation journey. I directed scope, coordinated development, and designed the star-lighting mechanic as a reflective progression system. I also performed the voice-over, delivering the guided meditation that anchors the player experience.",
       designProcess: "The design process centered on a 'light in the dark' motif, using environmental contrast as the primary emotional driver. I intentionally kept the interaction minimal, allowing players to activate stars through a simple click or sustained gaze, reducing cognitive load and reinforcing calm. The gradual illumination of space functions as both a visual reward and a symbolic progression, translating small, deliberate actions into visible restoration.",
@@ -86,6 +101,10 @@
       wip: false,
       thumbnail: "images/PSCoverTitle.png",
       thumbColor: "c4",
+      cardSummary: "Completed game jam title where players stack physics-driven presents in a 12-second run.",
+      focus: ["Programming", "Systems"],
+      proof: ["Shipped Jam Build", "Rapid Prototyping"],
+      collaboration: "Game jam team project; led design and programming from concept to final submission.",
       description: "Present Stack is a cozy-chaotic holiday stacking game created for the 12 Seconds of Christmas Game Jam, where players have only 12 seconds to build the tallest tower of messy, mismatched presents against wobbling physics and looming collapse. The core loop emphasizes quick reactions and expressive physicality in a tight, bite-sized play experience",
       contribution: "I led Present Stack in both game design and programming, defining the core stacking mechanics and implementing the fast-paced challenge loop that drives the jam goal.",
       designProcess: "The design process prioritized a mechanic that was instantly intuitive and easy to replicate under time pressure, with object stacking and physics reacting in a way that communicated risk and reward without complication. Iterations focused on tight framing, readable feedback, and a clear, fast learning curve so players could immediately engage during the 12-second run.",
@@ -105,6 +124,10 @@
       wip: true,
       thumbnail: "images/sideviewwip.png",
       thumbColor: "c5",
+      cardSummary: "Multiplayer Quake map study exploring competitive flow, sightlines, and arena transitions.",
+      focus: ["Systems"],
+      proof: ["Competitive Flow Layout", "Iterative Greyboxing"],
+      collaboration: "Solo student project focused on multiplayer level design iteration and balance testing.",
       description: "A work-in-progress multiplayer deathmatch map built in TrenchBroom for the original Quake engine, this biker bar inspired map focused on competitive flow, vertical control, and risk-reward combat spaces.",
       contribution: "Designed the full multiplayer layout, structured sightlines and vertical dominance zones, and iterated on choke points and arena transitions to support balanced deathmatch play.",
       designProcess: "This map explores competitive deathmatch flow within the constraints of Quake’s brush-based BSP pipeline. The current layout emphasizes clear route readability, intentional chokepoints, and multiple connections between combat spaces to keep players rotating instead of getting trapped in dead-end corridors. Current iteration is focused on tightening sightlines, improving circulation, and preparing for spawn and item placement passes to support fair fights and reduce spawn pressure. This is an early WIP and will be updated as the layout and balance evolve.",
@@ -121,16 +144,22 @@
       projectType: "Indie",
       year: "2026",
       tags: ["Unity", "Action RPG", "PC"],
-      wip: false,
+      wip: true,
       thumbnail: "",
       thumbColor: "c6",
+      cardSummary: "Early-stage isometric action RPG prototype set across condition-themed dream spaces.",
+      focus: ["Programming", "Systems", "Narrative"],
+      proof: ["Ink Narrative Integration", "Controller-First Input"],
+      collaboration: "Solo indie project; responsible for full design, implementation, and technical integration.",
       description: "Dream Walker is a 3D isometric action game built in Unity 6.2 about a cat who enters a girl's dream world each night to fight the psychological weight that has been quietly pulling her under. Her depression, anxiety, CPTSD, and ADHD have been stripping her life down piece by piece. She does not know the cat she found in an alley is a dream walker. The cat goes in because she is able to, and because somebody should. Each of the four nights corresponds to one of the girl's conditions, with its own environment, enemy set, and boss that reflects how that condition actually feels to live with..",
       contribution: "I am the sole developer on Dream Walker, handling narrative design, systems design, and Unity development. I designed the four-night structure, the boss identities, the three-layer narrative system using Ink, and the environmental storytelling that carries the girl's history through the dream world. On the technical side I built all core systems: CharacterController-based movement, the light resource mechanic, combat, enemy AI via NavMesh, Ink dialogue integration, save system, HUD, pause and title menus, and accessibility toggles for screen shake and hitstop. The game is designed controller-first with full keyboard and mouse support.",
       designProcess: "I wanted the boss and enemy design to embody what it feels like to live with these conditions. Depression is a hulking figure, slow and scary, something you cannot outrun. Anxiety splits and fractures and comes at you from multiple angles. The world itself is built around the symptoms, so the environment, the enemies, and the bosses are all working together to put the player inside that experience rather than just labeling it from the outside.",
       media: [
         { type:"image", src:"", caption:"" },
         { type:"gif",   src:"", caption:"" },
-        { type:"link",  url:"https://itch.io", label:"" }
+        { type:"pdf",  src:"files/DreamWalker-gdd-v1.1.pdf", caption:"Dream Walker Game Design Document (v1.1)." },
+        { type:"link", url:"files/DreamWalker-gdd-v1.1.pdf", label:"Download Dream Walker GDD (PDF)" },
+        { type:"link", url:"https://itch.io", label:"Itch Page Coming Soon" }
       ]
     }
   ];
@@ -144,7 +173,8 @@
       role: "Moderator & Panelist",
       venue: "PAX East",
       year: "2025",
-      description: "This panel explores how the FFVII cast forms a chaotic yet loving found family. We'll analyze Cloud's search for belonging Barret's fatherly leadership Tifa's emotional labor and the unique roles each character plays. Through humor and psychology we'll break down why dysfunctional families work and why we're drawn to these stories. Because in the end family isn't about perfectionâ€”it's about being there.",
+      noReadMore: true,
+      description: "This panel explores how the FFVII cast forms a chaotic yet loving found family. We'll analyze Cloud's search for belonging, Barret's fatherly leadership, Tifa's emotional labor, and the unique roles each character plays. Through humor and psychology, we'll break down why dysfunctional families work and why we're drawn to these stories. Because in the end, family isn't about perfection - it's about being there.",
       links: {
         recording: "https://youtu.be/qsM2uu6P95s?si=CSZTQN-gBr4vDHwo"
       }
@@ -158,6 +188,28 @@
       links: {
         recording: "https://youtu.be/eBwEMEjKn1w?si=bZ3Xzn3ixdMHEW34",
         slides: ""
+      }
+    },
+    {
+      title: "Good Grief, What Video Games Teach Us About Loss",
+      role: "Panelist",
+      venue: "PAX East",
+      year: "2024",
+      description: "Life can present us with difficult moments and complex emotions. Video games offer a way for players to experience and be active participants in feelings and actions that they may not otherwise have the space to. When considering the challenge of working through something as tough as grief, is it possible to learn something valuable from video games? The answer is YES! This panel will discuss representations of grief and loss in a family-friendly space. By looking at beautiful games about loss (GRIS, A Mortician's Tale, God of War Ragnarok), it is clear grief and loss can be represented in a way free of stigma. Games like this can help us process and understand grief a little better. The experts on this panel discuss the things we can learn from these powerful games and apply them to our own lives and conversations. One of the most important lessons to remember: there is no wrong way to feel or process, but remember you are not alone.",
+      links: {
+        recording: "https://www.youtube.com/watch?v=0rVi6RqbJLI&t=2009s"
+      }
+    },
+    {
+      title: "Dream to Stream, or Stream to Dream: Using Skills from Content Creation in the Next Part of a Career",
+      role: "Panelist",
+      venue: "PAX East",
+      year: "2024",
+      description: "This panel explores how skills from streaming and content creation can open doors to careers beyond streaming. We discuss how live communication, audience engagement, production planning, and personal branding translate directly into professional roles across games and tech. We also look at the reverse: how expertise from previous careers can strengthen a creator's stream through better organization, clearer storytelling, stronger leadership, and more intentional community-building. The conversation focuses on turning creative experience into long-term career momentum in both directions.",
+      links: {
+        recording: "https://www.youtube.com/watch?v=_9c7FX4ltjg",
+        thumbnail: "https://img.youtube.com/vi/_9c7FX4ltjg/3.jpg",
+        startAt: 10
       }
     }
    
@@ -176,6 +228,7 @@
     itchio:    "https://crevlm.itch.io/",
     github:    "https://github.com/Crevlm",
     linkedin:  "https://www.linkedin.com/in/creveling/",
+    placeholderMedia: "images/coming-soon.svg",
     resume:    "files/Lisa_Creveling_Resume_2026.pdf"   // link to your resume/CV PDF
   };
 
@@ -206,6 +259,21 @@
         school:     "American Military University",
         year:       "2019",
         notes:      "Coursework focused on business marketing and administration."
+      },
+      {
+        degree:     "A.S. Intelligence Studies",
+        school:     "Community College of the Air Force, Augusta",
+        year:       "2016"
+      },
+      {
+        degree:     "A.A. Pashto Language Studies",
+        school:     "Defense Language Institute, Monterey CA",
+        year:       "2015"
+      },
+      {
+        degree:     "A.S. Business Administration",
+        school:     "Florida State College at Jacksonville",
+        year:       "2015"
       }
     ],
 
@@ -213,16 +281,41 @@
     skills: [
       {
         category: "Design",
-        items: ["Narrative Design", "Systems Design", "UX & Accessibility Design", "Game Writing", "Ink / Twine / Yarn Spinner"]
+        items: ["Narrative Design", "Systems Design", "Controller-First Input Design", "Rapid Prototyping", "UX & Accessibility Design", "Game Writing", "Ink / Twine / Yarn Spinner"]
       },
       {
         category: "Programming",
-        items: [ "C# (Unity)", "Python / RPY (Ren'py)", "HTML / CSS / JS"]
+        items: [ "C# (Unity)", "Python / RPY (Ren'py)", "HTML / CSS / JS", "AI-Assisted Development Workflows"]
       },
       {
         category: "Tools",
         items: ["Unity", "Obsidian", "Figma", "Git / GitHub", "Ren'py"]
+      },
+      {
+        category: "Production",
+        items: ["Production Leadership", "Agile / Scrum Workflows", "Sprint Planning", "Task Scoping & Prioritization", "Cross-Discipline Coordination", "Milestone Tracking"]
       }
+    ],
+
+    // Short manifesto-style statements about your design values
+    philosophy: [
+      "I build mechanics and narrative structure in tandem so each reinforces the same emotional arc.",
+      "I prioritize systems that stay readable for players and scalable for teams.",
+      "I treat accessibility and controller-first input as core design, not late-stage polish."
+    ],
+
+    // High-signal accomplishments pulled from project work
+    wins: [
+      "Led design and programming on a completed game jam title (Present Stack), delivering a polished core loop under tight time constraints.",
+      "Wrote branching NPC dialogue for FrostBound that preserved the same emotional beat across multiple player paths.",
+      "Led scope and cross-discipline coordination on a VR meditation project while shaping both interaction flow and narrative voice."
+    ],
+
+    // Project types where your strengths are strongest
+    bestFit: [
+      "Narrative-led games where mechanics carry emotional meaning.",
+      "Projects that need both systems design and implementation support.",
+      "Small-to-mid teams that value fast iteration, clear communication, and production ownership."
     ],
 
     // A short "what I'm looking for / what drives me" closing thought
@@ -234,20 +327,25 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0d0d0d;
-      --surface: #161616;
-      --border: #2a2a2a;
-      --text: #f0ece4;
-      --muted: #888;
-      --accent: #e8ff3c;
+      --bg: #0a1528;
+      --surface: #132645;
+      --border: #3a5783;
+      --grid-line: #0a1528;
+      --text: #f7f4f1;
+      --muted: #d8e2f3;
+      --accent: #ffc7a6;
+      --accent-soft: #ffd8c2;
+      --ink: #0e1e38;
+      --accent-rgb: 255, 199, 166;
       --font-display: 'Bebas Neue', sans-serif;
       --font-body: 'DM Sans', sans-serif;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; font-size: 17px; }
     body {
-      background: var(--bg); color: var(--text);
-      font-family: var(--font-body); font-size: 15px; line-height: 1.6; min-height: 100vh;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body); font-size: 16px; line-height: 1.7; min-height: 100vh;
     }
 
     /* ── NAV ── */
@@ -255,7 +353,7 @@
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 2.5rem; height: 56px;
-      background: rgba(13,13,13,0.92); backdrop-filter: blur(12px);
+      background: rgba(9,18,34,0.95); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
     .nav-logo {
@@ -263,21 +361,34 @@
       letter-spacing: 0.04em; color: var(--text); cursor: pointer; user-select: none;
     }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: var(--muted); text-decoration: none; font-size: 0.82rem;
+    .nav-links button {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--muted); text-decoration: none; font-size: 0.9rem;
       font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
       transition: color 0.2s; cursor: pointer;
     }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links button:hover, .nav-links button.active { color: var(--text); }
     .nav-back {
+      appearance: none;
+      border: none;
+      background: transparent;
       display: none; align-items: center; gap: 0.5rem; color: var(--muted);
-      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
+      font-size: 0.9rem; font-weight: 500; letter-spacing: 0.08em;
       text-transform: uppercase; transition: color 0.2s; cursor: pointer;
     }
     .nav-back:hover { color: var(--text); }
     .nav-back svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; }
 
     .hidden { display: none !important; }
+
+    a:focus-visible,
+    button:focus-visible,
+    .card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
 
     /* ── HERO ── */
     .hero { padding: 6rem 2.5rem 4rem; max-width: 1200px; margin: 0 auto; }
@@ -290,7 +401,7 @@
       line-height: 0.92; letter-spacing: 0.02em; color: var(--text);
     }
     h1 span { -webkit-text-stroke: 1px var(--text); color: transparent; }
-    .hero-sub { margin-top: 1.5rem; color: var(--muted); font-size: 1rem; font-weight: 300; max-width: 420px; }
+    .hero-sub { margin-top: 1.5rem; color: var(--muted); font-size: 1.08rem; font-weight: 300; max-width: 460px; }
 
     /* ── SECTION HEADER ── */
     .section-header {
@@ -298,16 +409,59 @@
       display: flex; align-items: baseline; gap: 1rem;
     }
     .section-header h2 {
-      font-family: var(--font-display); font-size: 1.4rem;
+      font-family: var(--font-display); font-size: 1.5rem;
       letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
     }
     .section-line { flex: 1; height: 1px; background: var(--border); }
+
+    /* ── WORK FILTERS ── */
+    .work-filters {
+      max-width: 1200px;
+      margin: 0 auto 1.4rem;
+      padding: 0 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem 1.4rem;
+      align-items: center;
+    }
+    .filter-group { display: flex; flex-wrap: wrap; gap: 0.45rem; align-items: center; }
+    .filter-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-right: 0.3rem;
+    }
+    .filter-btn {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      padding: 5px 10px;
+      font-family: var(--font-body);
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .filter-btn:hover { color: var(--text); border-color: var(--text); }
+    .filter-btn.active { color: var(--ink); background: var(--accent); border-color: var(--accent); }
 
     /* ── GRID ── */
     .grid {
       max-width: 1200px; margin: 0 auto 2rem; padding: 0 2.5rem;
       display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1px; background: var(--border); border: 1px solid var(--border);
+      gap: 1px; background: var(--grid-line); border: 1px solid var(--grid-line);
+    }
+    .grid-empty {
+      grid-column: 1 / -1;
+      padding: 2rem 1.4rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 300;
+      text-align: center;
+      background: var(--bg);
     }
 
     /* ── CARD ── */
@@ -324,12 +478,12 @@
       width: 100%; height: 100%; object-fit: cover;
       transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); display: block;
     }
-    .card-img.c1 { background: linear-gradient(135deg, #1e1e2e, #3b3b6b); }
-    .card-img.c2 { background: linear-gradient(135deg, #1a2e1a, #2d5a2d); }
-    .card-img.c3 { background: linear-gradient(135deg, #2e1a1a, #6b2d2d); }
-    .card-img.c4 { background: linear-gradient(135deg, #2e2a1a, #6b5a2d); }
-    .card-img.c5 { background: linear-gradient(135deg, #1a2a2e, #2d5a5f); }
-    .card-img.c6 { background: linear-gradient(135deg, #2a1a2e, #5a2d6b); }
+    .card-img.c1 { background: linear-gradient(140deg, #143a56, #1f6d7a); }
+    .card-img.c2 { background: linear-gradient(140deg, #13424d, #1f7a6a); }
+    .card-img.c3 { background: linear-gradient(140deg, #3a315d, #2f6e9d); }
+    .card-img.c4 { background: linear-gradient(140deg, #5b3650, #a34f62); }
+    .card-img.c5 { background: linear-gradient(140deg, #1c4763, #3f86a8); }
+    .card-img.c6 { background: linear-gradient(140deg, #4f2f4f, #8e4f76); }
     .placeholder-label {
       position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
       font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.15em;
@@ -337,31 +491,36 @@
     }
     .card-body { padding: 1.2rem 1.4rem 1.4rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
     .card-role {
-      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--accent); display: inline-flex; align-items: center; gap: 0.4rem;
     }
     .card-role::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; }
     .card-title { font-family: var(--font-display); font-size: 1.55rem; letter-spacing: 0.04em; line-height: 1; color: var(--text); }
-    .card-desc { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.5; margin-top: 0.2rem; }
+    .card-proof { display:flex; flex-wrap:wrap; gap:0.35rem; margin-top:0.3rem; }
+    .proof-badge {
+      font-size:0.68rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase;
+      color:var(--accent); border:1px solid rgba(var(--accent-rgb),0.35); background:rgba(var(--accent-rgb),0.11); padding:2px 8px; border-radius:2px;
+    }
+    .card-desc { font-size: 0.95rem; color: var(--muted); font-weight: 300; line-height: 1.6; margin-top: 0.2rem; }
     .card-meta { display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:0.8rem; border-top:1px solid var(--border); }
     .card-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
-    .tag { font-size:0.65rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); background:var(--border); padding:2px 8px; border-radius:2px; }
-    .card-year { font-size:0.72rem; color:var(--muted); font-weight:300; }
+    .tag { font-size:0.72rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--text); background:rgba(19,38,69,0.95); border:1px solid var(--border); padding:2px 8px; border-radius:2px; }
+    .card-year { font-size:0.8rem; color:var(--muted); font-weight:300; }
     .card-arrow { font-size:0.9rem; color:var(--accent); opacity:0; transform:translate(-4px,4px); transition:opacity 0.25s,transform 0.25s; }
-    .wip-badge { position:absolute; top:12px; right:12px; background:rgba(13,13,13,0.85); border:1px solid var(--border); color:var(--muted); font-size:0.6rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; padding:3px 8px; backdrop-filter:blur(4px); }
+    .wip-badge { position:absolute; top:12px; right:12px; background:rgba(16,35,59,0.85); border:1px solid var(--border); color:var(--muted); font-size:0.68rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; padding:3px 8px; backdrop-filter:blur(4px); }
 
     /* ── HOME ABOUT STRIP ── */
     .about-strip { max-width:1200px; margin:4rem auto 0; padding:2.5rem; border-top:1px solid var(--border); display:flex; gap:4rem; align-items:flex-start; }
     .about-left { flex:1; }
     .about-left h3 { font-family:var(--font-display); font-size:2.4rem; line-height:1; margin-bottom:1rem; }
-    .about-left p { color:var(--muted); font-weight:300; font-size:0.9rem; max-width:380px; }
+    .about-left p { color:var(--muted); font-weight:300; font-size:1.02rem; max-width:430px; }
     .about-right { display:flex; flex-direction:column; gap:0.5rem; padding-top:0.2rem; }
-    .contact-link { display:flex; align-items:center; gap:0.6rem; color:var(--text); text-decoration:none; font-size:0.85rem; font-weight:400; transition:color 0.2s; }
+    .contact-link { display:flex; align-items:center; gap:0.6rem; color:var(--text); text-decoration:none; font-size:0.95rem; font-weight:400; transition:color 0.2s; }
     .contact-link:hover { color:var(--accent); }
     .contact-link .icon { font-size:1rem; }
 
     /* ── FOOTER ── */
-    footer { max-width:1200px; margin:0 auto; padding:1.5rem 2.5rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:0.75rem; }
+    footer { max-width:1200px; margin:0 auto; padding:1.5rem 2.5rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:0.84rem; }
 
     /* ════════════════════════════════════════
        DETAIL PAGE
@@ -369,110 +528,182 @@
     #detail-view { max-width:1200px; margin:0 auto; padding:0 2.5rem 5rem; }
     .detail-hero { padding:3.5rem 0 2.5rem; border-bottom:1px solid var(--border); margin-bottom:3rem; }
     .detail-type-row { display:flex; align-items:center; gap:1rem; margin-bottom:1rem; }
-    .detail-type { font-size:0.7rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); border:1px solid var(--border); padding:3px 10px; }
-    .detail-year { font-size:0.7rem; color:var(--muted); }
+    .detail-type { font-size:0.78rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); border:1px solid var(--border); padding:3px 10px; }
+    .detail-year { font-size:0.78rem; color:var(--muted); }
     .detail-title { font-family:var(--font-display); font-size:clamp(3rem,8vw,6rem); line-height:0.92; letter-spacing:0.02em; color:var(--text); margin-bottom:0.8rem; }
-    .detail-role { font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); display:inline-flex; align-items:center; gap:0.5rem; margin-bottom:1.2rem; }
+    .detail-role { font-size:0.82rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); display:inline-flex; align-items:center; gap:0.5rem; margin-bottom:1.2rem; }
     .detail-role::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--accent); }
     .detail-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
     .detail-body { display:grid; grid-template-columns:1fr 380px; gap:4rem; align-items:start; }
     .detail-left { display:flex; flex-direction:column; gap:2.5rem; }
     .detail-right { position:sticky; top:76px; display:flex; flex-direction:column; gap:1rem; }
     .detail-section-label { font-family:var(--font-display); font-size:1rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:0.6rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); }
-    .detail-section p { color:var(--text); font-weight:300; font-size:0.93rem; line-height:1.8; }
+    .detail-section p { color:var(--text); font-weight:300; font-size:1.02rem; line-height:1.8; }
+    .detail-collab { color:var(--muted) !important; font-size:0.94rem !important; line-height:1.7 !important; }
+    .detail-inline-media { margin-top:1.6rem; }
     .media-item { background:var(--surface); border:1px solid var(--border); overflow:hidden; }
     .media-item iframe { width:100%; aspect-ratio:16/9; display:block; border:none; }
+    .media-item.pdf-item iframe { aspect-ratio:8.5/11; min-height:480px; }
     .media-item img { width:100%; display:block; object-fit:cover; }
     .media-placeholder { aspect-ratio:16/9; background:var(--surface); display:flex; align-items:center; justify-content:center; color:var(--border); font-family:var(--font-display); font-size:1.1rem; letter-spacing:0.1em; }
-    .media-caption { padding:0.6rem 0.8rem; font-size:0.72rem; color:var(--muted); font-weight:300; font-style:italic; border-top:1px solid var(--border); }
-    .media-link { display:flex; align-items:center; justify-content:space-between; padding:0.9rem 1rem; text-decoration:none; color:var(--text); font-size:0.85rem; font-weight:500; transition:background 0.2s; border:1px solid var(--border); }
+    .media-caption { padding:0.6rem 0.8rem; font-size:0.82rem; color:var(--muted); font-weight:300; font-style:italic; border-top:1px solid var(--border); }
+    .media-link { display:flex; align-items:center; justify-content:space-between; padding:0.9rem 1rem; text-decoration:none; color:var(--text); font-size:0.94rem; font-weight:500; transition:background 0.2s; border:1px solid var(--border); }
     .media-link:hover { background:var(--surface); color:var(--accent); }
     
-    /* ── SCHOLARSHIP TIMELINE ───────────────── */
+    /* ── SCHOLARSHIP CARDS ───────────────── */
     .scholarship-list {
-      max-width: 900px;
+      max-width: 980px;
       margin: 0 auto 4rem;
       padding: 0 2.5rem;
-      position: relative;
-    }
-
-    /* vertical timeline line */
-    .scholarship-list::before {
-      content: "";
-      position: absolute;
-      left: 8px;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background: var(--border);
+      display: grid;
+      gap: 1rem;
     }
 
     .scholarship-entry {
-      position: relative;
-      padding-left: 2.5rem;
-      margin-bottom: 2.5rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 1.15rem 1.2rem 1.25rem;
     }
 
-    /* timeline dot */
-    .scholarship-entry::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 6px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px var(--bg);
+    .scholarship-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.4rem;
     }
 
-    .scholarship-year {
-      font-size: 0.7rem;
+    .scholarship-year-chip {
+      font-size: 0.78rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.3rem;
+      color: var(--ink);
+      background: var(--accent);
+      padding: 0.2rem 0.55rem;
+      font-weight: 600;
+      border-radius: 2px;
+      flex-shrink: 0;
     }
 
     .scholarship-title {
       font-family: var(--font-display);
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       letter-spacing: 0.03em;
       line-height: 1.1;
-    }
-
-    .scholarship-meta {
-      font-size: 0.82rem;
-      color: var(--muted);
       margin-bottom: 0.4rem;
     }
 
-    .scholarship-desc {
-      font-size: 0.85rem;
+    .scholarship-meta {
+      font-size: 0.9rem;
       color: var(--muted);
-      font-weight: 300;
-      margin-bottom: 0.6rem;
-      max-width: 600px;
+      margin-bottom: 0.75rem;
     }
 
-    .scholarship-links {
+    .scholarship-actions {
       display: flex;
-      gap: 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
     }
 
-    .scholarship-links a {
-      font-size: 0.72rem;
+    .scholarship-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.42rem 0.75rem;
+      text-decoration: none;
+      font-size: 0.75rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      border: 1px solid var(--border);
       color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
     }
 
-    .scholarship-links a:hover {
+    .scholarship-action:hover {
       color: var(--accent);
       border-color: var(--accent);
+      background: rgba(var(--accent-rgb), 0.08);
+    }
+
+    .scholarship-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .scholarship-desc.is-collapsed {
+      max-height: 6.9em;
+      overflow: hidden;
+    }
+
+    .scholarship-read-more {
+      margin-top: 0.45rem;
+      border: none;
+      background: transparent;
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .scholarship-video {
+      margin: 0.9rem 0 0;
+      border: 1px solid var(--border);
+      background: #0a1528;
+      overflow: hidden;
+    }
+
+    .scholarship-video iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+      display: block;
+    }
+
+    .scholarship-video-trigger {
+      width: 100%;
+      border: none;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      display: block;
+    }
+
+    .scholarship-video-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .scholarship-video-play {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--text);
+      font-family: var(--font-display);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 1rem;
+      background: linear-gradient(to top, rgba(10, 21, 40, 0.55), rgba(10, 21, 40, 0.15));
+    }
+
+    .scholarship-video-play::before {
+      content: "▶";
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 1px solid rgba(var(--accent-rgb), 0.55);
+      background: rgba(10, 21, 40, 0.72);
+      display: grid;
+      place-items: center;
+      margin-bottom: 0.35rem;
     }
 
     /* ════════════════════════════════════════
@@ -489,7 +720,6 @@
       gap: 3rem;
       align-items: end;
     }
-    .about-page-hero-text {}
     .about-page-eyebrow {
       font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em;
       text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: block;
@@ -542,24 +772,64 @@
       color: var(--text); line-height: 1.1; margin-bottom: 0.2rem;
     }
     .edu-meta { display: flex; gap: 1rem; align-items: center; margin-bottom: 0.4rem; }
-    .edu-school { font-size: 0.82rem; color: var(--accent); font-weight: 500; }
-    .edu-year { font-size: 0.75rem; color: var(--muted); }
-    .edu-notes { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
+    .edu-school { font-size: 0.9rem; color: var(--accent); font-weight: 500; }
+    .edu-year { font-size: 0.82rem; color: var(--muted); }
+    .edu-notes { font-size: 0.92rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
 
     /* Skills */
     .skill-group { margin-bottom: 1.5rem; }
     .skill-group:last-child { margin-bottom: 0; }
     .skill-category {
-      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em;
+      font-size: 0.76rem; font-weight: 500; letter-spacing: 0.14em;
       text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem;
     }
     .skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .skill-pill {
-      font-size: 0.78rem; font-weight: 400; color: var(--text);
+      font-size: 0.88rem; font-weight: 400; color: var(--text);
       background: var(--surface); border: 1px solid var(--border);
       padding: 4px 12px; border-radius: 2px; transition: border-color 0.2s;
     }
     .skill-pill:hover { border-color: var(--accent); }
+
+    /* Standout sections */
+    .about-standout {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0;
+      margin-top: 0.4rem;
+    }
+    .about-standout-col { display: flex; flex-direction: column; gap: 2rem; }
+    .about-philosophy {
+      font-size: 0.96rem;
+      line-height: 1.85;
+      color: var(--text);
+      font-weight: 300;
+      max-width: 660px;
+    }
+    .about-philosophy p + p { margin-top: 0.8rem; }
+    .about-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+    .about-bullets li {
+      position: relative;
+      padding-left: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .about-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.75em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
 
     /* Closing / CTA */
     .about-closing {
@@ -575,12 +845,12 @@
     .about-cta-stack { display: flex; flex-direction: column; gap: 0.6rem; flex-shrink: 0; }
     .cta-btn {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.7rem 1.4rem; text-decoration: none; font-size: 0.82rem;
+      padding: 0.7rem 1.4rem; text-decoration: none; font-size: 0.9rem;
       font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
       transition: background 0.2s, color 0.2s; white-space: nowrap;
     }
-    .cta-btn-primary { background: var(--accent); color: #0d0d0d; }
-    .cta-btn-primary:hover { background: #f5ff6e; }
+    .cta-btn-primary { background: var(--accent); color: var(--ink); }
+    .cta-btn-primary:hover { background: var(--accent-soft); }
     .cta-btn-secondary { border: 1px solid var(--border); color: var(--text); }
     .cta-btn-secondary:hover { border-color: var(--text); }
 
@@ -632,7 +902,7 @@
     .resume-download {
       align-self: flex-start;
       text-decoration: none;
-      font-size: 0.8rem;
+      font-size: 0.88rem;
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -662,6 +932,7 @@
       .detail-body { grid-template-columns: 1fr; gap: 2rem; }
       .detail-right { position: static; }
       .about-page-body { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-standout { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-closing { flex-direction: column; }
       .about-page-hero { grid-template-columns: 1fr; }
       .about-photo, .about-photo-placeholder { width: 120px; height: 120px; }
@@ -671,6 +942,7 @@
       .nav-links { gap: 1rem; }
       .hero { padding: 4rem 1.2rem 2rem; }
       .section-header { padding: 0 1.2rem; }
+      .work-filters { padding: 0 1.2rem; }
       .grid { padding: 0 1.2rem; grid-template-columns: 1fr; }
       .about-strip { padding: 2rem 1.2rem; flex-direction: column; gap: 2rem; }
       footer { padding: 1.2rem; flex-direction: column; gap: 0.5rem; }
@@ -698,6 +970,15 @@
     .grid .card:nth-child(7) { animation-delay: 0.47s; }
     .grid .card:nth-child(8) { animation-delay: 0.54s; }
     #detail-view:not(.hidden), #about-view:not(.hidden) { animation: fadeIn 0.3s ease; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -706,15 +987,15 @@
 <nav>
   <span class="nav-logo" id="nav-logo"></span>
   <ul class="nav-links" id="nav-home-links">
-    <li><a id="nav-work"  onclick="showHome()">Work</a></li>
-    <li><a id="nav-scholarship" onclick="showScholarship()">Scholarship</a></li>
-    <li><a id="nav-about" onclick="showAbout()">About</a></li>
-    <li><a id="nav-resume" onclick="showResume()">Resume</a></li>
+    <li><button id="nav-work" type="button" onclick="showHome()">Work</button></li>
+    <li><button id="nav-scholarship" type="button" onclick="showScholarship()">Scholarship</button></li>
+    <li><button id="nav-about" type="button" onclick="showAbout()">About</button></li>
+    <li><button id="nav-resume" type="button" onclick="showResume()">Resume</button></li>
   </ul>
-  <a class="nav-back" id="nav-back" onclick="showHome()">
+  <button class="nav-back" id="nav-back" type="button" onclick="showHome()" aria-label="Back to work">
     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
     Back to work
-  </a>
+  </button>
 </nav>
 
 <!-- ═══════════ HOME VIEW ═══════════ -->
@@ -730,6 +1011,23 @@
     <div class="section-line"></div>
   </div>
 
+  <div class="work-filters" id="work-filters">
+    <div class="filter-group" aria-label="Filter by focus">
+      <span class="filter-label">Focus</span>
+      <button class="filter-btn active" data-role="all">All</button>
+      <button class="filter-btn" data-role="Narrative">Narrative</button>
+      <button class="filter-btn" data-role="Systems">Systems</button>
+      <button class="filter-btn" data-role="Programming">Programming</button>
+      <button class="filter-btn" data-role="Production">Production</button>
+    </div>
+    <div class="filter-group" aria-label="Filter by status">
+      <span class="filter-label">Status</span>
+      <button class="filter-btn active" data-status="all">All</button>
+      <button class="filter-btn" data-status="wip">In Progress</button>
+      <button class="filter-btn" data-status="shipped">Shipped</button>
+    </div>
+  </div>
+
   <div class="grid" id="game-grid"></div>
 
   <div class="about-strip">
@@ -742,7 +1040,7 @@
 
   <footer>
     <span id="footer-name"></span>
-    <span>Built with ♥ and too much coffee</span>
+    <span>Built while listening to sleep token and petting cats</span>
   </footer>
 </div>
 
@@ -767,9 +1065,14 @@
         <div class="detail-section-label">My Contribution</div>
         <p id="d-contribution"></p>
       </div>
+      <div class="detail-section" id="d-collab-section">
+        <div class="detail-section-label">Collaboration Context</div>
+        <p class="detail-collab" id="d-collab"></p>
+      </div>
       <div class="detail-section">
         <div class="detail-section-label">Design Process</div>
         <p id="d-process"></p>
+        <div class="detail-inline-media" id="d-inline-media"></div>
       </div>
     </div>
     <div class="detail-right" id="d-media"></div>
@@ -817,6 +1120,26 @@
     <!-- Right col: Skills injected by JS -->
     <div class="about-page-col" id="about-col-right"></div>
 
+    <!-- Standout narrative + proof sections -->
+    <div class="about-standout">
+      <div class="about-standout-col">
+        <div>
+          <div class="about-section-label">Design Philosophy</div>
+          <div class="about-philosophy" id="a-philosophy"></div>
+        </div>
+      </div>
+      <div class="about-standout-col">
+        <div>
+          <div class="about-section-label">Selected Wins</div>
+          <ul class="about-bullets" id="a-wins"></ul>
+        </div>
+        <div>
+          <div class="about-section-label">Best Fit Projects</div>
+          <ul class="about-bullets" id="a-best-fit"></ul>
+        </div>
+      </div>
+    </div>
+
     <!-- Full-width closing -->
     <div class="about-closing">
       <p id="a-closing"></p>
@@ -836,7 +1159,7 @@
   </div>
 
   <div class="resume-body">
-    <a class="resume-download" id="resume-download" target="_blank">
+    <a class="resume-download" id="resume-download" target="_blank" rel="noopener noreferrer">
       📄 Download PDF
     </a>
 
@@ -869,38 +1192,123 @@ const homeCL = document.getElementById('home-contact-links');
   { icon:'💼', label:'LinkedIn',     href: SITE.linkedin},
   { icon:'📄', label:'Resume / CV',  href: SITE.resume  }
 ].forEach(c => {
-  homeCL.innerHTML += `<a class="contact-link" href="${c.href}" target="_blank">
+  const isExternal = c.href.startsWith('http');
+  homeCL.innerHTML += `<a class="contact-link" href="${c.href}" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>
     <span class="icon">${c.icon}</span>${c.label}</a>`;
 });
 
 /* ── Build grid ──────────────────────────────────────── */
 const grid = document.getElementById('game-grid');
-GAMES.forEach(g => {
-  const firstImg = g.media.find(m => m.type==='image' || m.type==='gif');
-  const thumb = g.thumbnail || (firstImg && firstImg.src ? firstImg.src : '');
-  const hasThumb = thumb.trim() !== '';
-  const card = document.createElement('div');
-  card.className = 'card';
-  card.onclick = () => showDetail(g.id);
-  card.innerHTML = `
-    <div class="card-img ${hasThumb ? '' : g.thumbColor}">
-      ${hasThumb ? `<img src="${thumb}" alt="${g.title}">` : `<div class="placeholder-label">Screenshot</div>`}
-      ${g.wip ? '<div class="wip-badge">In Progress</div>' : ''}
-    </div>
-    <div class="card-body">
-      <span class="card-role">${g.role}</span>
-      <div class="card-title">${g.title}</div>
-      <p class="card-desc">${g.description.split('.')[0]}.</p>
-      <div class="card-meta">
-        <div class="card-tags">${g.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-        <div style="display:flex;align-items:center;gap:.6rem">
-          <span class="card-year">${g.year}</span>
-          <span class="card-arrow">↗</span>
-        </div>
-      </div>
-    </div>`;
-  grid.appendChild(card);
+const WORK_ORDER = [
+  'frostbound',
+  'into-the-woods',
+  'dreamwalker',
+  'quake-level',
+  'light-the-way',
+  'present-stack'
+];
+const orderedGames = [...GAMES].sort((a, b) => {
+  const ai = WORK_ORDER.indexOf(a.id);
+  const bi = WORK_ORDER.indexOf(b.id);
+  if (ai === -1 && bi === -1) return Number(b.year) - Number(a.year);
+  if (ai === -1) return 1;
+  if (bi === -1) return -1;
+  return ai - bi;
 });
+
+const workFilterState = { role: 'all', status: 'all' };
+
+function updateFilterButtons() {
+  document.querySelectorAll('.filter-btn[data-role]').forEach(btn => {
+    const isActive = btn.dataset.role === workFilterState.role;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+  document.querySelectorAll('.filter-btn[data-status]').forEach(btn => {
+    const isActive = btn.dataset.status === workFilterState.status;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+}
+
+function renderWorkGrid() {
+  grid.innerHTML = '';
+
+  const visibleGames = orderedGames.filter(g => {
+    const roleMatch = workFilterState.role === 'all' || (g.focus || []).includes(workFilterState.role);
+    const statusMatch =
+      workFilterState.status === 'all' ||
+      (workFilterState.status === 'wip' && g.wip) ||
+      (workFilterState.status === 'shipped' && !g.wip);
+    return roleMatch && statusMatch;
+  });
+
+  if (!visibleGames.length) {
+    grid.innerHTML = `<div class="grid-empty">No projects match this filter combination yet.</div>`;
+    return;
+  }
+
+  visibleGames.forEach(g => {
+    const firstImg = g.media.find(m => m.type==='image' || m.type==='gif');
+    const thumb = g.thumbnail || (firstImg && firstImg.src ? firstImg.src : SITE.placeholderMedia);
+    const thumbFit = g.thumbFit || 'cover';
+    const thumbPosition = g.thumbPosition || 'center center';
+    const hasThumb = thumb.trim() !== '';
+    const summary = g.cardSummary || `${g.description.split('.')[0]}.`;
+    const proof = (g.proof || []).map(p => `<span class="proof-badge">${p}</span>`).join('');
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `Open project ${g.title}`);
+    card.onclick = () => showDetail(g.id);
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        showDetail(g.id);
+      }
+    });
+    card.innerHTML = `
+      <div class="card-img ${hasThumb ? '' : g.thumbColor}">
+        ${hasThumb ? `<img src="${thumb}" alt="${g.title}" style="object-fit:${thumbFit};object-position:${thumbPosition};">` : `<div class="placeholder-label">Screenshot</div>`}
+        ${g.wip ? '<div class="wip-badge">In Progress</div>' : ''}
+      </div>
+      <div class="card-body">
+        <span class="card-role">${g.role}</span>
+        <div class="card-title">${g.title}</div>
+        ${proof ? `<div class="card-proof">${proof}</div>` : ''}
+        <p class="card-desc">${summary}</p>
+        <div class="card-meta">
+          <div class="card-tags">${g.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+          <div style="display:flex;align-items:center;gap:.6rem">
+            <span class="card-year">${g.year}</span>
+            <span class="card-arrow">↗</span>
+          </div>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+document.querySelectorAll('.filter-btn[data-role]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    workFilterState.role = btn.dataset.role;
+    updateFilterButtons();
+    renderWorkGrid();
+  });
+});
+
+document.querySelectorAll('.filter-btn[data-status]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    workFilterState.status = btn.dataset.status;
+    updateFilterButtons();
+    renderWorkGrid();
+  });
+});
+
+updateFilterButtons();
+renderWorkGrid();
 
 /* ── Build About page ───────────────────────────────── */
 document.getElementById('a-tagline').textContent  = SITE.tagline;
@@ -944,9 +1352,19 @@ ABOUT.skills.forEach(group => {
 skillHTML += `</div>`;
 colRight.innerHTML = skillHTML;
 
+/* Standout sections */
+const philosophyEl = document.getElementById('a-philosophy');
+philosophyEl.innerHTML = ABOUT.philosophy.map(line => `<p>${line}</p>`).join('');
+
+const winsEl = document.getElementById('a-wins');
+winsEl.innerHTML = ABOUT.wins.map(item => `<li>${item}</li>`).join('');
+
+const bestFitEl = document.getElementById('a-best-fit');
+bestFitEl.innerHTML = ABOUT.bestFit.map(item => `<li>${item}</li>`).join('');
+
 /* CTA buttons */
 document.getElementById('a-cta').innerHTML = `
-  <a class="cta-btn cta-btn-primary" href="${SITE.resume}" target="_blank">📄 Download Resume</a>
+  <a class="cta-btn cta-btn-primary" href="${SITE.resume}" target="_blank" rel="noopener noreferrer">📄 Download Resume</a>
   <a class="cta-btn cta-btn-secondary" href="mailto:${SITE.email}">✉ Get in touch</a>`;
 
 /* ── Navigation ────────────────────────────────────── */
@@ -1001,25 +1419,38 @@ function showDetail(id) {
   document.getElementById('d-role').textContent         = g.role;
   document.getElementById('d-description').textContent  = g.description;
   document.getElementById('d-contribution').textContent = g.contribution;
+  document.getElementById('d-collab').textContent       = g.collaboration || '';
   document.getElementById('d-process').textContent      = g.designProcess;
   document.getElementById('d-tags').innerHTML           = g.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+  document.getElementById('d-collab-section').classList.toggle('hidden', !(g.collaboration && g.collaboration.trim()));
 
   const mediaEl = document.getElementById('d-media');
+  const inlineMediaEl = document.getElementById('d-inline-media');
   mediaEl.innerHTML = '';
+  inlineMediaEl.innerHTML = '';
   g.media.forEach(m => {
     if (m.type === 'youtube') {
       mediaEl.innerHTML += `<div class="media-item">
-        <iframe src="https://www.youtube.com/embed/${m.id}" allowfullscreen
+        <iframe src="https://www.youtube.com/embed/${m.id}" title="${g.title} video" allowfullscreen
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
       </div>`;
     } else if (m.type === 'image' || m.type === 'gif') {
       const hasSrc = m.src && m.src.trim() !== '';
+      const mediaSrc = hasSrc ? m.src : SITE.placeholderMedia;
+      const mediaAlt = hasSrc ? (m.caption || '') : 'Coming soon placeholder image';
+      const mediaCaption = m.caption || (hasSrc ? '' : 'Coming soon');
       mediaEl.innerHTML += `<div class="media-item">
-        ${hasSrc ? `<img src="${m.src}" alt="${m.caption||''}" loading="lazy">` : `<div class="media-placeholder">${m.type.toUpperCase()}</div>`}
+        <img src="${mediaSrc}" alt="${mediaAlt}" loading="lazy">
+        ${mediaCaption ? `<div class="media-caption">${mediaCaption}</div>` : ''}
+      </div>`;
+    } else if (m.type === 'pdf') {
+      const hasSrc = m.src && m.src.trim() !== '';
+      inlineMediaEl.innerHTML += `<div class="media-item pdf-item">
+        ${hasSrc ? `<iframe src="${m.src}#view=FitH" title="${m.caption || 'Project PDF'}"></iframe>` : `<div class="media-placeholder">PDF</div>`}
         ${m.caption ? `<div class="media-caption">${m.caption}</div>` : ''}
       </div>`;
     } else if (m.type === 'link') {
-      mediaEl.innerHTML += `<a class="media-link" href="${m.url}" target="_blank">${m.label}<span>↗</span></a>`;
+      mediaEl.innerHTML += `<a class="media-link" href="${m.url}" target="_blank" rel="noopener noreferrer">${m.label}<span>↗</span></a>`;
     }
   });
 
@@ -1030,38 +1461,129 @@ function showDetail(id) {
 
 const scholarshipList = document.getElementById("scholarship-list");
 
+function getYouTubeEmbedUrl(url) {
+  if (!url) return "";
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.replace('www.', '');
+    let id = '';
+
+    if (host === 'youtu.be') {
+      id = parsed.pathname.split('/').filter(Boolean)[0] || '';
+    } else if (host === 'youtube.com' || host === 'm.youtube.com') {
+      if (parsed.pathname === '/watch') {
+        id = parsed.searchParams.get('v') || '';
+      } else if (parsed.pathname.startsWith('/embed/')) {
+        id = parsed.pathname.split('/')[2] || '';
+      } else if (parsed.pathname.startsWith('/shorts/')) {
+        id = parsed.pathname.split('/')[2] || '';
+      }
+    }
+
+    if (!id) return '';
+    return `https://www.youtube.com/embed/${id}`;
+  } catch {
+    return "";
+  }
+}
+
 SCHOLARSHIP
   .sort((a,b) => b.year - a.year)
-  .forEach(t => {
+  .forEach((t, index) => {
+    const recordingEmbedUrl = getYouTubeEmbedUrl(t.links?.recording);
+    const recordingThumbnail = t.links?.thumbnail || '';
+    const recordingStartAt = Number(t.links?.startAt || 0);
+    const hasDescription = !!(t.description && t.description.trim());
+    const disableReadMore = !!t.noReadMore;
+    const descId = `scholarship-desc-${index}`;
 
-    const links = [];
+    const scholarshipActions = [
+      t.links?.recording
+        ? `<a class="scholarship-action" href="${t.links.recording}" target="_blank" rel="noopener noreferrer">Link to Video</a>`
+        : '',
+      t.links?.slides
+        ? `<a class="scholarship-action" href="${t.links.slides}" target="_blank" rel="noopener noreferrer">Slides</a>`
+        : ''
+    ].filter(Boolean).join('');
 
-    if (t.links?.recording)
-      links.push(`<a href="${t.links.recording}" target="_blank">Recording</a>`);
-
-    if (t.links?.slides)
-      links.push(`<a href="${t.links.slides}" target="_blank">Slides</a>`);
+    const scholarshipVideoMarkup = recordingEmbedUrl
+      ? (recordingThumbnail
+            ? `<div class="scholarship-video"><button class="scholarship-video-trigger" type="button" data-embed="${recordingEmbedUrl}" data-title="${t.title} recording" data-start="${recordingStartAt}"><img class="scholarship-video-thumb" src="${recordingThumbnail}" alt="${t.title} video thumbnail" loading="lazy"><span class="scholarship-video-play">Play Video</span></button></div>`
+          : `<div class="scholarship-video"><iframe src="${recordingEmbedUrl}" title="${t.title} recording" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>`)
+      : "";
 
     const el = document.createElement("div");
     el.className = "scholarship-entry";
 
     el.innerHTML = `
-      <div class="scholarship-year">${t.year}</div>
-
+      <div class="scholarship-top">
+        <span class="scholarship-year-chip">${t.year}</span>
+      </div>
       <div class="scholarship-title">${t.title}</div>
 
       <div class="scholarship-meta">
         ${t.role} — ${t.venue}
       </div>
+      ${scholarshipActions ? `<div class="scholarship-actions">${scholarshipActions}</div>` : ''}
 
-      ${t.description ? `<div class="scholarship-desc">${t.description}</div>` : ""}
-
-      ${links.length ? `<div class="scholarship-links">${links.join("")}</div>` : ""}
+      ${hasDescription ? `<div class="scholarship-desc ${disableReadMore ? '' : 'is-collapsed'}" id="${descId}">${t.description}</div>` : ""}
+      ${hasDescription && !disableReadMore ? `<button class="scholarship-read-more" type="button" data-toggle-desc="${descId}" hidden>Read More</button>` : ''}
+      ${scholarshipVideoMarkup}
     `;
 
     scholarshipList.appendChild(el);
 
   });
+
+function evaluateScholarshipReadMore() {
+  document.querySelectorAll('.scholarship-read-more').forEach(toggleEl => {
+    const descId = toggleEl.dataset.toggleDesc;
+    const descEl = descId ? document.getElementById(descId) : null;
+    if (!descEl) {
+      toggleEl.remove();
+      return;
+    }
+
+    const textLength = (descEl.textContent || '').trim().length;
+    const isOverflowing = descEl.scrollHeight > descEl.clientHeight + 2;
+    const shouldShowToggle = isOverflowing || textLength > 280;
+
+    if (shouldShowToggle) {
+      toggleEl.hidden = false;
+    } else {
+      descEl.classList.remove('is-collapsed');
+      toggleEl.remove();
+    }
+  });
+}
+
+requestAnimationFrame(evaluateScholarshipReadMore);
+window.addEventListener('load', evaluateScholarshipReadMore);
+window.addEventListener('resize', evaluateScholarshipReadMore);
+
+scholarshipList.addEventListener('click', (event) => {
+  const descToggle = event.target.closest('.scholarship-read-more');
+  if (descToggle) {
+    const descId = descToggle.dataset.toggleDesc;
+    const descEl = descId ? document.getElementById(descId) : null;
+    if (descEl) {
+      const isCollapsed = descEl.classList.toggle('is-collapsed');
+      descToggle.textContent = isCollapsed ? 'Read More' : 'Show Less';
+    }
+    return;
+  }
+
+  const trigger = event.target.closest('.scholarship-video-trigger');
+  if (!trigger) return;
+
+  const embedUrl = trigger.dataset.embed;
+  const title = trigger.dataset.title || 'Panel recording';
+  const startAt = Number(trigger.dataset.start || 0);
+  if (!embedUrl) return;
+
+  const query = startAt > 0 ? `?autoplay=1&start=${startAt}` : '?autoplay=1';
+  trigger.outerHTML = `<iframe src="${embedUrl}${query}" title="${title}" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>`;
+});
 
 /* ── Handle hash on load / back/forward ─────────────── */
 function handleHash() {

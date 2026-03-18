@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Coming soon placeholder</title>
+  <desc id="desc">A placeholder card that says Coming Soon and Media in Progress.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#132645" />
+      <stop offset="100%" stop-color="#0a1528" />
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffc7a6" stop-opacity="0.26" />
+      <stop offset="100%" stop-color="#ffc7a6" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <circle cx="250" cy="160" r="180" fill="url(#shine)" />
+  <circle cx="1380" cy="720" r="260" fill="url(#shine)" />
+
+  <rect x="220" y="190" width="1160" height="520" rx="20" fill="none" stroke="#3a5783" stroke-width="4" />
+  <text x="800" y="430" text-anchor="middle" fill="#f7f4f1" font-family="'Bebas Neue', 'Impact', sans-serif" font-size="120" letter-spacing="8">COMING SOON</text>
+  <text x="800" y="515" text-anchor="middle" fill="#d8e2f3" font-family="'DM Sans', 'Segoe UI', sans-serif" font-size="40" letter-spacing="2">Media in progress</text>
+</svg>
