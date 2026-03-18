@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lisa Creveling — Narrative Game Designer</title>
+  <title>Lisa Creveling — Game Designer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 
@@ -220,10 +220,10 @@
   ============================================================ */
   const SITE = {
     name:      "Lisa Creveling",
-    tagline:   "Narrative and Systems Designer",
+    tagline:   "Game Designer",
     heroLine1: "Lisa",
     heroLine2: "Creveling",
-    heroCopy:  "Designing narrative systems where choice, consequence, and mechanics intersect.",
+    heroCopy:  "Game designer shaping player-centered experiences through narrative, UX, accessibility, technical implementation, and production leadership.",
     email:     "hello@crev.tv",
     itchio:    "https://crevlm.itch.io/",
     github:    "https://github.com/Crevlm",
@@ -238,10 +238,10 @@
   const ABOUT = {
 
     // Short headline that appears large at the top
-    headline: "I design systems that tell stories.",
+    headline: "I design complete game experiences.",
 
     // 2–4 sentences introducing yourself
-    bio: "I’m a Chicago-based game designer focused on the intersection of mechanics and meaning. I care about how structure shapes emotion, and how rules can say something words alone can’t.",
+    bio: "I’m a Chicago-based game designer working across narrative, UX, accessibility, technical implementation, and production. I design from player intent first, then build systems, interactions, and content that support a cohesive experience from concept through shipping.",
 
     // Profile photo — set to "" to hide it
     photo: "images/lisa.png",   // e.g. "images/photo.jpg"
@@ -280,12 +280,12 @@
     // Skills — group them however makes sense for you
     skills: [
       {
-        category: "Design",
-        items: ["Narrative Design", "Systems Design", "Controller-First Input Design", "Rapid Prototyping", "UX & Accessibility Design", "Game Writing", "Ink / Twine / Yarn Spinner"]
+        category: "Game Design",
+        items: ["Narrative Design", "Systems Design", "UX Design", "Accessibility Design", "Controller-First Input Design", "Rapid Prototyping", "Game Writing", "Ink / Twine / Yarn Spinner"]
       },
       {
         category: "Programming",
-        items: [ "C# (Unity)", "Python / RPY (Ren'py)", "HTML / CSS / JS", "AI-Assisted Development Workflows"]
+        items: [ "C# (Unity)", "Python / RPY (Ren'py)", "HTML / CSS / JS", "Gameplay Prototyping", "AI-Assisted Development Workflows"]
       },
       {
         category: "Tools",
@@ -299,9 +299,9 @@
 
     // Short manifesto-style statements about your design values
     philosophy: [
-      "I build mechanics and narrative structure in tandem so each reinforces the same emotional arc.",
-      "I prioritize systems that stay readable for players and scalable for teams.",
-      "I treat accessibility and controller-first input as core design, not late-stage polish."
+      "I design holistically: mechanics, UX, narrative, and accessibility should feel like one cohesive experience.",
+      "I prioritize systems that are readable for players, maintainable for teams, and practical to ship.",
+      "I treat accessibility and controller-first input as core design requirements, not late-stage polish."
     ],
 
     // High-signal accomplishments pulled from project work
@@ -313,13 +313,13 @@
 
     // Project types where your strengths are strongest
     bestFit: [
-      "Narrative-led games where mechanics carry emotional meaning.",
-      "Projects that need both systems design and implementation support.",
+      "Projects that need a multidisciplinary game designer who can bridge vision and implementation.",
+      "Teams balancing player experience, narrative goals, and technical realities.",
       "Small-to-mid teams that value fast iteration, clear communication, and production ownership."
     ],
 
     // A short "what I'm looking for / what drives me" closing thought
-    closing: "I'm currently open to freelance and contract work, particularly on narrative-led or experimental projects. If something you're working on sounds like a match, I'd love to hear from it."
+    closing: "I'm currently open to freelance and contract work across game design, narrative, UX, accessibility, and production. If something you're working on sounds like a match, I'd love to hear from you."
   };
   </script>
 
@@ -344,8 +344,74 @@
     html { scroll-behavior: smooth; font-size: 17px; }
     body {
       background-color: var(--bg);
+      background-image:
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 11px),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0 1px, transparent 1px 15px),
+        radial-gradient(circle at 14% 16%, rgba(76, 144, 194, 0.24), transparent 34%),
+        radial-gradient(circle at 84% 84%, rgba(var(--accent-rgb), 0.2), transparent 36%),
+        linear-gradient(160deg, rgba(9, 21, 40, 0.95), rgba(7, 17, 33, 0.98));
+      background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+      background-position: 0 0, 0 0, 0 0;
       color: var(--text);
       font-family: var(--font-body); font-size: 16px; line-height: 1.7; min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -12vh -8vw;
+      background:
+        radial-gradient(circle at 8% 14%, rgba(75, 146, 197, 0.36), transparent 30%),
+        radial-gradient(circle at 88% 18%, rgba(111, 90, 170, 0.34), transparent 30%),
+        radial-gradient(circle at 82% 86%, rgba(var(--accent-rgb), 0.3), transparent 34%),
+        radial-gradient(circle at 18% 82%, rgba(33, 95, 150, 0.24), transparent 28%);
+      filter: blur(22px) saturate(110%);
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, transparent 36%, rgba(3, 8, 16, 0.46) 100%),
+        linear-gradient(120deg, rgba(255,255,255,0.03), transparent 40%, rgba(255,255,255,0.02) 72%, transparent 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .site-panel {
+      position: fixed;
+      inset: 12px;
+      border: 1px solid rgba(87, 121, 170, 0.85);
+      background-color: rgba(8, 19, 36, 0.65);
+      background-image:
+        repeating-linear-gradient(120deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 12px),
+        radial-gradient(circle at 78% 10%, rgba(116, 92, 180, 0.16), transparent 40%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0));
+      background-size: 100% 100%, 100% 100%, 100% 100%;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.09),
+        inset 0 0 0 1px rgba(8, 19, 36, 0.45),
+        inset 0 -30px 80px rgba(0,0,0,0.22),
+        0 18px 40px rgba(0, 0, 0, 0.24);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .site-panel::after {
+      content: "";
+      position: absolute;
+      top: -1px;
+      right: 42px;
+      width: 120px;
+      height: 10px;
+      background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.85), transparent);
+      opacity: 0.7;
     }
 
     /* ── NAV ── */
@@ -355,6 +421,15 @@
       padding: 0 2.5rem; height: 56px;
       background: rgba(9,18,34,0.95); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
+    }
+
+    #home-view,
+    #detail-view,
+    #scholarship-view,
+    #about-view,
+    #resume-view {
+      position: relative;
+      z-index: 1;
     }
     .nav-logo {
       font-family: var(--font-display); font-size: 1.5rem;
@@ -391,7 +466,16 @@
     }
 
     /* ── HERO ── */
-    .hero { padding: 6rem 2.5rem 4rem; max-width: 1200px; margin: 0 auto; }
+    .hero {
+      padding: 6rem 2.5rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 2.4rem;
+      align-items: end;
+    }
+    .hero-main { min-width: 0; }
     .hero-eyebrow {
       display: inline-block; font-size: 0.72rem; font-weight: 500;
       letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
@@ -402,6 +486,87 @@
     }
     h1 span { -webkit-text-stroke: 1px var(--text); color: transparent; }
     .hero-sub { margin-top: 1.5rem; color: var(--muted); font-size: 1.08rem; font-weight: 300; max-width: 460px; }
+    .hero-side {
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(19,38,69,0.88), rgba(10,21,40,0.9));
+      padding: 0.95rem 0.95rem 1.05rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-side::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(var(--accent-rgb), 0.22), transparent 42%),
+        radial-gradient(circle at 85% 80%, rgba(61, 126, 182, 0.28), transparent 48%),
+        repeating-linear-gradient(120deg, transparent 0 20px, rgba(255,255,255,0.04) 20px 21px);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    .hero-side-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      position: relative;
+      z-index: 1;
+    }
+    .hero-rotator {
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(var(--accent-rgb), 0.28);
+      background: rgba(10, 21, 40, 0.58);
+      padding: 0.7rem 0.75rem 0.75rem;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      transition: opacity 0.35s ease;
+    }
+    .hero-rotator-kicker {
+      color: var(--accent);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .hero-rotator-title {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      line-height: 1;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+    .hero-rotator-copy {
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.55;
+      margin: 0;
+      max-width: 28ch;
+    }
+    .hero-rotator-dots {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 0.35rem;
+      align-items: center;
+      margin-top: 0.05rem;
+    }
+    .hero-rotator-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(var(--accent-rgb), 0.28);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .hero-rotator-dot.active {
+      background: var(--accent);
+      transform: scale(1.08);
+    }
 
     /* ── SECTION HEADER ── */
     .section-header {
@@ -737,12 +902,12 @@
       line-height: 1.8; max-width: 600px;
     }
     .about-photo {
-      width: 200px; height: 200px; border-radius: 2px;
+      width: 280px; height: 280px; border-radius: 2px;
       object-fit: cover; border: 1px solid var(--border);
       flex-shrink: 0;
     }
     .about-photo-placeholder {
-      width: 200px; height: 200px;
+      width: 280px; height: 280px;
       background: var(--surface); border: 1px solid var(--border);
       display: flex; align-items: center; justify-content: center;
       font-family: var(--font-display); font-size: 0.9rem; letter-spacing: 0.1em;
@@ -929,16 +1094,19 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 1.4rem; }
+      .hero-side { min-height: 0; }
       .detail-body { grid-template-columns: 1fr; gap: 2rem; }
       .detail-right { position: static; }
       .about-page-body { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-standout { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-closing { flex-direction: column; }
       .about-page-hero { grid-template-columns: 1fr; }
-      .about-photo, .about-photo-placeholder { width: 120px; height: 120px; }
+      .about-photo, .about-photo-placeholder { width: 180px; height: 180px; }
     }
     @media (max-width: 700px) {
       nav { padding: 0 1.2rem; }
+      .site-panel { inset: 6px; }
       .nav-links { gap: 1rem; }
       .hero { padding: 4rem 1.2rem 2rem; }
       .section-header { padding: 0 1.2rem; }
@@ -983,6 +1151,8 @@
 </head>
 <body>
 
+<div class="site-panel" aria-hidden="true"></div>
+
 <!-- NAV -->
 <nav>
   <span class="nav-logo" id="nav-logo"></span>
@@ -1001,9 +1171,20 @@
 <!-- ═══════════ HOME VIEW ═══════════ -->
 <div id="home-view">
   <section class="hero">
-    <span class="hero-eyebrow" id="hero-tagline"></span>
-    <h1 id="hero-h1"></h1>
-    <p class="hero-sub" id="hero-copy"></p>
+    <div class="hero-main">
+      <span class="hero-eyebrow" id="hero-tagline"></span>
+      <h1 id="hero-h1"></h1>
+      <p class="hero-sub" id="hero-copy"></p>
+    </div>
+    <aside class="hero-side" aria-label="Quick Links">
+      <div class="hero-side-label">In Rotation</div>
+      <div class="hero-rotator" id="hero-rotator" aria-live="polite">
+        <div class="hero-rotator-kicker" id="hero-rotator-kicker"></div>
+        <div class="hero-rotator-title" id="hero-rotator-title"></div>
+        <p class="hero-rotator-copy" id="hero-rotator-copy"></p>
+      </div>
+      <div class="hero-rotator-dots" id="hero-rotator-dots" aria-hidden="true"></div>
+    </aside>
   </section>
 
   <div class="section-header">
@@ -1083,12 +1264,14 @@
 <div id="scholarship-view" class="hidden">
 
   <section class="hero">
-    <span class="hero-eyebrow">Public Scholarship</span>
-    <h1>Talks<br><span>& Panels</span></h1>
-    <p class="hero-sub">
-      Talks, panels, and public discussions on narrative design,
-      interactive storytelling, and game systems.
-    </p>
+    <div class="hero-main">
+      <span class="hero-eyebrow">Public Scholarship</span>
+      <h1>Talks<br><span>& Panels</span></h1>
+      <p class="hero-sub">
+        Talks, panels, and public discussions on narrative design,
+        interactive storytelling, and game systems.
+      </p>
+    </div>
   </section>
 
   <div class="section-header">
@@ -1196,6 +1379,58 @@ const homeCL = document.getElementById('home-contact-links');
   homeCL.innerHTML += `<a class="contact-link" href="${c.href}" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>
     <span class="icon">${c.icon}</span>${c.label}</a>`;
 });
+
+/* Hero rotating block */
+const HERO_ROTATION = [
+  {
+    kicker: 'Current Build',
+    title: 'Dream Walker',
+    copy: 'Solo-developed action RPG prototype in active development across systems, narrative, and implementation.'
+  },
+  {
+    kicker: 'Design Focus',
+    title: 'Narrative Systems',
+    copy: 'Building mechanics and story structures together so player choices and emotional beats reinforce each other.'
+  },
+  {
+    kicker: 'Open To',
+    title: 'Freelance + Contract',
+    copy: 'Available for narrative-led and experimental projects that need design direction plus hands-on implementation.'
+  },
+  {
+    kicker: 'Recent Talks',
+    title: 'PAX East Panels',
+    copy: 'Panelist and moderator work on psychology, grief, and career pathways through games and content creation.'
+  }
+];
+
+const heroRotator = document.getElementById('hero-rotator');
+const heroRotatorKicker = document.getElementById('hero-rotator-kicker');
+const heroRotatorTitle = document.getElementById('hero-rotator-title');
+const heroRotatorCopy = document.getElementById('hero-rotator-copy');
+const heroRotatorDots = document.getElementById('hero-rotator-dots');
+let heroRotationIndex = 0;
+
+function renderHeroRotation(index) {
+  const item = HERO_ROTATION[index];
+  if (!item) return;
+
+  heroRotatorKicker.textContent = item.kicker;
+  heroRotatorTitle.textContent = item.title;
+  heroRotatorCopy.textContent = item.copy;
+  heroRotatorDots.innerHTML = HERO_ROTATION
+    .map((_, i) => `<span class="hero-rotator-dot ${i === index ? 'active' : ''}"></span>`)
+    .join('');
+}
+
+renderHeroRotation(heroRotationIndex);
+
+if (HERO_ROTATION.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  setInterval(() => {
+    heroRotationIndex = (heroRotationIndex + 1) % HERO_ROTATION.length;
+    renderHeroRotation(heroRotationIndex);
+  }, 4200);
+}
 
 /* ── Build grid ──────────────────────────────────────── */
 const grid = document.getElementById('game-grid');
