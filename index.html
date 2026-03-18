@@ -50,7 +50,7 @@
     {
       id: "into-the-woods",
       title: "Into the Woods",
-      role: "Lead Programmer & Systems Designer",
+      role: "Programmer & Producer",
       projectType: "Student Project",
       year: "2026",
       tags: ["Ren'py", "Visual Novel", "Otome"],
@@ -79,6 +79,7 @@
       tags: ["Unity", "VR", "PC"],
       wip: true,
       thumbnail: "",
+      thumbnailVideo: "ltw_skyboxstar.mp4",
       thumbColor: "c3",
       cardSummary: "Liminal VR meditation experience centered on calm pacing and guided interaction.",
       focus: ["Production", "Narrative"],
@@ -636,11 +637,11 @@
       overflow: hidden; position: relative; transition: background 0.25s; cursor: pointer;
     }
     .card:hover { background: var(--surface); }
-    .card:hover .card-img img { transform: scale(1.04); }
+    .card:hover .card-img img, .card:hover .card-img video { transform: scale(1.04); }
     .card:hover .card-arrow { opacity: 1; transform: translate(0,0); }
 
     .card-img { aspect-ratio: 16/9; overflow: hidden; position: relative; background: #1a1a1a; }
-    .card-img img {
+    .card-img img, .card-img video {
       width: 100%; height: 100%; object-fit: cover;
       transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); display: block;
     }
@@ -1490,7 +1491,7 @@ function renderWorkGrid() {
     const thumb = g.thumbnail || (firstImg && firstImg.src ? firstImg.src : SITE.placeholderMedia);
     const thumbFit = g.thumbFit || 'cover';
     const thumbPosition = g.thumbPosition || 'center center';
-    const hasThumb = thumb.trim() !== '';
+    const hasThumb = (thumb && thumb.trim() !== '') || !!g.thumbnailVideo;
     const summary = g.cardSummary || `${g.description.split('.')[0]}.`;
     const proof = (g.proof || []).map(p => `<span class="proof-badge">${p}</span>`).join('');
 
@@ -1508,7 +1509,7 @@ function renderWorkGrid() {
     });
     card.innerHTML = `
       <div class="card-img ${hasThumb ? '' : g.thumbColor}">
-        ${hasThumb ? `<img src="${thumb}" alt="${g.title}" style="object-fit:${thumbFit};object-position:${thumbPosition};">` : `<div class="placeholder-label">Screenshot</div>`}
+        ${g.thumbnailVideo ? `<video src="${g.thumbnailVideo}" autoplay muted loop playsinline style="object-fit:${thumbFit};object-position:${thumbPosition};"></video>` : hasThumb ? `<img src="${thumb}" alt="${g.title}" style="object-fit:${thumbFit};object-position:${thumbPosition};">` : `<div class="placeholder-label">Screenshot</div>`}
         ${g.wip ? '<div class="wip-badge">In Progress</div>' : ''}
       </div>
       <div class="card-body">
