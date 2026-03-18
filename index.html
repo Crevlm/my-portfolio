@@ -16,6 +16,7 @@
      Media types for media[]:
        { type:"image",   src:"images/x.jpg",  caption:"..." }
        { type:"gif",     src:"images/x.gif",  caption:"..." }
+       { type:"video",   src:"x.mp4",         caption:"..." }
        { type:"youtube", id:"VIDEO_ID"                      }
        { type:"pdf",     src:"files/x.pdf",   caption:"..." }
        { type:"link",    url:"https://...",   label:"..."   }
@@ -36,13 +37,13 @@
       cardSummary: "Branching narrative horror prototype focused on emotionally consistent dialogue outcomes.",
       focus: ["Narrative"],
       proof: ["Branching Dialogue", "YarnSpinner"],
-      collaboration: "Student team project; owned NPC dialogue structure and narrative iteration with the writing/design team.",
+      collaboration: "Student team project of about 15 members; owned NPC dialogue structure and narrative iteration with the writing/design team.",
       description: "Set in an unending winter in which surviving alone is impossible, you the player is in put in charge of a small Doctors Office far outside of a town. It's up to you to tend to the townsfolk as well as other Nomads passing by. The World of FrostBound is a cruel one so expect difficult moral decisions and a mystery that unravels as days pass throughout the game..",
       contribution: "I wrote NPC branching dialogue — structuring a non-linear story that always lands on the same emotional beat regardless of player path.",
       designProcess: "The core challenge was making the city feel alive and unknowable without overwhelming the player. I mapped every scene to an emotional state first (dread, confusion, grief) and built the writing from there. I used YarnSpinner for the dialogue system so writers on the team could iterate quickly without touching engine code.",
       media: [
         { type:"youtube", id:"yU8VoCqZ76I" },
-        { type:"image",   src:"images/fbdialogue.png", caption:"The central hub area — the city square that reconfigures each act." },
+        { type:"image",   src:"images/fbdialogue.png", caption:"Diagnosing the patients in clinic." },
         { type:"link",    url:"https://uhhhgoblin.itch.io/frostbound", label:"Play on itch.io" }
       ]
     },
@@ -59,7 +60,7 @@
       cardSummary: "Choice-driven horror VN with modular relationship, inventory, and ending systems.",
       focus: ["Programming", "Systems"],
       proof: ["Modular Ren'Py Architecture", "Ending Evaluator"],
-      collaboration: "Student team project; led programming standards and implementation coordination across narrative scripts.",
+      collaboration: "Student team project of about 10 members; led programming standards and implementation coordination across narrative scripts.",
       description: "Into the Woods is a choice-driven horror visual novel built in Ren’Py. Players wake to find their friends missing from a remote cabin and must navigate branching dialogue, shifting loyalties, and survival decisions deep in the forest. Relationship values, rescue outcomes, and key choices dynamically determine which of five endings unfolds. I served as lead programmer, architecting the narrative systems, relationship logic, inventory framework, and ending evaluator that power the game’s branching structure.",
       contribution: "I serve as lead programmer and systems designer on Into the Woods. I structured the project architecture across modular .rpy files, implemented the relationship system, rescue-state tracking, inventory framework, visual feedback UI, and the multi-ending evaluation logic. I also established coding standards and file organization for the programming team to ensure scalable branching without narrative conflicts.",
       designProcess: "My programming approach focused on building reusable narrative systems rather than hardcoding story outcomes. I separated variables, characters, inventory, endings, and UI into discrete modules to prevent script bloat and reduce merge conflicts across programmers. Core systems were designed around flexible state dictionaries, allowing rescue outcomes and relationship values to dynamically influence ending logic without rewriting scenes. I prioritized clarity and maintainability. Each mechanic, such as love modification or item checks, was abstracted into functions so writers can trigger logic through simple calls instead of embedding raw Python throughout dialogue. This ensures the branching structure can expand without increasing technical debt as art and final narrative content are integrated.",
@@ -82,13 +83,13 @@
       cardSummary: "Liminal VR meditation experience centered on calm pacing and guided interaction.",
       focus: ["Production", "Narrative"],
       proof: ["VR Interaction Flow", "Production Leadership"],
-      collaboration: "Student team project; directed scope and cross-discipline collaboration as producer and lead designer.",
+      collaboration: "Student team project of about 12 members; directed scope and cross-discipline collaboration as producer and lead designer.",
       description: "Light the Way is a liminal VR meditation experience set in a quiet expanse of space. Players move through darkness at their own pace, lighting dormant stars to gradually illuminate the environment around them.",
       contribution: "I serve as Producer, Narrative Designer, and Lead Game Designer on Light the Way, shaping the core experience, interaction flow, and emotional arc of the meditation journey. I directed scope, coordinated development, and designed the star-lighting mechanic as a reflective progression system. I also performed the voice-over, delivering the guided meditation that anchors the player experience.",
       designProcess: "The design process centered on a 'light in the dark' motif, using environmental contrast as the primary emotional driver. I intentionally kept the interaction minimal, allowing players to activate stars through a simple click or sustained gaze, reducing cognitive load and reinforcing calm. The gradual illumination of space functions as both a visual reward and a symbolic progression, translating small, deliberate actions into visible restoration.",
       media: [
-        { type:"image", src:"", caption:"Early blockout of the first wreck site." },
-        { type:"link",  url:"https://itch.io", label:"Wishlist / follow updates" }
+        { type:"video", src:"ltw_skyboxstar.mp4", caption:"Skybox star-lighting prototype capture from Light the Way." },
+        //{ type:"link",  url:"https://itch.io", label:"Wishlist / follow updates" }
       ]
     },
     {
@@ -104,7 +105,7 @@
       cardSummary: "Completed game jam title where players stack physics-driven presents in a 12-second run.",
       focus: ["Programming", "Systems"],
       proof: ["Shipped Jam Build", "Rapid Prototyping"],
-      collaboration: "Game jam team project; led design and programming from concept to final submission.",
+      collaboration: "Game jam team project of about 5 members; led design and programming from concept to final submission.",
       description: "Present Stack is a cozy-chaotic holiday stacking game created for the 12 Seconds of Christmas Game Jam, where players have only 12 seconds to build the tallest tower of messy, mismatched presents against wobbling physics and looming collapse. The core loop emphasizes quick reactions and expressive physicality in a tight, bite-sized play experience",
       contribution: "I led Present Stack in both game design and programming, defining the core stacking mechanics and implementing the fast-paced challenge loop that drives the jam goal.",
       designProcess: "The design process prioritized a mechanic that was instantly intuitive and easy to replicate under time pressure, with object stacking and physics reacting in a way that communicated risk and reward without complication. Iterations focused on tight framing, readable feedback, and a clear, fast learning curve so players could immediately engage during the 12-second run.",
@@ -125,7 +126,7 @@
       thumbnail: "images/sideviewwip.png",
       thumbColor: "c5",
       cardSummary: "Multiplayer Quake map study exploring competitive flow, sightlines, and arena transitions.",
-      focus: ["Systems"],
+      focus: ["Level Design"],
       proof: ["Competitive Flow Layout", "Iterative Greyboxing"],
       collaboration: "Solo student project focused on multiplayer level design iteration and balance testing.",
       description: "A work-in-progress multiplayer deathmatch map built in TrenchBroom for the original Quake engine, this biker bar inspired map focused on competitive flow, vertical control, and risk-reward combat spaces.",
@@ -710,6 +711,7 @@
     .media-item iframe { width:100%; aspect-ratio:16/9; display:block; border:none; }
     .media-item.pdf-item iframe { aspect-ratio:8.5/11; min-height:480px; }
     .media-item img { width:100%; display:block; object-fit:cover; }
+    .media-item video { width:100%; display:block; object-fit:cover; aspect-ratio:16/9; }
     .media-placeholder { aspect-ratio:16/9; background:var(--surface); display:flex; align-items:center; justify-content:center; color:var(--border); font-family:var(--font-display); font-size:1.1rem; letter-spacing:0.1em; }
     .media-caption { padding:0.6rem 0.8rem; font-size:0.82rem; color:var(--muted); font-weight:300; font-style:italic; border-top:1px solid var(--border); }
     .media-link { display:flex; align-items:center; justify-content:space-between; padding:0.9rem 1rem; text-decoration:none; color:var(--text); font-size:0.94rem; font-weight:500; transition:background 0.2s; border:1px solid var(--border); }
@@ -1677,6 +1679,12 @@ function showDetail(id) {
       mediaEl.innerHTML += `<div class="media-item">
         <img src="${mediaSrc}" alt="${mediaAlt}" loading="lazy">
         ${mediaCaption ? `<div class="media-caption">${mediaCaption}</div>` : ''}
+      </div>`;
+    } else if (m.type === 'video') {
+      const hasSrc = m.src && m.src.trim() !== '';
+      mediaEl.innerHTML += `<div class="media-item">
+        ${hasSrc ? `<video autoplay muted loop playsinline preload="metadata"><source src="${m.src}" type="video/mp4">Your browser does not support the video tag.</video>` : `<div class="media-placeholder">VIDEO</div>`}
+        ${m.caption ? `<div class="media-caption">${m.caption}</div>` : ''}
       </div>`;
     } else if (m.type === 'pdf') {
       const hasSrc = m.src && m.src.trim() !== '';
