@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -71,75 +71,6 @@
       ]
     },
     {
-      id: "present-stack",
-      title: "Present Stack",
-      role: "Game Designer & Programmer",
-      projectType: "Game Jam",
-      year: "2025",
-      tags: ["Unity", "Casual", "Web"],
-      wip: false,
-      thumbnail: "images/PSCoverTitle.png",
-      thumbColor: "c4",
-      cardSummary: "Completed game jam title where players stack physics-driven presents in a 12-second run.",
-      focus: ["Programming", "Systems"],
-      proof: ["Shipped Jam Build", "Rapid Prototyping"],
-      collaboration: "Game jam team project of about 5 members; led design and programming from concept to final submission.",
-      description: "Present Stack is a cozy-chaotic holiday stacking game created for the 12 Seconds of Christmas Game Jam, where players have only 12 seconds to build the tallest tower of messy, mismatched presents against wobbling physics and looming collapse. The core loop emphasizes quick reactions and expressive physicality in a tight, bite-sized play experience",
-      contribution: "I led Present Stack in both game design and programming, defining the core stacking mechanics and implementing the fast-paced challenge loop that drives the jam goal.",
-      designProcess: "The design process prioritized a mechanic that was instantly intuitive and easy to replicate under time pressure, with object stacking and physics reacting in a way that communicated risk and reward without complication. Iterations focused on tight framing, readable feedback, and a clear, fast learning curve so players could immediately engage during the 12-second run.",
-      media: [
-        
-        { type:"image",   src:"images/psfinished.png", caption:"End-of-round results screen in Present Stack showing the player’s final tower height and score." },
-        { type:"link",    url:"https://crevlm.itch.io/present-stack", label:"Play in browser on itch.io" }
-      ]
-    },
-    {
-      id: "quake-level",
-      title: "Quake Level Design Study – TrenchBroom",
-      role: "Level Designer",
-      projectType: "Solo Student Project",
-      year: "2026",
-      tags: ["Trenchbroom", "PC"],
-      wip: true,
-      thumbnail: "images/sideviewwip.png",
-      thumbColor: "c5",
-      cardSummary: "Multiplayer Quake map study exploring competitive flow, sightlines, and arena transitions.",
-      focus: ["Level Design"],
-      proof: ["Competitive Flow Layout", "Iterative Greyboxing"],
-      collaboration: "Solo student project focused on multiplayer level design iteration and balance testing.",
-      description: "A work-in-progress multiplayer deathmatch map built in TrenchBroom for the original Quake engine, this biker bar inspired map focused on competitive flow, vertical control, and risk-reward combat spaces.",
-      contribution: "Designed the full multiplayer layout, structured sightlines and vertical dominance zones, and iterated on choke points and arena transitions to support balanced deathmatch play.",
-      designProcess: "This map explores competitive deathmatch flow within the constraints of Quake’s brush-based BSP pipeline. The current layout emphasizes clear route readability, intentional chokepoints, and multiple connections between combat spaces to keep players rotating instead of getting trapped in dead-end corridors. Current iteration is focused on tightening sightlines, improving circulation, and preparing for spawn and item placement passes to support fair fights and reduce spawn pressure. This is an early WIP and will be updated as the layout and balance evolve.",
-      media: [
-        { type:"image",   src:"images/sideviewwip.png", caption:"Greybox interior of the pool table room, testing cover objects and doorway sightlines." },
-        { type:"image",   src:"images/topdownwip.png", caption:"Top-down layout showing interconnected bar spaces and transitional corridor." },
-        { type:"youtube", id:"GoD3GH_ARc4" }
-      ]
-    },
-    {
-      id: "into-the-woods",
-      title: "Into the Woods",
-      role: "Programmer & Producer",
-      projectType: "Student Project",
-      year: "2026",
-      tags: ["Ren'py", "Visual Novel", "Otome"],
-      wip: true,
-      thumbnail: "",
-      thumbColor: "c2",
-      cardSummary: "Choice-driven horror VN with modular relationship, inventory, and ending systems.",
-      focus: ["Programming", "Systems"],
-      proof: ["Modular Ren'Py Architecture", "Ending Evaluator"],
-      collaboration: "Student team project of about 10 members; led programming standards and implementation coordination across narrative scripts.",
-      description: "Into the Woods is a choice-driven horror visual novel built in Ren’Py. Players wake to find their friends missing from a remote cabin and must navigate branching dialogue, shifting loyalties, and survival decisions deep in the forest. Relationship values, rescue outcomes, and key choices dynamically determine which of five endings unfolds. I served as lead programmer, architecting the narrative systems, relationship logic, inventory framework, and ending evaluator that power the game’s branching structure.",
-      contribution: "I serve as lead programmer and systems designer on Into the Woods. I structured the project architecture across modular .rpy files, implemented the relationship system, rescue-state tracking, inventory framework, visual feedback UI, and the multi-ending evaluation logic. I also established coding standards and file organization for the programming team to ensure scalable branching without narrative conflicts.",
-      designProcess: "My programming approach focused on building reusable narrative systems rather than hardcoding story outcomes. I separated variables, characters, inventory, endings, and UI into discrete modules to prevent script bloat and reduce merge conflicts across programmers. Core systems were designed around flexible state dictionaries, allowing rescue outcomes and relationship values to dynamically influence ending logic without rewriting scenes. I prioritized clarity and maintainability. Each mechanic, such as love modification or item checks, was abstracted into functions so writers can trigger logic through simple calls instead of embedding raw Python throughout dialogue. This ensures the branching structure can expand without increasing technical debt as art and final narrative content are integrated.",
-      media: [
-        { type:"gif",   src:"", caption:"" },
-        { type:"image", src:"", caption:"" },
-        { type:"link",  url:"https://itch.io", label:"Itch Page Coming Soon" }
-      ]
-    },
-    {
       id: "dreamwalker",
       title: "Dream Walker",
       role: "Solo Developer",
@@ -162,6 +93,74 @@
         { type:"pdf",  src:"files/DreamWalker-gdd-v1.1.pdf", caption:"Dream Walker Game Design Document (v1.1)." },
         { type:"link", url:"files/DreamWalker-gdd-v1.1.pdf", label:"Download Dream Walker GDD (PDF)" },
         { type:"link", url:"https://itch.io", label:"Itch Page Coming Soon" }
+      ]
+    },
+    {
+      id: "quake-level",
+      title: "Quake Level Design Study – TrenchBroom",
+      role: "Level Designer",
+      projectType: "Solo Student Project",
+      year: "2026",
+      tags: ["Trenchbroom", "PC"],
+      wip: true,
+      thumbnail: "images/sideviewwip.png",
+      thumbColor: "c5",
+      cardSummary: "Multiplayer Quake map study exploring competitive flow, sightlines, and arena transitions.",
+      focus: ["Level Design"],
+      proof: ["Competitive Flow Layout", "Iterative Greyboxing"],
+      collaboration: "Solo student project focused on multiplayer level design iteration and balance testing.",
+      description: "A work-in-progress multiplayer deathmatch map built in TrenchBroom for the original Quake engine, this biker bar inspired map focused on competitive flow, vertical control, and risk-reward combat spaces.",
+      contribution: "Designed the full multiplayer layout, structured sightlines and vertical dominance zones, and iterated on choke points and arena transitions to support balanced deathmatch play.",
+      designProcess: "This map explores competitive deathmatch flow within the constraints of Quake's brush-based BSP pipeline. The current layout emphasizes clear route readability, intentional chokepoints, and multiple connections between combat spaces to keep players rotating instead of getting trapped in dead-end corridors. Current iteration is focused on tightening sightlines, improving circulation, and preparing for spawn and item placement passes to support fair fights and reduce spawn pressure. This is an early WIP and will be updated as the layout and balance evolve.",
+      media: [
+        { type:"image",   src:"images/sideviewwip.png", caption:"Greybox interior of the pool table room, testing cover objects and doorway sightlines." },
+        { type:"image",   src:"images/topdownwip.png", caption:"Top-down layout showing interconnected bar spaces and transitional corridor." },
+        { type:"youtube", id:"GoD3GH_ARc4" }
+      ]
+    },
+    {
+      id: "into-the-woods",
+      title: "Into the Woods",
+      role: "Programmer & Producer",
+      projectType: "Student Project",
+      year: "2026",
+      tags: ["Ren'py", "Visual Novel", "Otome"],
+      wip: true,
+      thumbnail: "",
+      thumbColor: "c2",
+      cardSummary: "Choice-driven horror VN with modular relationship, inventory, and ending systems.",
+      focus: ["Programming", "Systems"],
+      proof: ["Modular Ren'Py Architecture", "Ending Evaluator"],
+      collaboration: "Student team project of about 10 members; led programming standards and implementation coordination across narrative scripts.",
+      description: "Into the Woods is a choice-driven horror visual novel built in Ren'Py. Players wake to find their friends missing from a remote cabin and must navigate branching dialogue, shifting loyalties, and survival decisions deep in the forest. Relationship values, rescue outcomes, and key choices dynamically determine which of five endings unfolds. I served as lead programmer, architecting the narrative systems, relationship logic, inventory framework, and ending evaluator that power the game's branching structure.",
+      contribution: "I serve as lead programmer and systems designer on Into the Woods. I structured the project architecture across modular .rpy files, implemented the relationship system, rescue-state tracking, inventory framework, visual feedback UI, and the multi-ending evaluation logic. I also established coding standards and file organization for the programming team to ensure scalable branching without narrative conflicts.",
+      designProcess: "My programming approach focused on building reusable narrative systems rather than hardcoding story outcomes. I separated variables, characters, inventory, endings, and UI into discrete modules to prevent script bloat and reduce merge conflicts across programmers. Core systems were designed around flexible state dictionaries, allowing rescue outcomes and relationship values to dynamically influence ending logic without rewriting scenes. I prioritized clarity and maintainability. Each mechanic, such as love modification or item checks, was abstracted into functions so writers can trigger logic through simple calls instead of embedding raw Python throughout dialogue. This ensures the branching structure can expand without increasing technical debt as art and final narrative content are integrated.",
+      media: [
+        { type:"gif",   src:"", caption:"" },
+        { type:"image", src:"", caption:"" },
+        { type:"link",  url:"https://itch.io", label:"Itch Page Coming Soon" }
+      ]
+    },
+    {
+      id: "present-stack",
+      title: "Present Stack",
+      role: "Game Designer & Programmer",
+      projectType: "Game Jam",
+      year: "2025",
+      tags: ["Unity", "Casual", "Web"],
+      wip: false,
+      thumbnail: "images/PSCoverTitle.png",
+      thumbColor: "c4",
+      cardSummary: "Completed game jam title where players stack physics-driven presents in a 12-second run.",
+      focus: ["Programming", "Systems"],
+      proof: ["Shipped Jam Build", "Rapid Prototyping"],
+      collaboration: "Game jam team project of about 5 members; led design and programming from concept to final submission.",
+      description: "Present Stack is a cozy-chaotic holiday stacking game created for the 12 Seconds of Christmas Game Jam, where players have only 12 seconds to build the tallest tower of messy, mismatched presents against wobbling physics and looming collapse. The core loop emphasizes quick reactions and expressive physicality in a tight, bite-sized play experience",
+      contribution: "I led Present Stack in both game design and programming, defining the core stacking mechanics and implementing the fast-paced challenge loop that drives the jam goal.",
+      designProcess: "The design process prioritized a mechanic that was instantly intuitive and easy to replicate under time pressure, with object stacking and physics reacting in a way that communicated risk and reward without complication. Iterations focused on tight framing, readable feedback, and a clear, fast learning curve so players could immediately engage during the 12-second run.",
+      media: [
+        { type:"image",   src:"images/psfinished.png", caption:"End-of-round results screen in Present Stack showing the player's final tower height and score." },
+        { type:"link",    url:"https://crevlm.itch.io/present-stack", label:"Play in browser on itch.io" }
       ]
     }
   ];
@@ -1439,10 +1438,10 @@ if (HERO_ROTATION.length > 1 && !window.matchMedia('(prefers-reduced-motion: red
 const grid = document.getElementById('game-grid');
 const WORK_ORDER = [
   'frostbound',
-  'into-the-woods',
+  'light-the-way',
   'dreamwalker',
   'quake-level',
-  'light-the-way',
+  'into-the-woods',
   'present-stack'
 ];
 const orderedGames = [...GAMES].sort((a, b) => {
