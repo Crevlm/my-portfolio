@@ -28,29 +28,61 @@
       role: "Narrative Designer",
       projectType: "Student Project",
       year: "2026",
-      tags: ["Unity", "Horror", "PC"],
+      tags: ["Unity", "Survival Horror", "PC"],
       wip: true,
-      thumbnail: "images/Frostbound Logo.jpg",
+      thumbnail: "images/FrostboundNewLogo.jpg",
       thumbFit: "contain",
       thumbPosition: "center center",
       thumbColor: "c1",
-      cardSummary: "Branching narrative horror prototype focused on emotionally consistent dialogue outcomes.",
+      cardSummary: "Narrative survival horror prototype centered on clinic triage, player consequence, and branching dialogue outcomes.",
       focus: ["Narrative"],
       proof: ["Branching Dialogue", "YarnSpinner"],
       collaboration: "Student team project of about 15 members; owned NPC dialogue structure and narrative iteration with the writing/design team.",
-      description: "Set in an unending winter in which surviving alone is impossible, you the player is in put in charge of a small Doctors Office far outside of a town. It's up to you to tend to the townsfolk as well as other Nomads passing by. The World of FrostBound is a cruel one so expect difficult moral decisions and a mystery that unravels as days pass throughout the game..",
-      contribution: "I wrote NPC branching dialogue — structuring a non-linear story that always lands on the same emotional beat regardless of player path.",
-      designProcess: "The core challenge was making the city feel alive and unknowable without overwhelming the player. I mapped every scene to an emotional state first (dread, confusion, grief) and built the writing from there. I used YarnSpinner for the dialogue system so writers on the team could iterate quickly without touching engine code.",
+      description: "FrostBound is a narrative survival horror game set in an endless winter, where the player runs a remote clinic and makes hard triage choices with limited resources.",
+      contribution: "I wrote and structured branching dialogue for multiple FrostBound characters in YarnSpinner, balancing player agency with consistent voice design.",
+      designProcess: "I mapped each character branch to a clear intent, then drafted short, playable lines that could be iterated quickly in-engine.",
+      writingOverview: "Spoiler-safe excerpts from one character thread. My narrative work on FrostBound spans multiple NPCs, each with distinct tone and branch behavior.",
+      writingHighlights: [
+        "State-based hubs keep progression clear.",
+        "Distinct voice pillars across multiple NPCs.",
+        "Player replies preserve role-play intent.",
+        "Iteration stayed clean during rewrites."
+      ],
+      writingSamples: [
+        {
+          title: "Door Greet - Friction + Control",
+          context: "First contact at the clinic door.",
+          craftNote: "Player sets tone immediately while the NPC keeps social pressure high.",
+          excerpt: "Irena: You're not the Doctor.\n\nPlayer Options:\n- He's away for a few days. I'm covering.\n- What do you need?\n\nIrena: My hands have been giving me trouble. Hard to grip things. I need to be seen.\n\nPlayer Options:\n- I need to ask you a few questions first.\n- Come down to the clinic.\n\nIrena: Still no bed available?"
+        },
+        {
+          title: "Occupation Branch - Worldbuilding Through Character",
+          context: "Optional branch that layers setting stakes into clinical dialogue.",
+          craftNote: "Lore is delivered through voice-driven utility talk, not exposition dumps.",
+          excerpt: "Irena: I stretch what's left. Seaweed from low tide, dried herbs, whatever the hunters bring in. The ships haven't been reliable. Someone has to fill the gap.\n\nPlayer Options:\n- The ships have been unreliable?\n- How long have you been doing this?\n\nIrena: For months now. I don't know what's happening out there, and nobody's told me anything useful.\nIrena: All I know is the stores are lower than they should be."
+        },
+        {
+          title: "Consequence Voice - Misdiagnosis Fallout",
+          context: "High-emotion response when player treatment choice is wrong.",
+          craftNote: "Escalation uses repetition and interrupted clauses to heighten blame and urgency.",
+          excerpt: "Irena: What did you just give me?\n\nPlayer Option:\n- It should help with the symptoms you described.\n\nIrena: Should. SHOULD.\nIrena: Half this village eats because of me. Half this village survives winter because I don't guess. I measure. I check. I test twice before I trust anything.\nIrena: And you just handed me something and told me to take it?!\n\nPlayer Option:\n- Irena, please - let me re-examine..."
+        }
+      ],
       media: [
         { type:"youtube", id:"yU8VoCqZ76I" },
         { type:"image",   src:"images/fbdialogue.png", caption:"Diagnosing the patients in clinic." },
+        { type:"image",   src:"images/FrostboundBasement.png", caption:"Basement environment used to build dread and environmental storytelling." },
+        { type:"image",   src:"images/FrostboundBerthaDoor.png", caption:"Door encounter framing character tension and route setup." },
+        { type:"image",   src:"images/FrostboundBodyBasement.png", caption:"Basement discovery beat reinforcing survival-horror stakes." },
+        { type:"image",   src:"images/FrostboundCharacters.png", caption:"Character lineup and visual identity reference for FrostBound NPCs." },
+        { type:"image",   src:"images/FrostboundIrenaJournal.png", caption:"In-world journal prop supporting narrative clues and player investigation." },
         { type:"link",    url:"https://uhhhgoblin.itch.io/frostbound", label:"Play on itch.io" }
       ]
     },
     {
       id: "into-the-woods",
       title: "Into the Woods",
-      role: "Lead Programmer & Producer",
+      role: "Producer & Lead Programmer",
       projectType: "Student Project",
       year: "2026",
       tags: ["Ren'py", "Visual Novel", "Otome"],
@@ -409,9 +441,11 @@
       --accent-rgb: 255, 199, 166;
       --font-display: 'Bebas Neue', sans-serif;
       --font-body: 'DM Sans', sans-serif;
+      --content-max: 1440px;
+      --content-narrow: 1240px;
     }
 
-    html { scroll-behavior: smooth; font-size: 17px; }
+    html { scroll-behavior: smooth; font-size: 19px; }
     body {
       background-color: var(--bg);
       background-image:
@@ -423,7 +457,7 @@
       background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
       background-position: 0 0, 0 0, 0 0;
       color: var(--text);
-      font-family: var(--font-body); font-size: 16px; line-height: 1.7; min-height: 100vh;
+      font-family: var(--font-body); font-size: 17px; line-height: 1.7; min-height: 100vh;
       position: relative;
       overflow-x: hidden;
     }
@@ -510,7 +544,7 @@
       appearance: none;
       border: none;
       background: transparent;
-      color: var(--muted); text-decoration: none; font-size: 0.9rem;
+      color: var(--muted); text-decoration: none; font-size: 0.98rem;
       font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
       transition: color 0.2s; cursor: pointer;
     }
@@ -520,7 +554,7 @@
       border: none;
       background: transparent;
       display: none; align-items: center; gap: 0.5rem; color: var(--muted);
-      font-size: 0.9rem; font-weight: 500; letter-spacing: 0.08em;
+      font-size: 0.98rem; font-weight: 500; letter-spacing: 0.08em;
       text-transform: uppercase; transition: color 0.2s; cursor: pointer;
     }
     .nav-back:hover { color: var(--text); }
@@ -538,7 +572,7 @@
     /* ── HERO ── */
     .hero {
       padding: 6rem 2.5rem 4rem;
-      max-width: 1200px;
+      max-width: var(--content-max);
       margin: 0 auto;
       display: grid;
       grid-template-columns: minmax(0, 1fr) 320px;
@@ -551,11 +585,11 @@
       letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
     }
     h1 {
-      font-family: var(--font-display); font-size: clamp(4rem, 10vw, 8.5rem);
+      font-family: var(--font-display); font-size: clamp(4.6rem, 10vw, 9.2rem);
       line-height: 0.92; letter-spacing: 0.02em; color: var(--text);
     }
     h1 span { -webkit-text-stroke: 1px var(--text); color: transparent; }
-    .hero-sub { margin-top: 1.5rem; color: var(--muted); font-size: 1.08rem; font-weight: 300; max-width: 460px; }
+    .hero-sub { margin-top: 1.5rem; color: var(--muted); font-size: 1.18rem; font-weight: 300; max-width: 460px; }
     .hero-side {
       border: 1px solid var(--border);
       background: linear-gradient(180deg, rgba(19,38,69,0.88), rgba(10,21,40,0.9));
@@ -640,18 +674,18 @@
 
     /* ── SECTION HEADER ── */
     .section-header {
-      max-width: 1200px; margin: 5rem auto 1.5rem; padding: 0 2.5rem;
+      max-width: var(--content-max); margin: 5rem auto 1.5rem; padding: 0 2.5rem;
       display: flex; align-items: baseline; gap: 1rem;
     }
     .section-header h2 {
-      font-family: var(--font-display); font-size: 1.5rem;
+      font-family: var(--font-display); font-size: 1.8rem;
       letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
     }
     .section-line { flex: 1; height: 1px; background: var(--border); }
 
     /* ── WORK FILTERS ── */
     .work-filters {
-      max-width: 1200px;
+      max-width: var(--content-max);
       margin: 0 auto 1.4rem;
       padding: 0 2.5rem;
       display: flex;
@@ -685,8 +719,8 @@
 
     /* ── GRID ── */
     .grid {
-      max-width: 1200px; margin: 0 auto 2rem; padding: 0 2.5rem;
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      max-width: var(--content-max); margin: 0 auto 2rem; padding: 0 2.5rem;
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1px; background: var(--grid-line); border: 1px solid var(--grid-line);
     }
     .grid-empty {
@@ -730,13 +764,13 @@
       color: var(--accent); display: inline-flex; align-items: center; gap: 0.4rem;
     }
     .card-role::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; }
-    .card-title { font-family: var(--font-display); font-size: 1.55rem; letter-spacing: 0.04em; line-height: 1; color: var(--text); }
+    .card-title { font-family: var(--font-display); font-size: 1.9rem; letter-spacing: 0.04em; line-height: 1; color: var(--text); }
     .card-proof { display:flex; flex-wrap:wrap; gap:0.35rem; margin-top:0.3rem; }
     .proof-badge {
       font-size:0.68rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase;
       color:var(--accent); border:1px solid rgba(var(--accent-rgb),0.35); background:rgba(var(--accent-rgb),0.11); padding:2px 8px; border-radius:2px;
     }
-    .card-desc { font-size: 0.95rem; color: var(--muted); font-weight: 300; line-height: 1.6; margin-top: 0.2rem; }
+    .card-desc { font-size: 1.04rem; color: var(--muted); font-weight: 300; line-height: 1.6; margin-top: 0.2rem; }
     .card-meta { display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:0.8rem; border-top:1px solid var(--border); }
     .card-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
     .tag { font-size:0.72rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--text); background:rgba(19,38,69,0.95); border:1px solid var(--border); padding:2px 8px; border-radius:2px; }
@@ -745,22 +779,22 @@
     .wip-badge { position:absolute; top:12px; right:12px; background:rgba(16,35,59,0.85); border:1px solid var(--border); color:var(--muted); font-size:0.68rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; padding:3px 8px; backdrop-filter:blur(4px); }
 
     /* ── HOME ABOUT STRIP ── */
-    .about-strip { max-width:1200px; margin:4rem auto 0; padding:2.5rem; border-top:1px solid var(--border); display:flex; gap:4rem; align-items:flex-start; }
+    .about-strip { max-width:var(--content-max); margin:4rem auto 0; padding:2.5rem; border-top:1px solid var(--border); display:flex; gap:4rem; align-items:flex-start; }
     .about-left { flex:1; }
-    .about-left h3 { font-family:var(--font-display); font-size:2.4rem; line-height:1; margin-bottom:1rem; }
-    .about-left p { color:var(--muted); font-weight:300; font-size:1.02rem; max-width:430px; }
+    .about-left h3 { font-family:var(--font-display); font-size:2.8rem; line-height:1; margin-bottom:1rem; }
+    .about-left p { color:var(--muted); font-weight:300; font-size:1.12rem; max-width:430px; }
     .about-right { display:flex; flex-direction:column; gap:0.5rem; padding-top:0.2rem; }
-    .contact-link { display:flex; align-items:center; gap:0.6rem; color:var(--text); text-decoration:none; font-size:0.95rem; font-weight:400; transition:color 0.2s; }
+    .contact-link { display:flex; align-items:center; gap:0.6rem; color:var(--text); text-decoration:none; font-size:1.02rem; font-weight:400; transition:color 0.2s; }
     .contact-link:hover { color:var(--accent); }
     .contact-link .icon { font-size:1rem; }
 
     /* ── FOOTER ── */
-    footer { max-width:1200px; margin:0 auto; padding:1.5rem 2.5rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:0.84rem; }
+    footer { max-width:var(--content-max); margin:0 auto; padding:1.5rem 2.5rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:0.84rem; }
 
     /* ════════════════════════════════════════
        DETAIL PAGE
     ════════════════════════════════════════ */
-    #detail-view { max-width:1200px; margin:0 auto; padding:0 2.5rem 5rem; }
+    #detail-view { max-width:var(--content-max); margin:0 auto; padding:0 2.5rem 5rem; }
     .detail-hero {
       padding:3.5rem 0 2.5rem;
       border-bottom:1px solid var(--border);
@@ -774,7 +808,7 @@
     .detail-type-row { display:flex; align-items:center; gap:1rem; margin-bottom:1rem; }
     .detail-type { font-size:0.78rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); border:1px solid var(--border); padding:3px 10px; }
     .detail-year { font-size:0.78rem; color:var(--muted); }
-    .detail-title { font-family:var(--font-display); font-size:clamp(3rem,8vw,6rem); line-height:0.92; letter-spacing:0.02em; color:var(--text); margin-bottom:0.8rem; }
+    .detail-title { font-family:var(--font-display); font-size:clamp(3.6rem,8.2vw,6.8rem); line-height:0.92; letter-spacing:0.02em; color:var(--text); margin-bottom:0.8rem; }
     .detail-role { font-size:0.82rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); display:inline-flex; align-items:center; gap:0.5rem; margin-bottom:1.2rem; }
     .detail-role::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--accent); }
     .detail-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
@@ -800,8 +834,8 @@
     .detail-body { display:grid; grid-template-columns:1fr 380px; gap:4rem; align-items:start; }
     .detail-left { display:flex; flex-direction:column; gap:2.5rem; }
     .detail-right { position:sticky; top:76px; display:flex; flex-direction:column; gap:1rem; }
-    .detail-section-label { font-family:var(--font-display); font-size:1rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:0.6rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); }
-    .detail-copy { color:var(--text); font-weight:300; font-size:1.02rem; line-height:1.78; max-width:72ch; }
+    .detail-section-label { font-family:var(--font-display); font-size:1.15rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:0.6rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); }
+    .detail-copy { color:var(--text); font-weight:300; font-size:1.12rem; line-height:1.78; max-width:72ch; }
     .detail-list {
       list-style:none;
       display:flex;
@@ -829,9 +863,81 @@
       border-radius:50%;
       background:var(--accent);
     }
-    .detail-collab { color:var(--muted) !important; font-size:0.94rem !important; line-height:1.7 !important; }
+    .detail-collab {
+      color: var(--text);
+      font-weight: 300;
+      font-size: 1.12rem;
+      line-height: 1.78;
+      max-width: 72ch;
+    }
     .detail-inline-media { margin-top:1.6rem; }
     .detail-proof { display:flex; flex-direction:column; gap:1rem; }
+    .detail-writing-intro {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+      max-width: 74ch;
+    }
+    .detail-writing-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 0.7rem;
+      margin-bottom: 1.2rem;
+    }
+    .detail-writing-pill {
+      border: 1px solid rgba(var(--accent-rgb), 0.45);
+      background: linear-gradient(145deg, rgba(var(--accent-rgb), 0.12), rgba(19, 38, 69, 0.35));
+      color: var(--text);
+      font-size: 0.84rem;
+      letter-spacing: 0.03em;
+      line-height: 1.55;
+      padding: 0.65rem 0.7rem;
+    }
+    .detail-writing-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      max-width: 86ch;
+    }
+    .writing-sample-card {
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 18% 14%, rgba(var(--accent-rgb), 0.12), transparent 42%),
+        linear-gradient(165deg, rgba(8, 19, 36, 0.92), rgba(10, 21, 40, 0.8));
+      padding: 1rem 1.05rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .writing-sample-title {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.45rem;
+      font-weight: 600;
+    }
+    .writing-sample-context {
+      color: var(--muted);
+      font-size: 0.87rem;
+      line-height: 1.55;
+      margin-bottom: 0.45rem;
+    }
+    .writing-sample-craft {
+      color: var(--text);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      margin-bottom: 0.6rem;
+      padding-top: 0.45rem;
+      border-top: 1px dashed rgba(var(--accent-rgb), 0.35);
+    }
+    .writing-sample-excerpt {
+      margin: 0;
+      color: #f2f6ff;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      font-weight: 400;
+      white-space: pre-line;
+    }
     .detail-kpis { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:0.6rem; }
     .detail-kpi {
       border:1px solid var(--border);
@@ -891,10 +997,64 @@
     .media-caption { padding:0.6rem 0.8rem; font-size:0.82rem; color:var(--muted); font-weight:300; font-style:italic; border-top:1px solid var(--border); }
     .media-link { display:flex; align-items:center; justify-content:space-between; padding:0.9rem 1rem; text-decoration:none; color:var(--text); font-size:0.94rem; font-weight:500; transition:background 0.2s; border:1px solid var(--border); }
     .media-link:hover { background:var(--surface); color:var(--accent); }
+    .lightbox-enabled { cursor: zoom-in; }
+
+    body.lightbox-open { overflow: hidden; }
+    .image-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(3, 8, 16, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      border: 1px solid var(--border);
+      background: rgba(10, 21, 40, 0.85);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.86rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.45rem 0.75rem;
+      cursor: pointer;
+    }
+    .lightbox-close:hover { border-color: var(--accent); color: var(--accent); }
+    .lightbox-figure {
+      margin: 0;
+      max-width: min(92vw, 1600px);
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      align-items: center;
+    }
+    .lightbox-image {
+      max-width: 100%;
+      max-height: calc(90vh - 3rem);
+      width: auto;
+      height: auto;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 42px rgba(0,0,0,0.5);
+      background: #091428;
+      display: block;
+    }
+    .lightbox-caption {
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 92ch;
+    }
     
     /* ── SCHOLARSHIP CARDS ───────────────── */
     .scholarship-list {
-      max-width: 980px;
+      max-width: var(--content-narrow);
       margin: 0 auto 4rem;
       padding: 0 2.5rem;
       display: grid;
@@ -1051,7 +1211,7 @@
     /* ════════════════════════════════════════
        ABOUT PAGE
     ════════════════════════════════════════ */
-    #about-view { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem 5rem; }
+    #about-view { max-width: var(--content-max); margin: 0 auto; padding: 0 2.5rem 5rem; }
 
     .about-page-hero {
       padding: 4rem 0 3rem;
@@ -1068,7 +1228,7 @@
     }
     .about-page-headline {
       font-family: var(--font-display);
-      font-size: clamp(2.4rem, 6vw, 5rem);
+      font-size: clamp(2.9rem, 6.5vw, 5.8rem);
       line-height: 1;
       letter-spacing: 0.02em;
       color: var(--text);
@@ -1200,7 +1360,7 @@
       RESUME PAGE
     ════════════════════════════════════════ */
     #resume-view {
-      max-width: 1200px;
+      max-width: var(--content-max);
       margin: 0 auto;
       padding: 0 2.5rem 5rem;
     }
@@ -1223,7 +1383,7 @@
 
     .resume-title {
       font-family: var(--font-display);
-      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-size: clamp(3rem, 6.5vw, 5.8rem);
       line-height: 1;
       letter-spacing: 0.02em;
     }
@@ -1273,6 +1433,7 @@
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; gap: 1.4rem; }
       .hero-side { min-height: 0; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .detail-hero { grid-template-columns: 1fr; }
       .detail-hero-thumb-wrap { width:100%; max-width:none; min-height:180px; }
       .detail-hero-thumb { height:170px; }
@@ -1418,7 +1579,7 @@
       <div class="detail-tags"  id="d-tags"></div>
     </div>
     <div class="detail-hero-thumb-wrap hidden" id="d-hero-thumb-wrap">
-      <img class="detail-hero-thumb" id="d-hero-thumb" alt="Project logo" loading="lazy">
+      <img class="detail-hero-thumb lightbox-enabled" id="d-hero-thumb" alt="Project logo" loading="lazy">
     </div>
   </div>
   <div class="detail-body">
@@ -1442,6 +1603,12 @@
           <ul class="detail-highlight-list" id="d-highlights"></ul>
           <div class="detail-snippets" id="d-snippets"></div>
         </div>
+      </div>
+      <div class="detail-section hidden" id="d-writing-section">
+        <div class="detail-section-label">Writing Showcase</div>
+        <p class="detail-writing-intro" id="d-writing-overview"></p>
+        <div class="detail-writing-highlights" id="d-writing-highlights"></div>
+        <div class="detail-writing-grid" id="d-writing-samples"></div>
       </div>
       <div class="detail-section">
         <div class="detail-section-label">Design Process</div>
@@ -1544,6 +1711,14 @@
     </div>
   </div>
 
+</div>
+
+<div id="image-lightbox" class="image-lightbox hidden" role="dialog" aria-modal="true" aria-label="Expanded image preview">
+  <button type="button" class="lightbox-close" id="lightbox-close-btn" aria-label="Close image preview">Close</button>
+  <figure class="lightbox-figure">
+    <img id="lightbox-image" class="lightbox-image" alt="Expanded project image">
+    <figcaption id="lightbox-caption" class="lightbox-caption"></figcaption>
+  </figure>
 </div>
 
 <!-- ═══════════ SCRIPT ═══════════ -->
@@ -1747,7 +1922,7 @@ document.getElementById('a-closing').textContent  = ABOUT.closing;
 /* Photo */
 const photoWrap = document.getElementById('a-photo-wrap');
 if (ABOUT.photo && ABOUT.photo.trim() !== '') {
-  photoWrap.innerHTML = `<img class="about-photo" src="${ABOUT.photo}" alt="${SITE.name}">`;
+  photoWrap.innerHTML = `<img class="about-photo lightbox-enabled" src="${ABOUT.photo}" alt="${SITE.name}">`;
 } else {
   photoWrap.innerHTML = `<div class="about-photo-placeholder">PHOTO</div>`;
 }
@@ -1844,6 +2019,45 @@ function escapeHtml(value) {
     .replace(/>/g, '&gt;');
 }
 
+const imageLightboxEl = document.getElementById('image-lightbox');
+const lightboxImageEl = document.getElementById('lightbox-image');
+const lightboxCaptionEl = document.getElementById('lightbox-caption');
+const lightboxCloseBtnEl = document.getElementById('lightbox-close-btn');
+
+function openImageLightbox(src, caption) {
+  if (!src) return;
+  lightboxImageEl.src = src;
+  lightboxCaptionEl.textContent = caption || '';
+  imageLightboxEl.classList.remove('hidden');
+  document.body.classList.add('lightbox-open');
+}
+
+function closeImageLightbox() {
+  imageLightboxEl.classList.add('hidden');
+  lightboxImageEl.removeAttribute('src');
+  lightboxCaptionEl.textContent = '';
+  document.body.classList.remove('lightbox-open');
+}
+
+document.addEventListener('click', (event) => {
+  const clickedImage = event.target.closest('img.lightbox-enabled');
+  if (!clickedImage || !clickedImage.src) return;
+  if (clickedImage.closest('.scholarship-video-trigger, .card')) return;
+  const captionNode = clickedImage.closest('.media-item')?.querySelector('.media-caption');
+  const captionText = captionNode ? captionNode.textContent : (clickedImage.alt || '');
+  openImageLightbox(clickedImage.src, captionText);
+});
+
+lightboxCloseBtnEl.addEventListener('click', closeImageLightbox);
+imageLightboxEl.addEventListener('click', (event) => {
+  if (event.target === imageLightboxEl) closeImageLightbox();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !imageLightboxEl.classList.contains('hidden')) {
+    closeImageLightbox();
+  }
+});
+
 function renderDetailCopy(elementId, textValue, bulletItems) {
   const el = document.getElementById(elementId);
   const bullets = Array.isArray(bulletItems) ? bulletItems.filter(Boolean) : [];
@@ -1891,10 +2105,16 @@ function showDetail(id) {
   const kpiEl = document.getElementById('d-kpis');
   const highlightsEl = document.getElementById('d-highlights');
   const snippetsEl = document.getElementById('d-snippets');
+  const writingSectionEl = document.getElementById('d-writing-section');
+  const writingOverviewEl = document.getElementById('d-writing-overview');
+  const writingHighlightsEl = document.getElementById('d-writing-highlights');
+  const writingSamplesEl = document.getElementById('d-writing-samples');
 
   const quickStats = g.quickStats || [];
   const systemHighlights = g.systemHighlights || [];
   const devSnippets = g.devSnippets || [];
+  const writingHighlights = g.writingHighlights || [];
+  const writingSamples = g.writingSamples || [];
 
   kpiEl.innerHTML = quickStats.map(item => `<div class="detail-kpi">${item}</div>`).join('');
   highlightsEl.innerHTML = systemHighlights.map(item => `<li>${item}</li>`).join('');
@@ -1909,7 +2129,23 @@ function showDetail(id) {
     </article>
   `).join('');
 
+  writingOverviewEl.textContent = g.writingOverview || '';
+  writingHighlightsEl.innerHTML = writingHighlights
+    .map(item => `<div class="detail-writing-pill">${item}</div>`)
+    .join('');
+  writingSamplesEl.innerHTML = writingSamples
+    .map(sample => `
+      <article class="writing-sample-card">
+        <div class="writing-sample-title">${sample.title || 'Writing Sample'}</div>
+        ${sample.context ? `<p class="writing-sample-context">${sample.context}</p>` : ''}
+        ${sample.craftNote ? `<p class="writing-sample-craft">${sample.craftNote}</p>` : ''}
+        ${sample.excerpt ? `<p class="writing-sample-excerpt">${sample.excerpt}</p>` : ''}
+      </article>
+    `)
+    .join('');
+
   proofSectionEl.classList.toggle('hidden', !(quickStats.length || systemHighlights.length || devSnippets.length));
+  writingSectionEl.classList.toggle('hidden', !(g.writingOverview || writingHighlights.length || writingSamples.length));
 
   const mediaEl = document.getElementById('d-media');
   const inlineMediaEl = document.getElementById('d-inline-media');
@@ -1927,7 +2163,7 @@ function showDetail(id) {
       const mediaAlt = hasSrc ? (m.caption || '') : 'Coming soon placeholder image';
       const mediaCaption = m.caption || (hasSrc ? '' : 'Coming soon');
       mediaEl.innerHTML += `<div class="media-item">
-        <img src="${mediaSrc}" alt="${mediaAlt}" loading="lazy">
+        <img class="lightbox-enabled" src="${mediaSrc}" alt="${mediaAlt}" loading="lazy">
         ${mediaCaption ? `<div class="media-caption">${mediaCaption}</div>` : ''}
       </div>`;
     } else if (m.type === 'video') {
