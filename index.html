@@ -50,23 +50,92 @@
     {
       id: "into-the-woods",
       title: "Into the Woods",
-      role: "Programmer & Producer",
+      role: "Lead Programmer & Lead Producer",
       projectType: "Student Project",
       year: "2026",
       tags: ["Ren'py", "Visual Novel", "Otome"],
       wip: true,
-      thumbnail: "",
+      thumbnail: "images/ITW_Logo.png",
+      thumbFit: "contain",
+      thumbPosition: "center center",
       thumbColor: "c2",
       cardSummary: "Choice-driven horror VN with modular relationship, inventory, and ending systems.",
       focus: ["Programming", "Systems"],
       proof: ["Modular Ren'Py Architecture", "Ending Evaluator"],
-      collaboration: "Student team project of about 10 members; led programming standards and implementation coordination across narrative scripts.",
-      description: "Into the Woods is a choice-driven horror visual novel built in Ren'Py. Players wake to find their friends missing from a remote cabin and must navigate branching dialogue, shifting loyalties, and survival decisions deep in the forest. Relationship values, rescue outcomes, and key choices dynamically determine which of five endings unfolds. I served as lead programmer, architecting the narrative systems, relationship logic, inventory framework, and ending evaluator that power the game's branching structure.",
-      contribution: "I serve as lead programmer and systems designer on Into the Woods. I structured the project architecture across modular .rpy files, implemented the relationship system, rescue-state tracking, inventory framework, visual feedback UI, and the multi-ending evaluation logic. I also established coding standards and file organization for the programming team to ensure scalable branching without narrative conflicts.",
+      collaboration: "Student team project of about 10 members; served as lead producer and lead programmer, managing timelines, assignment ownership, and implementation coordination across narrative scripts.",
+      description: "Into the Woods is a choice-driven horror visual novel built in Ren'Py. The player wakes up at the campsite to realize their friends are gone, then must navigate branching dialogue, shifting loyalties, and survival decisions deep in the forest. Relationship values, rescue outcomes, and key choices dynamically determine which of five endings unfolds. I served as lead programmer, architecting the narrative systems, relationship logic, inventory framework, and ending evaluator that power the game's branching structure.",
+      contribution: "I served as lead producer and lead programmer on Into the Woods. As lead producer, I managed timelines, coordinated assignments, and pulled the project together across disciplines to keep production moving. As lead programmer, I structured modular .rpy architecture, implemented relationship and rescue-state systems, built the inventory framework and visual feedback UI, and authored the multi-ending evaluation logic.",
       designProcess: "My programming approach focused on building reusable narrative systems rather than hardcoding story outcomes. I separated variables, characters, inventory, endings, and UI into discrete modules to prevent script bloat and reduce merge conflicts across programmers. Core systems were designed around flexible state dictionaries, allowing rescue outcomes and relationship values to dynamically influence ending logic without rewriting scenes. I prioritized clarity and maintainability. Each mechanic, such as love modification or item checks, was abstracted into functions so writers can trigger logic through simple calls instead of embedding raw Python throughout dialogue. This ensures the branching structure can expand without increasing technical debt as art and final narrative content are integrated.",
+      descriptionBullets: [
+        "Choice-driven horror visual novel built in Ren'Py.",
+        "The player wakes up at the campsite to realize their friends are gone.",
+        "Branching dialogue, shifting loyalties, and survival decisions shape the route.",
+        "Relationship values, rescue outcomes, and key choices determine one of five endings."
+      ],
+      contributionBullets: [
+        "Led production and programming for the project.",
+        "Managed timelines, assignment ownership, and cross-discipline execution to keep the project cohesive.",
+        "Structured modular .rpy architecture across variables, characters, inventory, endings, and UI.",
+        "Implemented relationship tracking, rescue-state logic, inventory framework, and ending evaluation.",
+        "Set code standards and file organization to reduce merge conflicts across the programming team."
+      ],
+      processBullets: [
+        "Focused on reusable narrative systems instead of hardcoded one-off outcomes.",
+        "Used flexible state dictionaries so rescue and relationship changes could influence endings without scene rewrites.",
+        "Abstracted mechanics like love modification and item checks into simple callable functions for writers.",
+        "Prioritized maintainability so branching content could scale as final art and writing were integrated."
+      ],
+      quickStats: [
+        "5 ending outcomes supported",
+        "10-person student team",
+        "Lead producer: timeline + assignment ownership",
+        "Modular .rpy file architecture",
+        "Reusable writer-facing utility functions"
+      ],
+      systemHighlights: [
+        "Owned production coordination across milestones, assignment handoff, and implementation follow-through.",
+        "Structured the project architecture across modular .rpy files for cleaner ownership and reduced merge conflicts.",
+        "Implemented the relationship system, rescue-state tracking, inventory framework, and visual feedback UI.",
+        "Built multi-ending evaluation logic so key choices and rescue outcomes determine final-state paths.",
+        "Abstracted mechanics like love modification and item checks into reusable functions writers can call directly."
+      ],
+      devSnippets: [
+        {
+          title: "variables.rpy - Relationship + Alive State",
+          language: "Ren'Py / Python",
+          note: "Core persistent dictionaries and reusable relationship utility used throughout dialogue branches.",
+          code: "#Initializing the starting point of 0/0 for relationship meters for all characters at the start of the game - Lisa\ndefault love = {\n    CHAR_N:  0,\n    CHAR_A:  0,\n    CHAR_K: 0,\n    CHAR_I: 0,\n    CHAR_S: 0,\n}\n\n# Tracks whether each friend is alive - Lisa\ndefault alive = {\n    CHAR_P: True,\n    CHAR_K: True,\n    CHAR_I: True,\n    CHAR_S: True,\n}\n\ninit python:\n    # Command to add love to a character\n    def add_love(char, amount):\n        love[char] += amount\n        if love[char] < 0:\n            love[char] = 0"
+        },
+        {
+          title: "chapter_01_intro.rpy - Choice Branching",
+          language: "Ren'Py",
+          note: "Early narrative menu branch that adjusts relationship state and routes the player to different outcomes.",
+          code: "menu:\n    \"Of course! What could be more romantic than that?\":\n        $ add_love(CHAR_N, 2)\n        # add +2 Affinity Narrator\n        jump intro_01_a\n    \"Who doesn’t love a good campfire ghost story?\":\n        $ add_love(CHAR_N, 1)\n        # add +1 Affinity Narrator\n        jump intro_01_b\n    \"Not gonna lie, that sounds like the setup to a bad horror movie.\":\n        # No change to affinity\n        jump intro_01_c\n    \"Ew, camping...\":\n        $ add_love(CHAR_N, -1)\n        # -1 Affinity to Narrator\n        jump intro_01_d"
+        },
+        {
+          title: "chapter_01_intro.rpy - Car Scene Dialogue Flow",
+          language: "Ren'Py",
+          note: "Branching dialogue scene with portrait updates, SFX triggers, and affinity changes across multiple outcomes.",
+          code: "label car_07:\n\n    show sebastian at left_char\n    show kaya at center_char\n    show isaiah at right_char\n\n    $ current_portrait = \"sebastian_neutral\"\n    s \"Hey. You’re being very quiet over there.\"\n\n    \"Isaiah wields the camera in your direction.\"\n\n    $ current_portrait = \"isaiah_neutral\"\n    play sound \"audio/SFX/OneShots/ITW - Polaroid 2.opus\"\n    i \"Yeah, protagonist. Any thoughts?\"\n\n    menu:\n        \"If something supernatural happens, I’m pushing Isaiah toward it first.\":\n            $ add_love(CHAR_I, 1)\n            jump car_07_a\n\n        \"Honestly, I’m with Kaya. Let’s try not to anger any forest spirits.\":\n            $ add_love(CHAR_K, 1)\n            jump car_07_b\n\n        \"Isaiah, if you do post anything, do us all a favor and keep us out of the stupid thumbnail.\":\n            $ add_love(CHAR_S, 1)\n            jump car_07_c\n\n        \"I regret getting in this car.\":\n            $ add_love(CHAR_I, -1)\n            $ add_love(CHAR_S, -1)\n            $ add_love(CHAR_K, -1)\n            jump car_07_d"
+        },
+        {
+          title: "endings.rpy - Rescue Outcome Counter",
+          language: "Ren'Py / Python",
+          note: "Helper used by ending logic to count successful rescues and drive final outcome states.",
+          code: "init python:\n    def get_rescued_count():\n        rescued_count = 0\n\n        if rescued.get(CHAR_F1, False):\n            rescued_count += 1 \n\n        if rescued.get(CHAR_F2, False):\n            rescued_count += 1 \n\n        if rescued.get(CHAR_F3, False):\n            rescued_count += 1 \n            \n        return rescued_count"
+        },
+        {
+          title: "chapter_01_intro.rpy - Affinity-Gated Route Split",
+          language: "Ren'Py",
+          note: "Conditional branch that routes tent assignment outcomes by relationship thresholds.",
+          code: "menu:\n    \"Got enough room in your tent for me, Isaiah?\":\n        if love[CHAR_I] >= 8:\n            jump GoToBed_02_a_High\n        elif love[CHAR_I] >= 1:\n            jump GoToBed_02_a_Low\n        else:\n            jump GoToBed_02_a_Neg\n\n    \"I was thinking me with Seb and you with Kaya.\":\n        if love[CHAR_S] >= 5:\n            jump GoToBed_02_b_High\n        elif love[CHAR_S] >= 1:\n            jump GoToBed_02_b_Low\n        else:\n            jump GoToBed_02_b_Neg\n\n    \"Kaya, you mind if I bunk with you?\":\n        if love[CHAR_K] >= 9:\n            jump GoToBed_02_c_High\n        elif love[CHAR_K] >= 2:\n            jump GoToBed_02_c_Low\n        else:\n            jump GoToBed_02_c_Neg"
+        }
+      ],
       media: [
-        { type:"gif",   src:"", caption:"" },
-        { type:"image", src:"", caption:"" },
+        { type:"image", src:"images/ITW_Car.png", caption:"Kaya’s car interior background used in the opening scene, introducing the group dynamic before the cabin arrival." },
+        { type:"image", src:"images/ITW_Camp.png", caption:"Forest campsite scene used to stage branching choices, relationship shifts, and survival pressure." },
+        { type:"image", src:"images/CharacterSheet_Females.png", caption:"Female cast character sheet supporting consistency across expressions, poses, and scene scripting." },
+        { type:"image", src:"images/CharacterSheet_Males.png", caption:"Male cast character sheet used to align visual continuity with relationship and route progression." },
         { type:"link",  url:"https://crevlm.itch.io/into-the-woods", label:"Learn more on Itch.io" }
       ]
     },
@@ -692,7 +761,16 @@
        DETAIL PAGE
     ════════════════════════════════════════ */
     #detail-view { max-width:1200px; margin:0 auto; padding:0 2.5rem 5rem; }
-    .detail-hero { padding:3.5rem 0 2.5rem; border-bottom:1px solid var(--border); margin-bottom:3rem; }
+    .detail-hero {
+      padding:3.5rem 0 2.5rem;
+      border-bottom:1px solid var(--border);
+      margin-bottom:3rem;
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) clamp(300px, 34vw, 420px);
+      gap:2rem;
+      align-items:start;
+    }
+    .detail-hero-main { min-width:0; }
     .detail-type-row { display:flex; align-items:center; gap:1rem; margin-bottom:1rem; }
     .detail-type { font-size:0.78rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); border:1px solid var(--border); padding:3px 10px; }
     .detail-year { font-size:0.78rem; color:var(--muted); }
@@ -700,13 +778,110 @@
     .detail-role { font-size:0.82rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); display:inline-flex; align-items:center; gap:0.5rem; margin-bottom:1.2rem; }
     .detail-role::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--accent); }
     .detail-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
+    .detail-hero-thumb-wrap {
+      border:1px solid var(--border);
+      background:
+        radial-gradient(circle at 18% 16%, rgba(var(--accent-rgb), 0.16), transparent 46%),
+        linear-gradient(165deg, rgba(19, 38, 69, 0.86), rgba(9, 20, 38, 0.96));
+      min-height:230px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:1.05rem 1.15rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .detail-hero-thumb {
+      width:100%;
+      height:220px;
+      object-fit:contain;
+      object-position:center;
+      display:block;
+    }
     .detail-body { display:grid; grid-template-columns:1fr 380px; gap:4rem; align-items:start; }
     .detail-left { display:flex; flex-direction:column; gap:2.5rem; }
     .detail-right { position:sticky; top:76px; display:flex; flex-direction:column; gap:1rem; }
     .detail-section-label { font-family:var(--font-display); font-size:1rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:0.6rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); }
-    .detail-section p { color:var(--text); font-weight:300; font-size:1.02rem; line-height:1.8; }
+    .detail-copy { color:var(--text); font-weight:300; font-size:1.02rem; line-height:1.78; max-width:72ch; }
+    .detail-list {
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:0.55rem;
+      margin:0;
+      padding:0;
+      max-width:76ch;
+    }
+    .detail-list li {
+      position:relative;
+      padding-left:0.95rem;
+      color:var(--text);
+      font-weight:300;
+      font-size:0.98rem;
+      line-height:1.72;
+    }
+    .detail-list li::before {
+      content:"";
+      position:absolute;
+      left:0;
+      top:0.8em;
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:var(--accent);
+    }
     .detail-collab { color:var(--muted) !important; font-size:0.94rem !important; line-height:1.7 !important; }
     .detail-inline-media { margin-top:1.6rem; }
+    .detail-proof { display:flex; flex-direction:column; gap:1rem; }
+    .detail-kpis { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:0.6rem; }
+    .detail-kpi {
+      border:1px solid var(--border);
+      background:rgba(var(--accent-rgb), 0.08);
+      color:var(--text);
+      font-size:0.78rem;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      padding:0.6rem 0.7rem;
+      line-height:1.45;
+      font-weight:500;
+    }
+    .detail-highlight-list { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
+    .detail-highlight-list li {
+      border-left:2px solid var(--accent);
+      padding-left:0.7rem;
+      color:var(--muted);
+      font-size:0.92rem;
+      line-height:1.65;
+      font-weight:300;
+    }
+    .detail-snippets { display:grid; gap:0.8rem; }
+    .snippet-card {
+      border:1px solid var(--border);
+      background:rgba(10, 21, 40, 0.78);
+      padding:0.75rem;
+    }
+    .snippet-head { display:flex; align-items:center; justify-content:space-between; gap:0.7rem; margin-bottom:0.45rem; }
+    .snippet-title { font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); font-weight:600; }
+    .snippet-lang {
+      font-size:0.66rem;
+      text-transform:uppercase;
+      letter-spacing:0.1em;
+      color:var(--accent);
+      border:1px solid rgba(var(--accent-rgb), 0.45);
+      padding:2px 6px;
+      white-space:nowrap;
+    }
+    .snippet-note { color:var(--muted); font-size:0.84rem; line-height:1.5; margin-bottom:0.5rem; }
+    .snippet-card pre {
+      margin:0;
+      padding:0.65rem;
+      background:#091428;
+      border:1px solid var(--border);
+      color:#eaf2ff;
+      overflow:auto;
+      font-family:"Consolas", "Courier New", monospace;
+      font-size:0.8rem;
+      line-height:1.45;
+    }
     .media-item { background:var(--surface); border:1px solid var(--border); overflow:hidden; }
     .media-item iframe { width:100%; aspect-ratio:16/9; display:block; border:none; }
     .media-item.pdf-item iframe { aspect-ratio:8.5/11; min-height:480px; }
@@ -1098,6 +1273,9 @@
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; gap: 1.4rem; }
       .hero-side { min-height: 0; }
+      .detail-hero { grid-template-columns: 1fr; }
+      .detail-hero-thumb-wrap { width:100%; max-width:none; min-height:180px; }
+      .detail-hero-thumb { height:170px; }
       .detail-body { grid-template-columns: 1fr; gap: 2rem; }
       .detail-right { position: static; }
       .about-page-body { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -1230,31 +1408,44 @@
 <!-- ═══════════ DETAIL VIEW ═══════════ -->
 <div id="detail-view" class="hidden">
   <div class="detail-hero">
-    <div class="detail-type-row">
-      <span class="detail-type" id="d-type"></span>
-      <span class="detail-year" id="d-year"></span>
+    <div class="detail-hero-main">
+      <div class="detail-type-row">
+        <span class="detail-type" id="d-type"></span>
+        <span class="detail-year" id="d-year"></span>
+      </div>
+      <div class="detail-title" id="d-title"></div>
+      <div class="detail-role"  id="d-role"></div>
+      <div class="detail-tags"  id="d-tags"></div>
     </div>
-    <div class="detail-title" id="d-title"></div>
-    <div class="detail-role"  id="d-role"></div>
-    <div class="detail-tags"  id="d-tags"></div>
+    <div class="detail-hero-thumb-wrap hidden" id="d-hero-thumb-wrap">
+      <img class="detail-hero-thumb" id="d-hero-thumb" alt="Project logo" loading="lazy">
+    </div>
   </div>
   <div class="detail-body">
     <div class="detail-left">
       <div class="detail-section">
         <div class="detail-section-label">About the Game</div>
-        <p id="d-description"></p>
+        <div class="detail-copy" id="d-description"></div>
       </div>
       <div class="detail-section">
         <div class="detail-section-label">My Contribution</div>
-        <p id="d-contribution"></p>
+        <div class="detail-copy" id="d-contribution"></div>
       </div>
       <div class="detail-section" id="d-collab-section">
         <div class="detail-section-label">Collaboration Context</div>
         <p class="detail-collab" id="d-collab"></p>
       </div>
+      <div class="detail-section hidden" id="d-proof-section">
+        <div class="detail-section-label">Systems & Dev Proof</div>
+        <div class="detail-proof">
+          <div class="detail-kpis" id="d-kpis"></div>
+          <ul class="detail-highlight-list" id="d-highlights"></ul>
+          <div class="detail-snippets" id="d-snippets"></div>
+        </div>
+      </div>
       <div class="detail-section">
         <div class="detail-section-label">Design Process</div>
-        <p id="d-process"></p>
+        <div class="detail-copy" id="d-process"></div>
         <div class="detail-inline-media" id="d-inline-media"></div>
       </div>
     </div>
@@ -1439,9 +1630,9 @@ const grid = document.getElementById('game-grid');
 const WORK_ORDER = [
   'frostbound',
   'light-the-way',
-  'dreamwalker',
-  'quake-level',
   'into-the-woods',
+  'quake-level',
+  'dreamwalker',
   'present-stack'
 ];
 const orderedGames = [...GAMES].sort((a, b) => {
@@ -1646,6 +1837,23 @@ function showResume() {
   history.pushState(null, '', '#resume');
 }
 
+function escapeHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function renderDetailCopy(elementId, textValue, bulletItems) {
+  const el = document.getElementById(elementId);
+  const bullets = Array.isArray(bulletItems) ? bulletItems.filter(Boolean) : [];
+  if (bullets.length) {
+    el.innerHTML = `<ul class="detail-list">${bullets.map(item => `<li>${item}</li>`).join('')}</ul>`;
+    return;
+  }
+  el.textContent = textValue || '';
+}
+
 function showDetail(id) {
   const g = GAMES.find(x => x.id === id);
   if (!g) return;
@@ -1654,12 +1862,54 @@ function showDetail(id) {
   document.getElementById('d-year').textContent         = g.year;
   document.getElementById('d-title').textContent        = g.title;
   document.getElementById('d-role').textContent         = g.role;
-  document.getElementById('d-description').textContent  = g.description;
-  document.getElementById('d-contribution').textContent = g.contribution;
+  renderDetailCopy('d-description', g.description, g.descriptionBullets);
+  renderDetailCopy('d-contribution', g.contribution, g.contributionBullets);
   document.getElementById('d-collab').textContent       = g.collaboration || '';
-  document.getElementById('d-process').textContent      = g.designProcess;
+  renderDetailCopy('d-process', g.designProcess, g.processBullets);
   document.getElementById('d-tags').innerHTML           = g.tags.map(t=>`<span class="tag">${t}</span>`).join('');
   document.getElementById('d-collab-section').classList.toggle('hidden', !(g.collaboration && g.collaboration.trim()));
+
+  const heroThumbWrapEl = document.getElementById('d-hero-thumb-wrap');
+  const heroThumbEl = document.getElementById('d-hero-thumb');
+  const heroFirstImage = (g.media || []).find(m => (m.type === 'image' || m.type === 'gif') && m.src && m.src.trim());
+  const heroThumbSrc =
+    (g.thumbnail && g.thumbnail.trim()) ||
+    (heroFirstImage && heroFirstImage.src) ||
+    SITE.placeholderMedia;
+  if (heroThumbSrc) {
+    heroThumbEl.src = heroThumbSrc;
+    heroThumbEl.alt = `${g.title} logo`;
+    heroThumbEl.style.objectFit = g.thumbFit || 'contain';
+    heroThumbEl.style.objectPosition = g.thumbPosition || 'center center';
+    heroThumbWrapEl.classList.remove('hidden');
+  } else {
+    heroThumbEl.removeAttribute('src');
+    heroThumbWrapEl.classList.add('hidden');
+  }
+
+  const proofSectionEl = document.getElementById('d-proof-section');
+  const kpiEl = document.getElementById('d-kpis');
+  const highlightsEl = document.getElementById('d-highlights');
+  const snippetsEl = document.getElementById('d-snippets');
+
+  const quickStats = g.quickStats || [];
+  const systemHighlights = g.systemHighlights || [];
+  const devSnippets = g.devSnippets || [];
+
+  kpiEl.innerHTML = quickStats.map(item => `<div class="detail-kpi">${item}</div>`).join('');
+  highlightsEl.innerHTML = systemHighlights.map(item => `<li>${item}</li>`).join('');
+  snippetsEl.innerHTML = devSnippets.map(snippet => `
+    <article class="snippet-card">
+      <div class="snippet-head">
+        <div class="snippet-title">${snippet.title || 'Code Snippet'}</div>
+        ${snippet.language ? `<span class="snippet-lang">${snippet.language}</span>` : ''}
+      </div>
+      ${snippet.note ? `<p class="snippet-note">${snippet.note}</p>` : ''}
+      <pre><code>${escapeHtml(snippet.code)}</code></pre>
+    </article>
+  `).join('');
+
+  proofSectionEl.classList.toggle('hidden', !(quickStats.length || systemHighlights.length || devSnippets.length));
 
   const mediaEl = document.getElementById('d-media');
   const inlineMediaEl = document.getElementById('d-inline-media');
