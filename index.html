@@ -968,6 +968,26 @@
       font-weight: 400;
       white-space: pre-line;
     }
+    .writing-sample-scroll {
+      max-height: 280px;
+      overflow-y: auto;
+      border: 1px solid rgba(var(--accent-rgb), 0.24);
+      background: rgba(8, 19, 36, 0.55);
+      padding: 0.75rem 0.8rem;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(var(--accent-rgb), 0.45) rgba(9, 20, 38, 0.8);
+    }
+    .writing-sample-scroll::-webkit-scrollbar {
+      width: 8px;
+    }
+    .writing-sample-scroll::-webkit-scrollbar-track {
+      background: rgba(9, 20, 38, 0.8);
+    }
+    .writing-sample-scroll::-webkit-scrollbar-thumb {
+      background: rgba(var(--accent-rgb), 0.45);
+      border-radius: 999px;
+      border: 1px solid rgba(9, 20, 38, 0.85);
+    }
     .detail-kpis { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:0.6rem; }
     .detail-kpi {
       border:1px solid var(--border);
@@ -2169,7 +2189,7 @@ function showDetail(id) {
         <div class="writing-sample-title">${sample.title || 'Writing Sample'}</div>
         ${sample.context ? `<p class="writing-sample-context">${sample.context}</p>` : ''}
         ${sample.craftNote ? `<p class="writing-sample-craft">${sample.craftNote}</p>` : ''}
-        ${sample.excerpt ? `<p class="writing-sample-excerpt">${sample.excerpt}</p>` : ''}
+        ${sample.excerpt ? `<div class="writing-sample-scroll" role="region" aria-label="Scrollable writing excerpt"><p class="writing-sample-excerpt">${sample.excerpt}</p></div>` : ''}
       </article>
     `)
     .join('');
