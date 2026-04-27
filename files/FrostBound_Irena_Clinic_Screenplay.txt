@@ -1,0 +1,434 @@
+FROSTBOUND
+IRENA CLINIC THREAD
+Screenwriting Adaptation by Lisa Creveling
+
+Adapted from the in-engine Yarn Spinner implementation to foreground character voice,
+branch logic, escalation, and playable decision beats.
+
+============================================================
+INT. CLINIC DOOR - DAY
+============================================================
+
+IRENA
+You're not the Doctor.
+
+PLAYER CHOICES
+A. He's away for a few days. I'm covering.
+B. What do you need?
+
+IRENA
+My hands have been giving me trouble. Hard to grip things.
+I need to be seen.
+
+PLAYER CHOICES
+A. I need to ask you a few questions first.
+   GO TO: INTERVIEW
+B. Come down to the clinic.
+   GO TO: ADMIT
+
+============================================================
+INT. CLINIC DOOR - RETURN VISIT
+============================================================
+
+IRENA
+Still no bed available?
+
+PLAYER CHOICES
+A. Actually, yes. Come in.
+   GO TO: ADMIT
+B. How are you holding up?
+   GO TO: INTERVIEW
+
+============================================================
+INT. CLINIC - INTERVIEW
+============================================================
+
+IRENA
+Ask what you need to ask. I haven't got all day.
+
+PLAYER CHOICES
+A. Who are you?
+   GO TO: BIO
+B. What are your symptoms?
+   GO TO: SYMPTOMS
+C. I've heard all I've needed to hear.
+   GO TO: DECISION
+
+------------------------------------------------------------
+BIO
+------------------------------------------------------------
+
+IRENA
+Irena. I handle preservation for the village: salting,
+smoking, fermenting. Can't afford to have my hands giving
+out on me.
+
+PLAYER
+Understood.
+
+RETURN TO: INTERVIEW
+
+------------------------------------------------------------
+OCCUPATION / WORLD BUILDING BRANCH
+------------------------------------------------------------
+
+IRENA
+I stretch what's left. Seaweed from the low tide, dried herbs,
+whatever the hunters bring in. The ships haven't been reliable.
+Someone has to fill the gap.
+
+PLAYER CHOICES
+A. The ships have been unreliable?
+B. How long have you been doing this?
+
+IF A:
+
+IRENA
+For months now. I don't know what's happening out there,
+and nobody's told me anything useful. All I know is the stores
+are lower than they should be.
+
+PLAYER
+That's worth knowing. Now about your symptoms—
+
+RETURN TO: INTERVIEW or ADMITTED HUB
+
+IF B:
+
+IRENA
+Since I was a girl. My family taught me. It's not glamorous work,
+but people eat because of it. That counts for something.
+
+RETURN TO: INTERVIEW or ADMITTED HUB
+
+------------------------------------------------------------
+SYMPTOMS
+------------------------------------------------------------
+
+IRENA
+Started two, maybe three weeks ago. Hands shake. Arms feel heavy.
+Dizzy in the mornings. I thought it was the cold.
+
+PLAYER CHOICES
+A. I'd like to take a proper look at you.
+   GO TO: DECISION
+B. I need to ask a few more questions.
+   GO TO: INTERVIEW
+
+============================================================
+INT. CLINIC - ADMISSION DECISION
+============================================================
+
+IRENA
+Well? Am I coming in or not?
+
+PLAYER CHOICES
+A. Come in. Let's get you looked at.
+   GO TO: ADMIT
+B. I have a few more questions.
+   GO TO: INTERVIEW
+C. Sorry, there's no room right now.
+   GO TO: TURNED AWAY
+
+------------------------------------------------------------
+ADMIT
+------------------------------------------------------------
+
+IRENA
+Let's get this done.
+
+[Patient is admitted to the clinic. Story state advances.]
+
+------------------------------------------------------------
+TURNED AWAY
+------------------------------------------------------------
+
+IRENA
+So that's it? Nothing to be done?
+
+PLAYER
+Get some rest. Eat what you can.
+
+IRENA
+Rest. Right. I'll rest when the stores are full and the village
+isn't three bad weeks from starving.
+
+IRENA
+Thanks for nothing.
+
+[Visit ends. Patient has been turned away.]
+
+============================================================
+INT. CLINIC - ADMITTED HUB
+============================================================
+
+IRENA
+Ask what you need to ask. I haven't got all day.
+
+PLAYER CHOICES
+A. Let's talk about your symptoms.
+   GO TO: SYMPTOM-SPECIFIC NODE
+B. I need you to stand inside the Examinator.
+C. Tell me more about your work.
+   GO TO: OCCUPATION
+D. Nothing right now.
+
+IF B:
+
+IRENA
+You want me to stand inside that thing?
+
+PLAYER CHOICES
+1. It gives me more information to work with.
+2. Only if you're comfortable with it.
+
+IF 1:
+IRENA
+Fine. Make it quick.
+
+IF 2:
+IRENA
+Ugh. If it helps, then let's do it.
+
+[Scanner sequence triggers.]
+
+IF D:
+
+IRENA
+Hope you're not wasting time.
+
+============================================================
+INT. CLINIC - MISDIAGNOSIS FALLOUT
+============================================================
+
+IRENA
+What did you just give me?
+
+PLAYER CHOICES
+A. It should help with the symptoms you described.
+B. I believe it's the right course of treatment—
+
+IF A:
+
+IRENA
+Should. SHOULD.
+
+IRENA
+I told you about the shaking hands, heavy arms, dizzy in the mornings...
+and you give me THIS?
+
+IRENA
+I preserve food for a living. I know what a bad batch looks like.
+I know when something is WRONG.
+
+IRENA
+You don't know what's wrong with me. You just GUESSED.
+
+IF B:
+
+IRENA
+You BELIEVE. You BELIEVE.
+
+IRENA
+Half this village eats because of me. Half this village survives winter
+because I don't guess. I measure. I check. I test twice before I trust anything.
+
+IRENA
+And you just handed me something and told me to take it?!
+
+IRENA
+Get out of my way.
+
+PLAYER
+Irena, please — let me re-examine—
+
+IRENA
+Don't touch me!
+
+IRENA
+I came here because my hands were shaking and I needed help.
+Not to be used as a test subject by someone who doesn't even know
+where to start.
+
+IRENA
+I'm leaving. You're a fraud!
+
+[Patient leaves. Misdiagnosis state is recorded.]
+
+============================================================
+LATER VISIT - TURNING ARC
+============================================================
+
+IRENA
+You're back. Good.
+
+PLAYER CHOICES
+A. How are you feeling?
+B. I need you to stand inside the Examinator.
+
+------------------------------------------------------------
+TURNING CHECK
+------------------------------------------------------------
+
+IRENA
+A little better.
+
+PLAYER
+Okay, that's an improvement.
+
+IRENA
+Yeah, with the pain subsiding I've had so much time to think.
+The rationing, the storage, everything.
+
+PLAYER
+What about them?
+
+IRENA
+We've been rationing wrong.
+Holding back too much.
+People don't need less.
+They need MORE. Haha... right? I should give them way more, I think.
+
+PLAYER
+Uh, if you think so, that's more your expertise than mine.
+
+IRENA
+Yes... ha.. it was so simple... haha.
+
+PLAYER
+Well, that's great... but let's get back to your symptoms, okay?
+
+GO TO: TURNING SLIP
+
+------------------------------------------------------------
+TURNING SLIP
+------------------------------------------------------------
+
+IRENA
+Symptoms?
+No.
+This isn't sickness.
+This is clarity.
+
+PLAYER
+What do you mean?
+
+IRENA
+I've spent years measuring. Cutting portions. Stretching scraps.
+Always thinking about scarcity.
+...
+But what if there isn't any?
+What if we've just been... wasting time?
+
+PLAYER
+Irena.
+
+IRENA
+...
+You're still thinking like before.
+That's the problem.
+You don't see it yet.
+
+PLAYER
+Step back.
+
+IRENA
+...
+Forget I said anything.
+
+[Her deterioration is now visible in the dialogue rhythm and fixation.]
+
+------------------------------------------------------------
+TURNING SCANNER
+------------------------------------------------------------
+
+IRENA
+If it helps, fine.
+Just don't waste my time.
+...
+Though I don't think this machine will tell you anything useful.
+You're looking in the wrong place.
+
+[Scanner sequence triggers.]
+
+------------------------------------------------------------
+WAITING
+------------------------------------------------------------
+
+IRENA
+You're back.
+I've been thinking about the stores.
+If we stopped holding back, we could move everything faster. No waste.
+...
+You see that, right?
+
+PLAYER CHOICE
+A. I need you to stand inside the Examinator.
+   GO TO: TURNING SCANNER
+
+============================================================
+ESCALATION
+============================================================
+
+IRENA
+Took you long enough.
+
+PLAYER CHOICES
+A. Irena, we need to talk.
+B. Are you feeling alright?
+
+GO TO: ESCALATION A
+
+------------------------------------------------------------
+ESCALATION A
+------------------------------------------------------------
+
+IRENA
+I feel efficient.
+Clear.
+No wasted motion.
+No wasted thought.
+No wasted people.
+
+PLAYER
+Irena, that's not normal.
+
+GO TO: ESCALATION B
+
+------------------------------------------------------------
+ESCALATION B
+------------------------------------------------------------
+
+IRENA
+Normal?
+Normal is why the village starves.
+Normal is why we ration and rot.
+...
+I won't do that anymore.
+
+PLAYER
+Irena—
+
+IRENA
+Don't.
+Don't slow me down.
+You either help...
+or you get out of the way.
+While I'm still asking.
+
+[Escalation state is recorded.]
+
+============================================================
+END STATE - GONE
+============================================================
+
+IRENA
+Still standing there?
+Food rots. People rot.
+Haha... I've known all this time... You'll rot just like they did.
+They've called out to me... they've told me to take you with me...
+Yes, that's it. They demand it now. That you come with me.
+You'll finally see it. We've been waiting so patiently.
+Ha..ha..hahahaha..
+
+END

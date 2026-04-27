@@ -1,0 +1,354 @@
+// NPC_Irena.yarn
+
+title: Irena_start
+position: 245,-1335
+color: green
+---
+<<speaker_clear>>
+<<set $speaker = "Irena">>
+<<npc_met>>
+
+<<if not $admitted>>
+    <<if $has_visited_before>>
+        <<jump Irena_door_greet_return>>
+    <<else>>
+        <<jump Irena_door_greet>>
+    <<endif>>
+<<else>>
+    <<if $IrenaClinicDay <= 1>>
+        <<jump Irena_admitted_hub>>
+    <<elseif $IrenaClinicDay >= 2 and not $IrenaFirstTurningDone>>
+        <<jump Irena_turning_hub>>
+    <<elseif $IrenaDocTalked and not $IrenaEscalationDone>>
+        <<jump Irena_escalation_hub>>
+    <<elseif $IrenaEscalationDone>>
+        <<jump Irena_gone>>
+    <<else>>
+        <<jump Irena_waiting>>
+    <<endif>>
+<<endif>>
+===
+
+
+// region Main Dialogue
+
+title: Irena_admitted_hub
+position: 50,-586
+color: blue
+---
+{$speaker}: Ask what you need to ask. I haven't got all day.
+-> Let's talk about your symptoms.
+    <<set $target = $strain+"_symptoms">>
+    <<goto_node $target>>
+-> I need you to stand inside the Examinator.
+    {$speaker}: You want me to stand inside that thing?
+    -> It gives me more information to work with.
+        {$speaker}: Fine. Make it quick.
+        <<stage_scanner>>
+        <<stop>>
+    -> Only if you're comfortable with it.
+        {$speaker}: Ugh. If it helps, then let's do it.
+        <<stage_scanner>>
+        <<stop>>
+-> Tell me more about your work.
+    <<jump Irena_occupation>>
+-> Nothing right now.
+    {$speaker}: Hope you're not wasting time.
+    <<stop>>
+===
+
+title: Irena_door_greet_return
+position: 733,-968
+---
+{$speaker}: Still no bed available?
+-> Actually, yes. Come in.
+    <<jump Irena_admit>>
+-> How are you holding up?
+    <<jump Irena_interview>>
+===
+
+title: Irena_door_greet
+position: 323,-644
+---
+{$speaker}: You're not the Doctor.
+-> He's away for a few days. I'm covering.
+-> What do you need?
+{$speaker}: My hands have been giving me trouble. Hard to grip things. I need to be seen.
+-> I need to ask you a few questions first.
+    <<jump Irena_interview>>
+-> Come down to the clinic.
+    <<jump Irena_admit>>
+===
+
+title: Irena_interview
+position: 1600,-39
+color: blue
+---
+{$speaker}: Ask what you need to ask. I haven't got all day.
+-> Who are you?
+    <<jump Irena_bio>>
+-> What are your symptoms?
+    <<jump Irena_symptoms>>
+-> I've heard all I've needed to hear.
+    <<jump Irena_decision>>
+===
+
+title: Irena_bio
+position: 2004,-29
+color: yellow
+---
+{$speaker}: Irena. I handle preservation for the village — salting, smoking, fermenting. Can't afford to have my hands giving out on me.
+-> Understood.
+    <<jump Irena_interview>>
+===
+
+title: Irena_occupation
+position: 1956,-614
+color: yellow
+---
+{$speaker}: I stretch what's left. Seaweed from the low tide, dried herbs, whatever the hunters bring in. The ships haven't been reliable. Someone has to fill the gap.
+-> The ships have been unreliable?
+    {$speaker}: For months now. I don't know what's happening out there, and nobody's told me anything useful. All I know is the stores are lower than they should be.
+    -> That's worth knowing. Now about your symptoms—
+        <<if $admitted>>
+            <<jump Irena_admitted_hub>>
+        <<else>>
+            <<jump Irena_interview>>
+        <<endif>>
+-> How long have you been doing this?
+    {$speaker}: Since I was a girl. My family taught me. It's not glamorous work, but people eat because of it. That counts for something.
+    <<if $admitted>>
+        <<jump Irena_admitted_hub>>
+    <<else>>
+        <<jump Irena_interview>>
+    <<endif>>
+===
+
+title: Irena_symptoms
+position: 1261,-282
+color: yellow
+---
+{$speaker}: Started two, maybe three weeks ago. Hands shake. Arms feel heavy. Dizzy in the mornings. I thought it was the cold.
+-> I'd like to take a proper look at you.
+    <<jump Irena_decision>>
+-> I need to ask a few more questions.
+    <<jump Irena_interview>>
+===
+
+title: Irena_diagnosis_lead
+position: 867,-481
+---
+<<jump Irena_decision>>
+===
+
+title: Irena_decision
+position: 984,-106
+color: red
+---
+{$speaker}: Well? Am I coming in or not?
+-> Come in. Let's get you looked at.
+    <<jump Irena_admit>>
+-> I have a few more questions.
+    <<jump Irena_interview>>
+-> Sorry, there's no room right now.
+    <<jump Irena_turned_away>>
+===
+
+title: Irena_admit
+position: 736,180
+color: green
+---
+{$speaker}: Let's get this done.
+<<set $has_visited_before = true>>
+<<set $admitted = true>>
+<<set $strainSeverity += 1>>
+<<teleport_admit TeleportManager>>
+<<close_door FrontDoor>>
+===
+
+title: Irena_turned_away
+position: 980,427
+color: red
+---
+{$speaker}: So that's it? Nothing to be done?
+-> Get some rest. Eat what you can.
+    {$speaker}: Rest. Right. I'll rest when the stores are full and the village isn't three bad weeks from starving.
+    {$speaker}: Thanks for nothing.
+    <<set $has_visited_before = true>>
+    <<set $turnedaway = true>>
+    <<stop>>
+===
+
+title: Irena_misdiagnosis
+position: -738,-492
+---
+{$speaker}: What did you just give me?
+-> It should help with the symptoms you described.
+    {$speaker}: Should. SHOULD.
+    {$speaker}: I told you about the shaking hands, heavy arms, dizzy in the mornings...and you give me THIS?
+    {$speaker}: I preserve food for a living. I know what a bad batch looks like. I know when something is WRONG.
+    {$speaker}: You don't know what's wrong with me. You just GUESSED.
+-> I believe it's the right course of treatment—
+    {$speaker}: You BELIEVE. You BELIEVE.
+    {$speaker}: Half this village eats because of me. Half this village survives winter because I don't guess. I measure. I check. I test twice before I trust anything.
+    {$speaker}: And you just handed me something and told me to take it?!
+{$speaker}: Get out of my way.
+-> Irena, please — let me re-examine—
+    {$speaker}: Don't touch me!
+    {$speaker}: I came here because my hands were shaking and I needed help. Not to be used as a test subject by someone who doesn't even know where to start.
+    {$speaker}: I'm leaving. You're a fraud!
+    <<set $misdiagnosed = true>>
+    <<stop>>
+===
+
+// endregion
+
+
+// Turning dialogue
+
+title: Irena_turning_hub
+position: -185,517
+---
+{$speaker}: You're back. Good.
+
+-> How are you feeling?
+    <<jump Irena_turning_check>>
+
+<<if not $IrenaScanned>>
+-> I need you to stand inside the Examinator.
+    <<jump Irena_turning_scanner>>
+<<endif>>
+===
+
+title: Irena_turning_check
+position: -404,726
+---
+{$speaker}: A little better.
+-> Okay, that's an improvement.
+    {$speaker}: Yeah, with the pain subsiding I've had so much time to think. The rationing, the storage, everything.
+    -> What about them?
+        {$speaker}: We’ve been rationing wrong.
+        {$speaker}: Holding back too much.
+        {$speaker}: People don’t need less.
+        {$speaker}: They need MORE. Haha... right? I should give them way more, I think.
+        -> Uh, if you think so, that's more your expertise than mine.
+            {$speaker}: Yes... ha.. it was so simple... haha.
+            -> Well, that's great... but let's get back to your symptoms, okay?
+                <<jump Irena_turning_slip>>
+===
+
+title: Irena_turning_slip
+position: -404,953
+---
+{$speaker}: Symptoms?
+{$speaker}: No.
+{$speaker}: This isn’t sickness.
+{$speaker}: This is clarity.
+-> What do you mean?
+    {$speaker}: I’ve spent years measuring. Cutting portions. Stretching scraps.
+    {$speaker}: Always thinking about scarcity.
+    {$speaker}: ...
+    {$speaker}: But what if there isn’t any?
+    {$speaker}: What if we’ve just been... wasting time?
+    -> Irena.
+        {$speaker}: ...
+        {$speaker}: You’re still thinking like before.
+        {$speaker}: That’s the problem.
+        {$speaker}: <i>You don’t see it yet.</i>
+        -> Step back.
+            {$speaker}: ...
+            {$speaker}: Forget I said anything.
+            <<set $IrenaFirstTurningDone = true>>
+            <<stop>>
+===
+
+title: Irena_turning_scanner
+position: -189,1083
+---
+{$speaker}: If it helps, fine.
+{$speaker}: Just don’t waste my time.
+{$speaker}: ...
+{$speaker}: Though I don’t think this machine will tell you anything useful.
+{$speaker}: You’re looking in the wrong place.
+<<set $IrenaScanned = true>>
+<<stage_scanner>>
+<<stop>>
+===
+
+title: Irena_waiting
+position: 3,858
+---
+{$speaker}: You're back.
+{$speaker}: I've been thinking about the stores.
+{$speaker}: If we stopped holding back, we could move everything faster. No waste.
+{$speaker}: ...
+{$speaker}: You see that, right?
+
+<<if not $IrenaScanned>>
+-> I need you to stand inside the Examinator.
+    <<jump Irena_turning_scanner>>
+<<endif>>
+
+<<stop>>
+===
+
+title: Irena_escalation_hub
+position: -743,207
+color: red
+---
+{$speaker}: Took you long enough.
+-> Irena, we need to talk.
+    <<jump Irena_escalation_a>>
+-> Are you feeling alright?
+    <<jump Irena_escalation_a>>
+===
+
+title: Irena_escalation_a
+position: -744,400
+color: red
+---
+{$speaker}: I feel efficient.
+{$speaker}: Clear.
+{$speaker}: No wasted motion.
+{$speaker}: No wasted thought.
+{$speaker}: No wasted people.
+
+-> Irena, that’s not normal.
+    <<jump Irena_escalation_b>>
+===
+
+title: Irena_escalation_b
+position: -743,586
+color: red
+---
+{$speaker}: Normal?
+{$speaker}: Normal is why the village starves.
+{$speaker}: Normal is why we ration and rot.
+{$speaker}: ...
+{$speaker}: I won’t do that anymore.
+-> Irena—
+    {$speaker}: Don’t.
+    {$speaker}: <b>Don’t slow me down.</b>
+    {$speaker}: You either help...
+    {$speaker}: or you get out of the way.
+    {$speaker}: <i>While I’m still asking.</i>
+<<set $IrenaEscalationDone = true>>
+<<stop>>
+===
+
+title: Irena_gone
+position: -736,-294
+color: red
+---
+=> {$speaker}: Still standing there?
+=> {$speaker}: Food rots. People rot.
+=> {$speaker}: Haha... I've known all this time... You'll rot just like they did.
+=> {$speaker}: They've called out to me... they've told me to take you with me...
+=> {$speaker}: Yes, that's it. They demand it now. That you come with me.
+=> {$speaker}: You'll finally see <i>it</i>. We've been waiting so patiently.
+=> {$speaker}: <i>Ha..ha..hahahaha..</i>
+
+<<stop>>
+===
+
+// end of NPC_Irena.yarn
