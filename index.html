@@ -41,31 +41,35 @@
       description: "FrostBound is a narrative survival horror game set in an endless winter, where the player runs a remote clinic and makes hard triage choices with limited resources.",
       contribution: "I wrote and structured branching dialogue for multiple FrostBound characters in YarnSpinner, balancing player agency with consistent voice design.",
       designProcess: "I mapped each character branch to a clear intent, then drafted short, playable lines that could be iterated quickly in-engine.",
-      writingOverview: "Spoiler-safe excerpts from one character thread. My narrative work on FrostBound spans multiple NPCs, each with distinct tone and branch behavior.",
+      recognitionImage: "images/gamebIITes_Award.png",
+      recognitionImageAlt: "FrostBound Judge's Choice award from Illinois Institute of Technology's Game bIITes Showcase",
+      recognition: [
+        "Accepted into Illinois Institute of Technology's Game bIITes Showcase.",
+        "Awarded Judge's Choice at the showcase."
+      ],
+      writingOverview: "This FrostBound sample is presented in two parallel formats: a screenwriting adaptation that foregrounds voice and dramatic pacing, and the native Yarn Spinner source that shows implementation logic, branching structure, and state handling.",
       writingHighlights: [
-        "State-based hubs keep progression clear.",
-        "Distinct voice pillars across multiple NPCs.",
-        "Player replies preserve role-play intent.",
-        "Iteration stayed clean during rewrites."
+        "One narrative thread shown in both dramatic and technical formats.",
+        "Branch logic stays readable across admission, refusal, and escalation states.",
+        "Voice consistency carries from screenplay presentation into engine script.",
+        "Yarn structure demonstrates state checks, jumps, and implementation readiness."
       ],
       writingSamples: [
         {
-          title: "Door Greet - Friction + Control",
-          context: "First contact at the clinic door.",
-          craftNote: "Player sets tone immediately while the NPC keeps social pressure high.",
-          excerpt: "Irena: You're not the Doctor.\n\nPlayer Options:\n- He's away for a few days. I'm covering.\n- What do you need?\n\nIrena: My hands have been giving me trouble. Hard to grip things. I need to be seen.\n\nPlayer Options:\n- I need to ask you a few questions first.\n- Come down to the clinic.\n\nIrena: Still no bed available?"
+          title: "Irena Dialogue Scripts",
+          format: "Screenwriting Format",
+          context: "A dramatic presentation of the same branching FrostBound conversation, adapted to emphasize character voice, escalation, and playable beat flow.",
+          craftNote: "Shows my game writing in a format that reads like a performance-ready script while still preserving decision structure.",
+          fileHref: "files/FrostBound_Irena_Clinic_Screenplay.txt",
+          fileLabel: "Open screenwriting script"
         },
         {
-          title: "Occupation Branch - Worldbuilding Through Character",
-          context: "Optional branch that layers setting stakes into clinical dialogue.",
-          craftNote: "Lore is delivered through voice-driven utility talk, not exposition dumps.",
-          excerpt: "Irena: I stretch what's left. Seaweed from low tide, dried herbs, whatever the hunters bring in. The ships haven't been reliable. Someone has to fill the gap.\n\nPlayer Options:\n- The ships have been unreliable?\n- How long have you been doing this?\n\nIrena: For months now. I don't know what's happening out there, and nobody's told me anything useful.\nIrena: All I know is the stores are lower than they should be."
-        },
-        {
-          title: "Consequence Voice - Misdiagnosis Fallout",
-          context: "High-emotion response when player treatment choice is wrong.",
-          craftNote: "Escalation uses repetition and interrupted clauses to heighten blame and urgency.",
-          excerpt: "Irena: What did you just give me?\n\nPlayer Option:\n- It should help with the symptoms you described.\n\nIrena: Should. SHOULD.\nIrena: Half this village eats because of me. Half this village survives winter because I don't guess. I measure. I check. I test twice before I trust anything.\nIrena: And you just handed me something and told me to take it?!\n\nPlayer Option:\n- Irena, please - let me re-examine..."
+          title: "Irena Dialogue Scripts",
+          format: "Yarn Spinner (.yarn)",
+          context: "The production script used in-engine, including node titles, jumps, conditional checks, and state mutations across the full Irena interaction arc.",
+          craftNote: "Shows my technical narrative workflow: readable branching structure, reusable hubs, and implementation-level dialogue logic ready for Unity + Yarn Spinner.",
+          fileHref: "files/NPC_Irena-v2.yarn",
+          fileLabel: "Open .yarn source"
         }
       ],
       media: [
@@ -917,6 +921,24 @@
     }
     .detail-inline-media { margin-top:1.6rem; }
     .detail-proof { display:flex; flex-direction:column; gap:1rem; }
+    .detail-recognition {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+      gap: 1rem;
+      align-items: start;
+    }
+    .detail-recognition-image-wrap {
+      border: 1px solid var(--border);
+      background: linear-gradient(165deg, rgba(8, 19, 36, 0.92), rgba(10, 21, 40, 0.8));
+      padding: 0.8rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .detail-recognition-image {
+      width: 100%;
+      display: block;
+      height: auto;
+      object-fit: contain;
+    }
     .detail-writing-intro {
       color: var(--muted);
       font-size: 0.98rem;
@@ -982,6 +1004,74 @@
       line-height: 1.65;
       font-weight: 400;
       white-space: pre-line;
+    }
+    .writing-sample-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.45rem;
+    }
+    .writing-sample-head-copy {
+      min-width: 0;
+      flex: 1;
+    }
+    .writing-sample-format {
+      flex-shrink: 0;
+      border: 1px solid rgba(var(--accent-rgb), 0.45);
+      color: var(--accent);
+      background: rgba(var(--accent-rgb), 0.1);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.5rem;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    .writing-sample-scroll {
+      max-height: 280px;
+      overflow-y: auto;
+      border: 1px solid rgba(var(--accent-rgb), 0.24);
+      background: rgba(8, 19, 36, 0.55);
+      padding: 0.75rem 0.8rem;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(var(--accent-rgb), 0.45) rgba(9, 20, 38, 0.8);
+    }
+    .writing-sample-scroll::-webkit-scrollbar {
+      width: 8px;
+    }
+    .writing-sample-scroll::-webkit-scrollbar-track {
+      background: rgba(9, 20, 38, 0.8);
+    }
+    .writing-sample-scroll::-webkit-scrollbar-thumb {
+      background: rgba(var(--accent-rgb), 0.45);
+      border-radius: 999px;
+      border: 1px solid rgba(9, 20, 38, 0.85);
+    }
+    .writing-sample-actions {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 0.9rem;
+      flex-wrap: wrap;
+    }
+    .writing-sample-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(var(--accent-rgb), 0.45);
+      background: rgba(var(--accent-rgb), 0.1);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.55rem 0.75rem;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .writing-sample-link:hover {
+      color: var(--ink);
+      border-color: var(--accent);
+      background: var(--accent);
     }
     .detail-kpis { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:0.6rem; }
     .detail-kpi {
@@ -1666,6 +1756,15 @@
           <div class="detail-snippets" id="d-snippets"></div>
         </div>
       </div>
+      <div class="detail-section hidden" id="d-recognition-section">
+        <div class="detail-section-label">Showcase Recognition</div>
+        <div class="detail-recognition">
+          <div class="detail-copy" id="d-recognition"></div>
+          <div class="detail-recognition-image-wrap hidden" id="d-recognition-image-wrap">
+            <img class="detail-recognition-image lightbox-enabled" id="d-recognition-image" alt="Award recognition image" loading="lazy">
+          </div>
+        </div>
+      </div>
       <div class="detail-section hidden" id="d-writing-section">
         <div class="detail-section-label">Writing Showcase</div>
         <p class="detail-writing-intro" id="d-writing-overview"></p>
@@ -2175,20 +2274,35 @@ function showDetail(id) {
   }
 
   const proofSectionEl = document.getElementById('d-proof-section');
+  const recognitionSectionEl = document.getElementById('d-recognition-section');
   const kpiEl = document.getElementById('d-kpis');
   const highlightsEl = document.getElementById('d-highlights');
   const snippetsEl = document.getElementById('d-snippets');
+  const recognitionEl = document.getElementById('d-recognition');
+  const recognitionImageWrapEl = document.getElementById('d-recognition-image-wrap');
+  const recognitionImageEl = document.getElementById('d-recognition-image');
   const writingSectionEl = document.getElementById('d-writing-section');
   const writingOverviewEl = document.getElementById('d-writing-overview');
   const writingHighlightsEl = document.getElementById('d-writing-highlights');
   const writingSamplesEl = document.getElementById('d-writing-samples');
 
+  const recognition = g.recognition || [];
   const quickStats = g.quickStats || [];
   const systemHighlights = g.systemHighlights || [];
   const devSnippets = g.devSnippets || [];
   const writingHighlights = g.writingHighlights || [];
   const writingSamples = g.writingSamples || [];
 
+  renderDetailCopy('d-recognition', '', recognition);
+  if (g.recognitionImage && g.recognitionImage.trim()) {
+    recognitionImageEl.src = g.recognitionImage;
+    recognitionImageEl.alt = g.recognitionImageAlt || `${g.title} recognition image`;
+    recognitionImageWrapEl.classList.remove('hidden');
+  } else {
+    recognitionImageEl.removeAttribute('src');
+    recognitionImageEl.alt = 'Award recognition image';
+    recognitionImageWrapEl.classList.add('hidden');
+  }
   kpiEl.innerHTML = quickStats.map(item => `<div class="detail-kpi">${item}</div>`).join('');
   highlightsEl.innerHTML = systemHighlights.map(item => `<li>${item}</li>`).join('');
   snippetsEl.innerHTML = devSnippets.map(snippet => `
@@ -2209,15 +2323,22 @@ function showDetail(id) {
   writingSamplesEl.innerHTML = writingSamples
     .map(sample => `
       <article class="writing-sample-card">
-        <div class="writing-sample-title">${sample.title || 'Writing Sample'}</div>
+        <div class="writing-sample-head">
+          <div class="writing-sample-head-copy">
+            <div class="writing-sample-title">${sample.title || 'Writing Sample'}</div>
+          </div>
+          ${sample.format ? `<div class="writing-sample-format">${sample.format}</div>` : ''}
+        </div>
         ${sample.context ? `<p class="writing-sample-context">${sample.context}</p>` : ''}
         ${sample.craftNote ? `<p class="writing-sample-craft">${sample.craftNote}</p>` : ''}
-        ${sample.excerpt ? `<p class="writing-sample-excerpt">${sample.excerpt}</p>` : ''}
+        ${sample.excerpt ? `<div class="writing-sample-scroll" role="region" aria-label="Scrollable writing excerpt"><p class="writing-sample-excerpt">${sample.excerpt}</p></div>` : ''}
+        ${(sample.fileHref && sample.fileLabel) ? `<div class="writing-sample-actions"><a class="writing-sample-link" href="${sample.fileHref}" target="_blank" rel="noopener noreferrer">${sample.fileLabel}</a></div>` : ''}
       </article>
     `)
     .join('');
 
   proofSectionEl.classList.toggle('hidden', !(quickStats.length || systemHighlights.length || devSnippets.length));
+  recognitionSectionEl.classList.toggle('hidden', !(recognition.length || (g.recognitionImage && g.recognitionImage.trim())));
   writingSectionEl.classList.toggle('hidden', !(g.writingOverview || writingHighlights.length || writingSamples.length));
 
   const mediaEl = document.getElementById('d-media');
