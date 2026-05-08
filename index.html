@@ -91,83 +91,41 @@
       thumbFit: "contain",
       thumbPosition: "center center",
       thumbColor: "c2",
-      cardSummary: "Choice-driven horror VN with modular relationship, inventory, and ending systems.",
-      focus: ["Programming", "Systems", "Production"],
-      proof: ["Modular Ren'Py Architecture", "Ending Evaluator"],
-      collaboration: "Student team project of about 10 members; served as producer and lead programmer, managing timelines, assignment ownership, and implementation coordination across narrative scripts.",
-      description: "Into the Woods is a choice-driven horror visual novel built in Ren'Py. The player wakes up at the campsite to realize their friends are gone, then must navigate branching dialogue, shifting loyalties, and survival decisions deep in the forest. Relationship values, rescue outcomes, and key choices dynamically determine which of five endings unfolds. I served as lead programmer, architecting the narrative systems, relationship logic, inventory framework, and ending evaluator that power the game's branching structure.",
-      contribution: "I served as producer and lead programmer on Into the Woods. As producer, I managed timelines, coordinated assignments, and pulled the project together across disciplines to keep production moving. As lead programmer, I structured modular .rpy architecture, implemented relationship and rescue-state systems, built the inventory framework and visual feedback UI, and authored the multi-ending evaluation logic.",
-      designProcess: "My programming approach focused on building reusable narrative systems rather than hardcoding story outcomes. I separated variables, characters, inventory, endings, and UI into discrete modules to prevent script bloat and reduce merge conflicts across programmers. Core systems were designed around flexible state dictionaries, allowing rescue outcomes and relationship values to dynamically influence ending logic without rewriting scenes. I prioritized clarity and maintainability. Each mechanic, such as love modification or item checks, was abstracted into functions so writers can trigger logic through simple calls instead of embedding raw Python throughout dialogue. This ensures the branching structure can expand without increasing technical debt as art and final narrative content are integrated.",
-      descriptionBullets: [
-        "Choice-driven horror visual novel built in Ren'Py.",
-        "The player wakes up at the campsite to realize their friends are gone.",
-        "Branching dialogue, shifting loyalties, and survival decisions shape the route.",
-        "Relationship values, rescue outcomes, and key choices determine one of five endings."
-      ],
-      contributionBullets: [
-        "Led production and programming for the project.",
-        "Managed timelines, assignment ownership, and cross-discipline execution to keep the project cohesive.",
-        "Structured modular .rpy architecture across variables, characters, inventory, endings, and UI.",
-        "Implemented relationship tracking, rescue-state logic, inventory framework, and ending evaluation.",
-        "Set code standards and file organization to reduce merge conflicts across the programming team."
-      ],
-      processBullets: [
-        "Focused on reusable narrative systems instead of hardcoded one-off outcomes.",
-        "Used flexible state dictionaries so rescue and relationship changes could influence endings without scene rewrites.",
-        "Abstracted mechanics like love modification and item checks into simple callable functions for writers.",
-        "Prioritized maintainability so branching content could scale as final art and writing were integrated."
-      ],
+      cardSummary: "Horror VN where I focused on scene readability and character emphasis through custom sprite staging and dialogue-driven visual systems.",
+      focus: ["Programming", "Visual Direction", "Production"],
+      proof: ["Half-Body Sprite Transforms", "Speaker-Focus Dimming"],
+      collaboration: "Student team project of about 10 members; I served as producer and lead programmer, aligning art, writing, and implementation decisions.",
+      description: "Into the Woods is a choice-driven horror visual novel built in Ren'Py. My goal was to make conversations feel cinematic and readable while still supporting a large branching script. The project uses relationship and ending systems, but this page centers on the visual presentation layer that made character scenes easier to read and more emotionally focused.",
+      contribution: "I owned the implementation of character presentation in dialogue scenes. I built unique transforms to stage half-body sprites with stronger composition, then created a reusable speaker-focus dimming system so active speakers stay visually dominant while non-speakers remain present and readable.",
+      designProcess: "I treated dialogue readability as both a design and engineering problem. First, I defined transform rules for left, center, and right placements so half-body sprites could hold silhouette clarity without covering UI space. Then I implemented a callback-driven dimming pipeline tied to current speaker state, so emphasis updates automatically on each line instead of requiring manual scene scripting. This let writers focus on dialogue while the presentation system handled focus direction.",
       quickStats: [
-        "5 ending outcomes supported",
-        "10-person student team",
-        "Producer: timeline + assignment ownership",
-        "Modular .rpy file architecture",
-        "Reusable writer-facing utility functions"
+        "Custom half-body staging transforms",
+        "Automatic speaker-focus dimming",
+        "Reusable callback pipeline across scenes"
       ],
       systemHighlights: [
-        "Owned production coordination across milestones, assignment handoff, and implementation follow-through.",
-        "Structured the project architecture across modular .rpy files for cleaner ownership and reduced merge conflicts.",
-        "Implemented the relationship system, rescue-state tracking, inventory framework, and visual feedback UI.",
-        "Built multi-ending evaluation logic so key choices and rescue outcomes determine final-state paths.",
-        "Abstracted mechanics like love modification and item checks into reusable functions writers can call directly."
+        "Built transform presets for half-body sprite composition to increase visual interest and maintain text-box readability.",
+        "Used matrix desaturation plus subtle alpha shifts so non-speaking characters fade back without disappearing.",
+        "Centralized speaker tracking with a callback, removing repetitive per-line presentation logic from script files."
       ],
       devSnippets: [
         {
-          title: "variables.rpy - Relationship + Alive State",
+          title: "transforms.rpy - Half-Body Framing Presets",
+          language: "Ren'Py ATL",
+          note: "Reusable staging transforms for half-body character sprites.",
+          code: "transform left_half:\n    xalign 0.16\n    yalign 1.0\n    zoom 0.98\n\ntransform center_half:\n    xalign 0.50\n    yalign 1.0\n    zoom 1.04\n\ntransform right_half:\n    xalign 0.84\n    yalign 1.0\n    zoom 0.98"
+        },
+        {
+          title: "characters.rpy - Speaker-Focus Dimming Callback",
           language: "Ren'Py / Python",
-          note: "Core persistent dictionaries and reusable relationship utility used throughout dialogue branches.",
-          code: "#Initializing the starting point of 0/0 for relationship meters for all characters at the start of the game - Lisa\ndefault love = {\n    CHAR_N:  0,\n    CHAR_A:  0,\n    CHAR_K: 0,\n    CHAR_I: 0,\n    CHAR_S: 0,\n}\n\n# Tracks whether each friend is alive - Lisa\ndefault alive = {\n    CHAR_P: True,\n    CHAR_K: True,\n    CHAR_I: True,\n    CHAR_S: True,\n}\n\ninit python:\n    # Command to add love to a character\n    def add_love(char, amount):\n        love[char] += amount\n        if love[char] < 0:\n            love[char] = 0"
-        },
-        {
-          title: "chapter_01_intro.rpy - Choice Branching",
-          language: "Ren'Py",
-          note: "Early narrative menu branch that adjusts relationship state and routes the player to different outcomes.",
-          code: "menu:\n    \"Of course! What could be more romantic than that?\":\n        $ add_love(CHAR_N, 2)\n        # add +2 Affinity Narrator\n        jump intro_01_a\n    \"Who doesn’t love a good campfire ghost story?\":\n        $ add_love(CHAR_N, 1)\n        # add +1 Affinity Narrator\n        jump intro_01_b\n    \"Not gonna lie, that sounds like the setup to a bad horror movie.\":\n        # No change to affinity\n        jump intro_01_c\n    \"Ew, camping...\":\n        $ add_love(CHAR_N, -1)\n        # -1 Affinity to Narrator\n        jump intro_01_d"
-        },
-        {
-          title: "chapter_01_intro.rpy - Car Scene Dialogue Flow",
-          language: "Ren'Py",
-          note: "Branching dialogue scene with portrait updates, SFX triggers, and affinity changes across multiple outcomes.",
-          code: "label car_07:\n\n    show sebastian at left_char\n    show kaya at center_char\n    show isaiah at right_char\n\n    $ current_portrait = \"sebastian_neutral\"\n    s \"Hey. You’re being very quiet over there.\"\n\n    \"Isaiah wields the camera in your direction.\"\n\n    $ current_portrait = \"isaiah_neutral\"\n    play sound \"audio/SFX/OneShots/ITW - Polaroid 2.opus\"\n    i \"Yeah, protagonist. Any thoughts?\"\n\n    menu:\n        \"If something supernatural happens, I’m pushing Isaiah toward it first.\":\n            $ add_love(CHAR_I, 1)\n            jump car_07_a\n\n        \"Honestly, I’m with Kaya. Let’s try not to anger any forest spirits.\":\n            $ add_love(CHAR_K, 1)\n            jump car_07_b\n\n        \"Isaiah, if you do post anything, do us all a favor and keep us out of the stupid thumbnail.\":\n            $ add_love(CHAR_S, 1)\n            jump car_07_c\n\n        \"I regret getting in this car.\":\n            $ add_love(CHAR_I, -1)\n            $ add_love(CHAR_S, -1)\n            $ add_love(CHAR_K, -1)\n            jump car_07_d"
-        },
-        {
-          title: "endings.rpy - Rescue Outcome Counter",
-          language: "Ren'Py / Python",
-          note: "Helper used by ending logic to count successful rescues and drive final outcome states.",
-          code: "init python:\n    def get_rescued_count():\n        rescued_count = 0\n\n        if rescued.get(CHAR_F1, False):\n            rescued_count += 1 \n\n        if rescued.get(CHAR_F2, False):\n            rescued_count += 1 \n\n        if rescued.get(CHAR_F3, False):\n            rescued_count += 1 \n            \n        return rescued_count"
-        },
-        {
-          title: "chapter_01_intro.rpy - Affinity-Gated Route Split",
-          language: "Ren'Py",
-          note: "Conditional branch that routes tent assignment outcomes by relationship thresholds.",
-          code: "menu:\n    \"Got enough room in your tent for me, Isaiah?\":\n        if love[CHAR_I] >= 8:\n            jump GoToBed_02_a_High\n        elif love[CHAR_I] >= 1:\n            jump GoToBed_02_a_Low\n        else:\n            jump GoToBed_02_a_Neg\n\n    \"I was thinking me with Seb and you with Kaya.\":\n        if love[CHAR_S] >= 5:\n            jump GoToBed_02_b_High\n        elif love[CHAR_S] >= 1:\n            jump GoToBed_02_b_Low\n        else:\n            jump GoToBed_02_b_Neg\n\n    \"Kaya, you mind if I bunk with you?\":\n        if love[CHAR_K] >= 9:\n            jump GoToBed_02_c_High\n        elif love[CHAR_K] >= 2:\n            jump GoToBed_02_c_Low\n        else:\n            jump GoToBed_02_c_Neg"
+          note: "Desaturates and slightly dims non-speakers while keeping them readable in frame.",
+          code: "init python:\n    class _SpeakerCheck(object):\n        \"\"\"Dims sprites when another character speaks.\"\"\"\n        def __init__(self, char_name):\n            self.char_name = char_name\n            self.active_alpha = 1.0\n            self.inactive_alpha = 0.92\n            self.active_matrix = SaturationMatrix(1.0)\n            self.inactive_matrix = SaturationMatrix(0.35)\n\n        def __call__(self, trans, st, at):\n            if renpy.store._current_speaker is None or renpy.store._current_speaker == self.char_name:\n                target = self.active_alpha\n                trans.matrixcolor = self.active_matrix\n            else:\n                target = self.inactive_alpha\n                trans.matrixcolor = self.inactive_matrix\n            trans.alpha = target\n            return 0.05\n\n        def __reduce__(self):\n            return (_SpeakerCheck, (self.char_name,))\n\n    def _speaking_cb(event, interact=True, char_name=None, **kwargs):\n        if event == \"begin\":\n            renpy.store._current_speaker = char_name\n        elif event == \"end\":\n            renpy.store._current_speaker = None"
         }
       ],
       media: [
-        { type:"image", src:"images/ITW_Car.png", caption:"Kaya’s car interior background used in the opening scene, introducing the group dynamic before the cabin arrival." },
-        { type:"image", src:"images/ITW_Camp.png", caption:"Forest campsite scene used to stage branching choices, relationship shifts, and survival pressure." },
-        { type:"image", src:"images/CharacterSheet_Females.png", caption:"Female cast character sheet supporting consistency across expressions, poses, and scene scripting." },
-        { type:"image", src:"images/CharacterSheet_Males.png", caption:"Male cast character sheet used to align visual continuity with relationship and route progression." },
+        { type:"image", src:"images/ITW_Car.png", caption:"Opening car scene used to validate half-body framing, camera weight, and screen balance with dialogue UI." },
+        { type:"image", src:"images/ITW_Camp.png", caption:"Camp scene where speaker-focus dimming keeps active dialogue readable during multi-character exchanges." },
+        { type:"image", src:"images/CharacterSheet_Females.png", caption:"Expression and pose sheet used to tune transform anchors and preserve silhouette clarity." },
         { type:"link",  url:"https://crevlm.itch.io/into-the-woods", label:"Learn more on Itch.io" }
       ]
     },
@@ -900,6 +858,63 @@
       line-height: 1.78;
       max-width: 72ch;
     }
+    .detail-snapshot {
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 12% 14%, rgba(var(--accent-rgb), 0.2), transparent 48%),
+        linear-gradient(150deg, rgba(9, 20, 37, 0.95), rgba(10, 21, 40, 0.86));
+      padding: 1rem 1rem 1.05rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+    .detail-snapshot-title {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.55rem;
+    }
+    .detail-snapshot-summary {
+      color: var(--text);
+      font-size: 0.96rem;
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+      font-weight: 300;
+    }
+    .detail-snapshot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+    .detail-snapshot-block {
+      border: 1px solid rgba(var(--accent-rgb), 0.25);
+      background: rgba(5, 12, 24, 0.45);
+      padding: 0.55rem 0.6rem 0.65rem;
+    }
+    .detail-snapshot-label {
+      color: var(--muted);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+    .detail-snapshot-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .detail-snapshot-pill {
+      border: 1px solid rgba(var(--accent-rgb), 0.45);
+      background: rgba(var(--accent-rgb), 0.1);
+      color: var(--text);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.35;
+      padding: 0.24rem 0.42rem;
+      font-weight: 500;
+    }
     .detail-inline-media { margin-top:1.6rem; }
     .detail-proof { display:flex; flex-direction:column; gap:1rem; }
     .detail-writing-intro {
@@ -1486,6 +1501,7 @@
       .about-strip { padding: 2rem 1.2rem; flex-direction: column; gap: 2rem; }
       footer { padding: 1.2rem; flex-direction: column; gap: 0.5rem; }
       #detail-view, #about-view { padding: 0 1.2rem 4rem; }
+      .detail-snapshot-grid { grid-template-columns: 1fr; }
     }
 
     /* Iframes don't work well on mobile so hide the resume PDF and just show the download link */
@@ -1617,6 +1633,22 @@
       <div class="detail-section">
         <div class="detail-section-label">About the Game</div>
         <div class="detail-copy" id="d-description"></div>
+      </div>
+      <div class="detail-section hidden" id="d-snapshot-section">
+        <div class="detail-snapshot">
+          <div class="detail-snapshot-title">Design Snapshot</div>
+          <p class="detail-snapshot-summary" id="d-snapshot-summary"></p>
+          <div class="detail-snapshot-grid">
+            <div class="detail-snapshot-block">
+              <div class="detail-snapshot-label">Focus Areas</div>
+              <div class="detail-snapshot-pills" id="d-snapshot-focus"></div>
+            </div>
+            <div class="detail-snapshot-block">
+              <div class="detail-snapshot-label">Implementation Proof</div>
+              <div class="detail-snapshot-pills" id="d-snapshot-proof"></div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="detail-section">
         <div class="detail-section-label">My Contribution</div>
@@ -2107,6 +2139,17 @@ function showDetail(id) {
   document.getElementById('d-title').textContent        = g.title;
   document.getElementById('d-role').textContent         = g.role;
   renderDetailCopy('d-description', g.description, g.descriptionBullets);
+  const snapshotSectionEl = document.getElementById('d-snapshot-section');
+  const snapshotSummaryEl = document.getElementById('d-snapshot-summary');
+  const snapshotFocusEl = document.getElementById('d-snapshot-focus');
+  const snapshotProofEl = document.getElementById('d-snapshot-proof');
+  const snapshotSummary = (g.cardSummary || '').trim();
+  const snapshotFocus = g.focus || [];
+  const snapshotProof = g.proof || [];
+  snapshotSummaryEl.textContent = snapshotSummary;
+  snapshotFocusEl.innerHTML = snapshotFocus.map(item => `<span class="detail-snapshot-pill">${item}</span>`).join('');
+  snapshotProofEl.innerHTML = snapshotProof.map(item => `<span class="detail-snapshot-pill">${item}</span>`).join('');
+  snapshotSectionEl.classList.toggle('hidden', !(snapshotSummary || snapshotFocus.length || snapshotProof.length));
   renderDetailCopy('d-contribution', g.contribution, g.contributionBullets);
   document.getElementById('d-collab').textContent       = g.collaboration || '';
   renderDetailCopy('d-process', g.designProcess, g.processBullets);
