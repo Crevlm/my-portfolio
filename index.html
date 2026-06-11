@@ -23,6 +23,29 @@
   ============================================================ */
   const GAMES = [
     {
+      id: "addie-shen",
+      title: "Addie Shen",
+      role: "Assistant Producer",
+      projectType: "Industry Internship",
+      year: "2026",
+      tags: ["Puzzle Shooter", "PC", "Free to Play"],
+      wip: true,
+      thumbnail: "images/addieshenheader.jpg",
+      thumbFit: "cover",
+      thumbPosition: "center center",
+      thumbColor: "c6",
+      cardSummary: "Math-based puzzle shooter by Unexpected Accessories LLC. Managing the art pipeline as Assistant Producer during a summer internship.",
+      focus: ["Production"],
+      proof: ["Art Pipeline Management", "Producer Workflow"],
+      collaboration: "Summer internship at Unexpected Accessories LLC; embedded as Assistant Producer responsible for coordinating art production across the team.",
+      description: "Addie Shen is a math-based puzzle shooter developed by Unexpected Accessories LLC. Players go solo, team up in co-op, or sharpen their skills against the evil PEMDAS minions across Story, Practice, and Multiplayer modes. The game features procedural math equations, split-screen co-op and competitive play, and a narrative Story Mode with five missions — all grounded in a genuinely fun educational hook.",
+      contribution: "I am currently working on Addie Shen as Assistant Producer during a summer internship, managing the art pipeline and coordinating art asset production across the team. My work focuses on tracking deliverables, communicating between artists and leads, and keeping the pipeline moving toward the planned 2026 release.",
+      designProcess: "",
+      media: [
+        { type:"link", url:"https://store.steampowered.com/app/3364130/Addie_Shen/", label:"View on Steam" }
+      ]
+    },
+    {
       id: "frostbound",
       title: "FrostBound",
       role: "Narrative Designer",
@@ -140,7 +163,7 @@
       projectType: "Student Project",
       year: "2025",
       tags: ["Unity", "VR", "PC"],
-      wip: true,
+      wip: false,
       thumbnail: "images/LightTheWay_Logo.png",
       //thumbnailVideo: "ltw_skyboxstar.mp4",
       thumbColor: "c3",
@@ -184,31 +207,6 @@
         { type:"image", src:"images/LTWInitialEndRoom.png", caption:"Initial end-room composition used for player reflection and progression payoff." },
         { type:"image", src:"images/LTWChakra.png", caption:"Chakra-inspired visual moment supporting the experience's meditative tone." },
         { type:"link",  url:"https://crevlm.itch.io/light-the-way", label:"Development updates (not on Liminal VR store yet)" }
-      ]
-    },
-    {
-      id: "dreamwalker",
-      title: "Dream Walker",
-      role: "Solo Developer",
-      projectType: "Indie",
-      year: "2026",
-      tags: ["Unity", "Action RPG", "PC"],
-      wip: true,
-      thumbnail: "",
-      thumbColor: "c6",
-      cardSummary: "Early-stage isometric action RPG prototype set across condition-themed dream spaces.",
-      focus: ["Programming", "Systems", "Narrative"],
-      proof: ["Ink Narrative Integration", "Controller-First Input"],
-      collaboration: "Solo indie project; responsible for full design, implementation, and technical integration.",
-      description: "Dream Walker is a 3D isometric action game built in Unity 6.2 about a cat who enters a girl's dream world each night to fight the psychological weight that has been quietly pulling her under. Her depression, anxiety, CPTSD, and ADHD have been stripping her life down piece by piece. She does not know the cat she found in an alley is a dream walker. The cat goes in because she is able to, and because somebody should. Each of the four nights corresponds to one of the girl's conditions, with its own environment, enemy set, and boss that reflects how that condition actually feels to live with..",
-      contribution: "I am the sole developer on Dream Walker, handling narrative design, systems design, and Unity development. I designed the four-night structure, the boss identities, the three-layer narrative system using Ink, and the environmental storytelling that carries the girl's history through the dream world. On the technical side I built all core systems: CharacterController-based movement, the light resource mechanic, combat, enemy AI via NavMesh, Ink dialogue integration, save system, HUD, pause and title menus, and accessibility toggles for screen shake and hitstop. The game is designed controller-first with full keyboard and mouse support.",
-      designProcess: "I wanted the boss and enemy design to embody what it feels like to live with these conditions. Depression is a hulking figure, slow and scary, something you cannot outrun. Anxiety splits and fractures and comes at you from multiple angles. The world itself is built around the symptoms, so the environment, the enemies, and the bosses are all working together to put the player inside that experience rather than just labeling it from the outside.",
-      media: [
-        { type:"image", src:"", caption:"" },
-        { type:"gif",   src:"", caption:"" },
-        { type:"pdf",  src:"files/DreamWalker-gdd-v1.1.pdf", caption:"Dream Walker Game Design Document (v1.1)." },
-        { type:"link", url:"files/DreamWalker-gdd-v1.1.pdf", label:"Download Dream Walker GDD (PDF)" },
-        { type:"link", url:"https://itch.io", label:"Itch Page Coming Soon" }
       ]
     },
     {
@@ -314,7 +312,7 @@
   ============================================================ */
   const SITE = {
     name:      "Lisa Creveling",
-    tagline:   "Game Designer",
+    tagline:   "Game Designer & Producer",
     heroLine1: "Lisa",
     heroLine2: "Creveling",
     heroCopy:  "Game designer shaping player-centered experiences through narrative, UX, accessibility, technical implementation, and production leadership.",
@@ -332,7 +330,7 @@
   const ABOUT = {
 
     // Short headline that appears large at the top
-    headline: "I design complete game experiences.",
+    headline: "Making games that mean something.",
 
     // 2–4 sentences introducing yourself
     bio: "I’m a Chicago-based game designer working across narrative, UX, accessibility, technical implementation, and production. I design from player intent first, then build systems, interactions, and content that support a cohesive experience from concept through shipping.",
@@ -343,13 +341,18 @@
     // Education — add or remove entries as needed
     education: [
       {
-        degree:     "BA Game Design",
+        degree:     "M.F.A. Game Design",
+        school:     "DePaul University",
+        year:       "Incoming Fall 2026"
+      },
+      {
+        degree:     "B.A. Game Design, Summa Cum Laude",
         school:     "Columbia College Chicago",
         year:       "2026",
         notes:      "While completing coursework in game production and design, I directed my projects toward narrative systems and systemic storytelling. Many assignments became experiments in branching architecture, player consequence, and modular implementation."
       },
       {
-        degree:     "BA Business Administration",
+        degree:     "B.A. Business Administration",
         school:     "American Military University",
         year:       "2019",
         notes:      "Coursework focused on business marketing and administration."
@@ -383,7 +386,7 @@
       },
       {
         category: "Tools",
-        items: ["Unity", "Obsidian", "Figma", "Git / GitHub", "Ren'py"]
+        items: ["Unity", "Obsidian", "Trello", "Jira", "Git / GitHub", "Ren'py"]
       },
       {
         category: "Production",
@@ -567,7 +570,7 @@
       max-width: var(--content-max);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 320px;
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 2.4rem;
       align-items: end;
     }
@@ -582,89 +585,66 @@
     }
     h1 span { -webkit-text-stroke: 1px var(--text); color: transparent; }
     .hero-sub { margin-top: 1.5rem; color: var(--muted); font-size: 1.18rem; font-weight: 300; max-width: 460px; }
-    .hero-side {
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(19,38,69,0.88), rgba(10,21,40,0.9));
-      padding: 0.95rem 0.95rem 1.05rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      min-height: 220px;
+
+
+
+    .hero-contact {
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-self: end;
+      width: 300px;
+      border: 1px solid var(--border);
+      background: linear-gradient(160deg, rgba(22,44,78,0.95), rgba(10,21,40,0.97));
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.10),
+        inset 0 -1px 0 rgba(var(--accent-rgb),0.15),
+        0 0 40px rgba(var(--accent-rgb),0.08);
+      padding: 1.1rem 1.15rem 0.7rem;
+      gap: 0;
     }
-    .hero-side::before {
+    .hero-contact::before {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 18% 20%, rgba(var(--accent-rgb), 0.22), transparent 42%),
-        radial-gradient(circle at 85% 80%, rgba(61, 126, 182, 0.28), transparent 48%),
-        repeating-linear-gradient(120deg, transparent 0 20px, rgba(255,255,255,0.04) 20px 21px);
-      opacity: 0.55;
+        radial-gradient(circle at 15% 15%, rgba(var(--accent-rgb), 0.32), transparent 40%),
+        radial-gradient(circle at 90% 85%, rgba(61, 126, 182, 0.38), transparent 45%),
+        radial-gradient(circle at 70% 30%, rgba(111, 90, 170, 0.2), transparent 38%),
+        repeating-linear-gradient(120deg, transparent 0 18px, rgba(255,255,255,0.03) 18px 19px);
+      opacity: 0.7;
       pointer-events: none;
     }
-    .hero-side-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.14em;
+    .hero-contact::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10%;
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.9), transparent);
+    }
+    .hero-contact-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent-soft);
       position: relative;
       z-index: 1;
+      margin-bottom: 0.75rem;
     }
-    .hero-rotator {
+    .hero-contact .contact-link {
       position: relative;
       z-index: 1;
-      border: 1px solid rgba(var(--accent-rgb), 0.28);
-      background: rgba(10, 21, 40, 0.58);
-      padding: 0.7rem 0.75rem 0.75rem;
-      min-height: 150px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-      transition: opacity 0.35s ease;
+      font-size: 0.88rem;
+      padding: 0.55rem 0;
+      border-top: 1px solid rgba(87,121,170,0.18);
+      letter-spacing: 0.03em;
     }
-    .hero-rotator-kicker {
-      color: var(--accent);
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    .hero-contact .contact-link:last-child {
+      border-bottom: 1px solid rgba(87,121,170,0.18);
     }
-    .hero-rotator-title {
-      font-family: var(--font-display);
-      font-size: 1.55rem;
-      line-height: 1;
-      letter-spacing: 0.04em;
-      color: var(--text);
-    }
-    .hero-rotator-copy {
-      color: var(--muted);
-      font-size: 0.93rem;
-      line-height: 1.55;
-      margin: 0;
-      max-width: 28ch;
-    }
-    .hero-rotator-dots {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      gap: 0.35rem;
-      align-items: center;
-      margin-top: 0.05rem;
-    }
-    .hero-rotator-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: rgba(var(--accent-rgb), 0.28);
-      transition: background 0.2s, transform 0.2s;
-    }
-    .hero-rotator-dot.active {
-      background: var(--accent);
-      transform: scale(1.08);
-    }
-
-    /* ── SECTION HEADER ── */
     .section-header {
       max-width: var(--content-max); margin: 5rem auto 1.5rem; padding: 0 2.5rem;
       display: flex; align-items: baseline; gap: 1rem;
@@ -1363,8 +1343,8 @@
     }
     .about-page-headline {
       font-family: var(--font-display);
-      font-size: clamp(2.9rem, 6.5vw, 5.8rem);
-      line-height: 1;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      line-height: 1.1;
       letter-spacing: 0.02em;
       color: var(--text);
       margin-bottom: 1.5rem;
@@ -1653,15 +1633,10 @@
       <h1 id="hero-h1"></h1>
       <p class="hero-sub" id="hero-copy"></p>
     </div>
-    <aside class="hero-side" aria-label="Quick Links">
-      <div class="hero-side-label">In Rotation</div>
-      <div class="hero-rotator" id="hero-rotator" aria-live="polite">
-        <div class="hero-rotator-kicker" id="hero-rotator-kicker"></div>
-        <div class="hero-rotator-title" id="hero-rotator-title"></div>
-        <p class="hero-rotator-copy" id="hero-rotator-copy"></p>
-      </div>
-      <div class="hero-rotator-dots" id="hero-rotator-dots" aria-hidden="true"></div>
-    </aside>
+    <div class="hero-contact" id="hero-contact-links">
+      <div class="hero-contact-label">Connect With Me</div>
+    </div>
+
   </section>
 
   <div class="section-header">
@@ -1897,6 +1872,7 @@ document.getElementById('resume-frame').src = SITE.resume;
 
 /* Home contact links */
 const homeCL = document.getElementById('home-contact-links');
+const heroCL = document.getElementById('hero-contact-links');
 [
   { icon:'✉', label: SITE.email,     href:'mailto:'+SITE.email },
   { icon:'🔗', label:'itch.io',      href: SITE.itchio  },
@@ -1905,70 +1881,22 @@ const homeCL = document.getElementById('home-contact-links');
   { icon:'📄', label:'Resume / CV',  href: SITE.resume  }
 ].forEach(c => {
   const isExternal = c.href.startsWith('http');
-  homeCL.innerHTML += `<a class="contact-link" href="${c.href}" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+  const link = `<a class="contact-link" href="${c.href}" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>
     <span class="icon">${c.icon}</span>${c.label}</a>`;
+  homeCL.innerHTML += link;
+  heroCL.insertAdjacentHTML('beforeend', link);
 });
 
-/* Hero rotating block */
-const HERO_ROTATION = [
-  {
-    kicker: 'Current Build',
-    title: 'Dream Walker',
-    copy: 'Solo-developed action RPG prototype in active development across systems, narrative, and implementation.'
-  },
-  {
-    kicker: 'Design Focus',
-    title: 'Narrative Systems',
-    copy: 'Building mechanics and story structures together so player choices and emotional beats reinforce each other.'
-  },
-  {
-    kicker: 'Open To',
-    title: 'Freelance + Contract',
-    copy: 'Available for narrative-led and experimental projects that need design direction plus hands-on implementation.'
-  },
-  {
-    kicker: 'Recent Talks',
-    title: 'PAX East Panels',
-    copy: 'Panelist and moderator work on psychology, grief, and career pathways through games and content creation.'
-  }
-];
-
-const heroRotator = document.getElementById('hero-rotator');
-const heroRotatorKicker = document.getElementById('hero-rotator-kicker');
-const heroRotatorTitle = document.getElementById('hero-rotator-title');
-const heroRotatorCopy = document.getElementById('hero-rotator-copy');
-const heroRotatorDots = document.getElementById('hero-rotator-dots');
-let heroRotationIndex = 0;
-
-function renderHeroRotation(index) {
-  const item = HERO_ROTATION[index];
-  if (!item) return;
-
-  heroRotatorKicker.textContent = item.kicker;
-  heroRotatorTitle.textContent = item.title;
-  heroRotatorCopy.textContent = item.copy;
-  heroRotatorDots.innerHTML = HERO_ROTATION
-    .map((_, i) => `<span class="hero-rotator-dot ${i === index ? 'active' : ''}"></span>`)
-    .join('');
-}
-
-renderHeroRotation(heroRotationIndex);
-
-if (HERO_ROTATION.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  setInterval(() => {
-    heroRotationIndex = (heroRotationIndex + 1) % HERO_ROTATION.length;
-    renderHeroRotation(heroRotationIndex);
-  }, 4200);
-}
+/* Status card is static HTML — no JS needed */
 
 /* ── Build grid ──────────────────────────────────────── */
 const grid = document.getElementById('game-grid');
 const WORK_ORDER = [
+  'addie-shen',
   'frostbound',
   'light-the-way',
   'into-the-woods',
   'quake-level',
-  'dreamwalker',
   'present-stack'
 ];
 const orderedGames = [...GAMES].sort((a, b) => {
