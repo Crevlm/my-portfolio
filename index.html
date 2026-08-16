@@ -34,13 +34,31 @@
       thumbFit: "cover",
       thumbPosition: "center center",
       thumbColor: "c6",
-      cardSummary: "Math-based puzzle shooter by Unexpected Accessories LLC. Managing the art pipeline as Assistant Producer during a summer internship.",
+      cardSummary: "Math-based puzzle shooter by Unexpected Accessories LLC where I support production through GitLab task management, deadline follow-up, and blocker tracking.",
       focus: ["Production"],
-      proof: ["Art Pipeline Management", "Producer Workflow"],
-      collaboration: "Summer internship at Unexpected Accessories LLC; embedded as Assistant Producer responsible for coordinating art production across the team.",
+      proof: ["GitLab Task Management", "Deadline Tracking", "Blocker Triage", "Executive Producer Support"],
+      collaboration: "Summer internship at Unexpected Accessories LLC, embedded with production leadership to coordinate art pipeline execution, follow up on deadlines, and maintain delivery visibility across the team.",
       description: "Addie Shen is a math-based puzzle shooter developed by Unexpected Accessories LLC. Players go solo, team up in co-op, or sharpen their skills against the evil PEMDAS minions across Story, Practice, and Multiplayer modes. The game features procedural math equations, split-screen co-op and competitive play, and a narrative Story Mode with five missions — all grounded in a genuinely fun educational hook.",
-      contribution: "I am currently working on Addie Shen as Assistant Producer during a summer internship, managing the art pipeline and coordinating art asset production across the team. My work focuses on tracking deliverables, communicating between artists and leads, and keeping the pipeline moving toward the planned 2026 release.",
-      designProcess: "",
+      contribution: "As Assistant Producer, I support production tracking in GitLab, monitor task status and ownership, follow up on approaching deadlines, surface blockers early, and keep cross-discipline work moving. I also organize updates and priority notes for the Executive Producer to support planning and decision-making.",
+      contributionBullets: [
+        "Supported day-to-day task tracking and status updates in GitLab.",
+        "Followed up on deadlines and dependencies to reduce slip risk.",
+        "Tracked blockers and coordinated follow-through with the right owners.",
+        "Prepared organized production notes and priority updates for the Executive Producer."
+      ],
+      designProcess: "My production workflow centers on visibility and follow-through: maintain a clean GitLab board, verify owner clarity, monitor approaching deadlines, flag blockers quickly, and escalate risks with clear context. This keeps priorities aligned and supports predictable delivery across the art pipeline.",
+      quickStats: [
+        "GitLab tracking support",
+        "Deadline and dependency follow-up",
+        "Blocker escalation workflow",
+        "Executive Producer support cadence"
+      ],
+      systemHighlights: [
+        "Supported GitLab task hygiene to keep ownership and status current.",
+        "Used deadline check-ins and dependency tracking to catch schedule risk earlier.",
+        "Maintained blocker visibility and routed issues to the right decision-makers quickly.",
+        "Organized actionable updates for leadership to support prioritization and planning."
+      ],
       media: [
         { type:"link", url:"https://store.steampowered.com/app/3364130/Addie_Shen/", label:"View on Steam" }
       ]
@@ -210,11 +228,50 @@
       ]
     },
     {
+      id: "plastic-seeds",
+      title: "Plastic Seeds",
+      role: "Narrative Designer",
+      projectType: "Game Jam",
+      year: "2026",
+      tags: ["Incremental Strategy", "Web", "Climate Jam"],
+      wip: false,
+      thumbnail: "images/startscreen-plasticseeds.png",
+      thumbFit: "contain",
+      thumbPosition: "center center",
+      thumbColor: "c6",
+      cardSummary: "Climate Jam 2026 incremental strategy game about turning small cleanup actions into long-term environmental systems change.",
+      focus: ["Narrative", "Systems"],
+      proof: ["Theme-Driven Writing", "Environmental Storytelling"],
+      collaboration: "Game jam collaboration for Climate Jam 2026 with Audrey Guess, Ankit Verma (Omni), Cielu, and Mike Breidegam.",
+      description: "Plastic Seeds is a short incremental strategy game where players begin by collecting plastic waste on a polluted beach, then scale impact through education, community cleanup, recycling infrastructure, and policy improvements.",
+      contribution: "As Narrative Designer, I developed the characters, dialogue, milestone events, and narrative progression for **Plastic Seeds**. Working from the programmer's macro gameplay framework, I connected each gameplay milestone and upgrade to a character or narrative event, creating a progression from individual action on the Beach to community infrastructure at the River and systemic solutions in the City.",
+      designProcess: "The game's macro design established an increasing scale of gameplay across the Beach, River, and City. I used that structure to create a matching narrative escalation.\n\nEach area expands both the player's understanding of plastic pollution and the people involved in addressing it. The Beach focuses on individual action, education, and community involvement. The River introduces upstream pollution and recycling infrastructure. The City expands into microplastics and city-level solutions.\n\nBecause **Plastic Seeds** is an incremental game, I kept narrative encounters short and tied them directly to progression:\n\n**Gameplay -> Milestone -> Character -> Context -> Unlock -> Gameplay**\n\nThis allowed characters and dialogue to provide context for new mechanics without interrupting the core gameplay loop.",
+      writingOverview: "Beach narrative events are structured as milestone-driven encounters that translate player progress into character context, then return the player to mechanical action with a new unlock or upgrade path.",
+      writingHighlights: [],
+      writingSamples: [
+        {
+          title: "Beach Narrative Events (Bianca, Mr. Rodriguez, Fiona)",
+          format: "Milestone Dialogue Script",
+          context: "A sequence of Beach events tied to resource and awareness thresholds, combining required scenes, player choice scenes, and progression-based upgrade logic.",
+          excerpt: "EVENT 1 - PEOPLE ARE STARTING TO NOTICE (Trigger: Gather 5 Gold)\n\nLOCAL RESIDENT - BIANCA\nI've seen you out here picking up plastic for days. Most people barely seem to notice it anymore.\n\nPLAYER\nI didn't either. Not really. Then I started picking it up and realized just how much of it there is.\n\nLOCAL RESIDENT - BIANCA\nMaybe that's where we start. Let's make people notice. We can put up posters showing what's washing onto our beach.\n\nUNLOCK: Put Up Awareness Posters (Posters 1)\n\n---\n\nEVENT 2 - WHAT DO WE DO WITH THEIR ATTENTION? (Trigger: Reach 20 Awareness)\n\nTEACHER - MR. RODRIGUEZ\nYour posters are working. My students have been talking about plastic on the beach and asking what they can do about it.\n\nPLAYER\nPeople are finally paying attention. I just don't know where we should focus next.\n\nTEACHER - MR. RODRIGUEZ\nThen let's give that attention somewhere to go. We can teach people, get them directly involved, or make sure the message reaches even farther.\n\nPLAYER CHOICE:\n- Start School Lectures (Unlock School Lectures 1)\n- Organize a Beach Clean-up (Unlock Clean-up 1)\n- Expand the Poster Campaign (Upgrade Posters 2)\n\n---\n\nEVENT 3 - WE CANNOT KEEP UP (Trigger: Total Awareness reaches 50)\n\nVOLUNTEER ORGANIZER - FIONA\nWe've had more volunteers show up every week, but every cleanup ends the same way. We fill every bag we bring, and there's still plastic left on the beach.\n\nPLAYER\nWe're making progress. It just doesn't feel like it's enough.\n\nVOLUNTEER ORGANIZER - FIONA\nThen we need to build on what we've started. Tell me where you want more people and resources, and I'll help organize it.\n\nPLAYER CHOICE:\n- Expand the School Program (Unlock or Upgrade School Lectures)\n- Expand Community Clean-ups (Unlock or Upgrade Clean-up)\n- Expand the Awareness Campaign (Advance Posters tier)\n\n---\n\nBEACH TRANSITION (Trigger: Beach progression complete)\n\nPLAYER\nMore people know. More people are helping. The beach should be getting easier to manage.\n\nPLAYER\nBut the plastic keeps coming back.\n\nPLAYER\nMaybe cleaning up where it ends isn't enough. I need to find out where it's coming from.\n\nTRANSITION: Follow the Pollution Upstream (River Unlocked)"
+        }
+      ],
+      processImage: "images/plasticseeds narrative.png",
+      processImageFit: "contain",
+      processImagePosition: "center center",
+      processImageCaption: "Narrative escalation map aligning Beach, River, and City progression to mechanics, context, and unlock cadence.",
+      media: [
+        { type:"image", src:"images/game_overplasticseeds.png", fit:"contain", position:"center center", caption:"Game over screen emphasizing loss-state feedback and replay motivation." },
+        { type:"link",  url:"https://audreyguess.itch.io/plastic-seeds", label:"Play on itch.io" }
+      ]
+    },
+    {
       id: "quake-level",
       title: "Quake Level Design Study – TrenchBroom",
       role: "Level Designer",
       projectType: "Solo Student Project",
       year: "2026",
+      archived: true,
       tags: ["Trenchbroom", "PC"],
       wip: true,
       thumbnail: "images/sideviewwip.png",
@@ -352,7 +409,7 @@
         notes:      "While completing coursework in game production and design, I directed my projects toward narrative systems and systemic storytelling. Many assignments became experiments in branching architecture, player consequence, and modular implementation."
       },
       {
-        degree:     "B.A. Business Administration",
+        degree:     "B.A. Business Administration, Summa Cum Laude",
         school:     "American Military University",
         year:       "2019",
         notes:      "Coursework focused on business marketing and administration."
@@ -730,20 +787,51 @@
       font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.15em;
       color: rgba(255,255,255,0.18); text-transform: uppercase;
     }
-    .card-body { padding: 1.2rem 1.4rem 1.4rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
+    .card-body { padding: 1.2rem 1.4rem 1.4rem; flex: 1; display: flex; flex-direction: column; gap: 0.45rem; }
     .card-role {
       font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--accent); display: inline-flex; align-items: center; gap: 0.4rem;
     }
     .card-role::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; }
-    .card-title { font-family: var(--font-display); font-size: 1.9rem; letter-spacing: 0.04em; line-height: 1; color: var(--text); }
-    .card-proof { display:flex; flex-wrap:wrap; gap:0.35rem; margin-top:0.3rem; }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      color: var(--text);
+      min-height: 2.05em;
+      display: -webkit-box;
+      line-clamp: 2;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-proof {
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.35rem;
+      margin-top:0.3rem;
+      min-height:2.6rem;
+      align-content:flex-start;
+    }
     .proof-badge {
       font-size:0.68rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase;
       color:var(--accent); border:1px solid rgba(var(--accent-rgb),0.35); background:rgba(var(--accent-rgb),0.11); padding:2px 8px; border-radius:2px;
     }
-    .card-desc { font-size: 1.04rem; color: var(--muted); font-weight: 300; line-height: 1.6; margin-top: 0.2rem; }
-    .card-meta { display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:0.8rem; border-top:1px solid var(--border); }
+    .card-desc {
+      font-size: 1.04rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-top: 0.2rem;
+      height: 6.4em;
+      display: -webkit-box;
+      line-clamp: 4;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-meta { display:flex; align-items:center; justify-content:space-between; margin-top:0.7rem; padding-top:0.8rem; border-top:1px solid var(--border); }
     .card-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
     .tag { font-size:0.72rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--text); background:rgba(19,38,69,0.95); border:1px solid var(--border); padding:2px 8px; border-radius:2px; }
     .card-year { font-size:0.8rem; color:var(--muted); font-weight:300; }
@@ -803,11 +891,12 @@
       object-position:center;
       display:block;
     }
-    .detail-body { display:grid; grid-template-columns:1fr 380px; gap:4rem; align-items:start; }
-    .detail-left { display:flex; flex-direction:column; gap:2.5rem; }
-    .detail-right { position:sticky; top:76px; display:flex; flex-direction:column; gap:1rem; }
+    .detail-body { display:grid; grid-template-columns:minmax(0, 1fr) minmax(280px, 340px); gap:2.2rem; align-items:start; }
+    .detail-left { display:flex; flex-direction:column; gap:2.5rem; min-width:0; }
+    .detail-right { position:sticky; top:76px; display:flex; flex-direction:column; gap:1rem; min-width:0; align-self:start; }
     .detail-section-label { font-family:var(--font-display); font-size:1.15rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:0.6rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); }
     .detail-copy { color:var(--text); font-weight:300; font-size:1.12rem; line-height:1.78; max-width:72ch; }
+    .detail-copy strong { font-weight:600; color:var(--text); }
     .detail-list {
       list-style:none;
       display:flex;
@@ -900,6 +989,11 @@
       font-weight: 500;
     }
     .detail-inline-media { margin-top:1.6rem; }
+    .detail-inline-media .media-item img {
+      min-height: clamp(260px, 35vw, 520px);
+      object-fit: cover;
+      object-position: center;
+    }
     .detail-proof { display:flex; flex-direction:column; gap:1rem; }
     .detail-recognition {
       display: grid;
@@ -1107,6 +1201,11 @@
     .media-item iframe { width:100%; aspect-ratio:16/9; display:block; border:none; }
     .media-item.pdf-item iframe { aspect-ratio:8.5/11; min-height:480px; }
     .media-item img { width:100%; display:block; object-fit:cover; }
+    #d-media .media-item img {
+      min-height: clamp(200px, 24vw, 340px);
+      object-fit: cover;
+      object-position: center;
+    }
     .media-item video { width:100%; display:block; object-fit:cover; aspect-ratio:16/9; }
     .media-placeholder { aspect-ratio:16/9; background:var(--surface); display:flex; align-items:center; justify-content:center; color:var(--border); font-family:var(--font-display); font-size:1.1rem; letter-spacing:0.1em; }
     .media-caption { padding:0.6rem 0.8rem; font-size:0.82rem; color:var(--muted); font-weight:300; font-style:italic; border-top:1px solid var(--border); }
@@ -1545,7 +1644,7 @@
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
       .hero { grid-template-columns: 1fr; gap: 1.4rem; }
       .hero-side { min-height: 0; }
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1893,10 +1992,10 @@ const heroCL = document.getElementById('hero-contact-links');
 const grid = document.getElementById('game-grid');
 const WORK_ORDER = [
   'addie-shen',
+  'plastic-seeds',
   'frostbound',
-  'light-the-way',
   'into-the-woods',
-  'quake-level',
+  'light-the-way',
   'present-stack'
 ];
 const orderedGames = [...GAMES].sort((a, b) => {
@@ -1927,7 +2026,11 @@ function renderWorkGrid() {
   grid.innerHTML = '';
 
   const visibleGames = orderedGames.filter(g => {
-    const roleMatch = workFilterState.role === 'all' || (g.focus || []).includes(workFilterState.role);
+    if (g.archived) return false;
+    const selectedRole = (workFilterState.role || 'all').toLowerCase().trim();
+    const focusMatch = (g.focus || []).some(role => String(role || '').toLowerCase().trim() === selectedRole);
+    const roleTitleMatch = String(g.role || '').toLowerCase().includes(selectedRole);
+    const roleMatch = selectedRole === 'all' || focusMatch || roleTitleMatch;
     const statusMatch =
       workFilterState.status === 'all' ||
       (workFilterState.status === 'wip' && g.wip) ||
@@ -2151,10 +2254,17 @@ function renderDetailCopy(elementId, textValue, bulletItems) {
   const el = document.getElementById(elementId);
   const bullets = Array.isArray(bulletItems) ? bulletItems.filter(Boolean) : [];
   if (bullets.length) {
-    el.innerHTML = `<ul class="detail-list">${bullets.map(item => `<li>${item}</li>`).join('')}</ul>`;
+    el.innerHTML = `<ul class="detail-list">${bullets.map(item => `<li>${formatDetailText(item)}</li>`).join('')}</ul>`;
     return;
   }
-  el.textContent = textValue || '';
+  el.innerHTML = formatDetailText(textValue || '');
+}
+
+function formatDetailText(value) {
+  return escapeHtml(value || '')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n{2,}/g, '<br><br>')
+    .replace(/\n/g, '<br>');
 }
 
 function showDetail(id) {
@@ -2273,6 +2383,18 @@ function showDetail(id) {
   const inlineMediaEl = document.getElementById('d-inline-media');
   mediaEl.innerHTML = '';
   inlineMediaEl.innerHTML = '';
+
+  const hasProcessImage = g.processImage && g.processImage.trim() !== '';
+  if (hasProcessImage) {
+    const processCaption = g.processImageCaption || '';
+    const processFit = g.processImageFit || 'cover';
+    const processPosition = g.processImagePosition || 'center center';
+    inlineMediaEl.innerHTML += `<div class="media-item">
+      <img class="lightbox-enabled" src="${g.processImage}" alt="${processCaption || `${g.title} design process image`}" style="object-fit:${processFit}; object-position:${processPosition};" loading="lazy">
+      ${processCaption ? `<div class="media-caption">${processCaption}</div>` : ''}
+    </div>`;
+  }
+
   g.media.forEach(m => {
     if (m.type === 'youtube') {
       mediaEl.innerHTML += `<div class="media-item">
@@ -2281,11 +2403,14 @@ function showDetail(id) {
       </div>`;
     } else if (m.type === 'image' || m.type === 'gif') {
       const hasSrc = m.src && m.src.trim() !== '';
+      if (hasProcessImage && hasSrc && m.src === g.processImage) return;
       const mediaSrc = hasSrc ? m.src : SITE.placeholderMedia;
       const mediaAlt = hasSrc ? (m.caption || '') : 'Coming soon placeholder image';
       const mediaCaption = m.caption || (hasSrc ? '' : 'Coming soon');
+      const mediaFit = m.fit || 'cover';
+      const mediaPosition = m.position || 'center center';
       mediaEl.innerHTML += `<div class="media-item">
-        <img class="lightbox-enabled" src="${mediaSrc}" alt="${mediaAlt}" loading="lazy">
+        <img class="lightbox-enabled" src="${mediaSrc}" alt="${mediaAlt}" style="object-fit:${mediaFit}; object-position:${mediaPosition};" loading="lazy">
         ${mediaCaption ? `<div class="media-caption">${mediaCaption}</div>` : ''}
       </div>`;
     } else if (m.type === 'video') {
